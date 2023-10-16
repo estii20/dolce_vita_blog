@@ -7,24 +7,18 @@
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
             <h1>Welcome to Venice</h1>
-            <p>"I'll guide you on the best food and drink to be found in Venice"</p>
+            <h3>
+                <small class="text-muted">"The guide on the best food and drink to be found in Venice"</small>
+            </h3>
         </div>
     </div>
-
-    <!-- Blockquote -->
-    <div class="container text-center">
-        <blockquote class="blockquote">
-            <p>Chi viaggia vive due volte” Life is a voyage!</p>
-            <hr class="block-divider block-divider--short block-divider--white">
-            <p>Those who travel live twice!</p>
-        </blockquote>
 </section>
 
 <section>
-    <div class="container text-center container-wrapper-gold">
+    <div class="container text-justify container-wrapper-info">
         <div class="row">
             <div class="col-sm-12">
-                <p class="text">
+                <p>
                     Venice, the "City of Canals," is renowned for its picturesque waterways, historic architecture, and
                     unique culture.
                     However, one aspect of Venetian culture that often takes centre stage is its exquisite food and
@@ -38,10 +32,19 @@
         </div>
     </div>
 
-    <div class="container text-center container-wrapper-red">
+    <!-- Blockquote -->
+    <div class="container text-center">
+        <blockquote class="blockquote">
+            <span>Chi viaggia vive due volte” Life is a voyage!</span>
+            <hr class="block-divider block-divider--short block-divider--white">
+            <span>Those who travel live twice!</span>
+        </blockquote>
+    </div>
+
+    <div class="container text-justify container-wrapper-info">
         <div class="row">
             <div class="col-sm-12">
-                <p class="text">
+                <p>
                     Venice truly is a food lover's paradise, and each bite is a celebration of the city's timeless
                     charm.
                     Venice's culinary scene is a testament to the city's rich history and unique culture. From cicchetti
@@ -71,27 +74,33 @@
             <div class="col-12 mt-3 left">
                 <div class="row">
                     {% for post in post_list %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
+                    <div class="card-group col-md-4">
+                        <div class="card border-dark card mb-4">
                             <div class="card-body">
+                                <div class="card-header bg-light text-dark">Category</div>
+                                <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
+                                    <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title }}</h2>
+                                </a>
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top"
+                                    <img class="card-img-top img-thumbnail rounded"
                                         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                    <img class="card-img-top img-thumbnail rounded"
+                                        src=" {{ post.featured_image.url }}">
                                     {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author: {{ post.author }}</p>
+                                    <div class="blog_author">
+                                        <p><i class="fa-solid fa-user"></i> {{ post.author }}</p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                    <h2 class="card-title">{{ post.title }}</h2>
-                                    <p class="card-text">{{ post.excerpt }}</p>
+                                    <p class="post_text">{{ post.excerpt }}</p>
+                                    <p class="fst-normal text-end read">Read more...</p>
                                 </a>
                                 <hr />
-                                <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                                    {{ post.number_of_likes }}</p>
+                                <footer class="blockquote-footer fw-bold">{{ post.created_on}} <i
+                                        class="fa-regular fa-thumbs-up"></i>
+                                    {{ post.number_of_likes }}</footer>
                             </div>
                         </div>
                     </div>
