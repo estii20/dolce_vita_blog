@@ -32,7 +32,11 @@ class Post(models.Model):
         return self.likes.count()
 
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"pk": self.pk})
+        return reverse('post_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
 
 # Comments

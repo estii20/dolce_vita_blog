@@ -5,6 +5,7 @@ from .models import Post
 from .forms import CommentForm, PostForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class PostList(generic.ListView):
@@ -80,20 +81,49 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class AddPost(generic.CreateView):
+class AddPost(LoginRequiredMixin, generic.CreateView):
     model = Post
     template_name = 'add_post.html'
     form_class = PostForm
-    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 
-class EditPost(generic.UpdateView):
+class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Post
     template_name = 'post_edit.html'
     form_class = PostForm
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-class DeletePost(DeleteView):
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+
+class DeletePost(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
+
+    def delete(self, form):
+        form.instance.user = self.request.user
+        return super(DeletePost, self).delete(self, form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
