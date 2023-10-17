@@ -30,14 +30,19 @@
     </div>
     </div>
 
-        <!-- Update blog post if authenticated -->
-        
+        <!-- Update / Delete blog post if authenticated -->
+<div class="container-fluid">
+    <div class="d-flex align-items-start mb-auto">
         {% if request.user == post.author %}
-        <button type="button" class="btn btn-signup btn-submit">
-            <a href="{% url 'post_edit' post.slug %}">
+        <button type="button" class="btn btn-warning btn-edit">
+            <a href="{% url 'post_edit' post.slug %}" class="link-light">
                 <i class="fa-regular fa-pen-to-square"></i> Update</a>
-        
+            <button type="button" class="btn btn-danger btn-edit">
+                <a href="{% url 'post_delete' post.slug %}" class="link-light">
+                    <i class="fa-solid fa-delete-left text"></i> Delete</a>
         {% endif %}
+    </div>
+</div>
 
     <!-- Likes -->
 
@@ -98,7 +103,7 @@
                     <form method="post" style="margin-top: 1.5em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup .btn-submit">Submit</button>
+                        <button type="submit" class="btn btn-signup btn-submit">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}

@@ -58,6 +58,15 @@ p {
     margin: 10px;
 }
 
+/* Edit/Delete Buttons*/
+
+.btn-edit {
+    min-width: 100px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+}
+
 .btn-submit:hover {
     background-color: grey;
 }
