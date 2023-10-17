@@ -30,6 +30,15 @@
     </div>
     </div>
 
+        <!-- Update blog post if authenticated -->
+        
+        {% if request.user == post.author %}
+        <button type="button" class="btn btn-signup btn-submit">
+            <a href="{% url 'post_edit' post.slug %}">
+                <i class="fa-regular fa-pen-to-square"></i> Update</a>
+        
+        {% endif %}
+
     <!-- Likes -->
 
     <div class="container text-center">
