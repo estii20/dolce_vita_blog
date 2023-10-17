@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 {% load crispy_forms_tags %}
+{% load social_share %}
 
 <!-- Post Title -->
 
@@ -67,6 +68,19 @@
             </strong>
         </div>
 
+    <!-- Social Sharing -->
+    
+    <div class="social-sharing container text-start">
+        <div class="col-sm-12">
+            <strong>
+                <h3>Share this content:</h3>
+                <button><i class="fa-brands fa-square-facebook" style="color:#3B5998"></i>{% post_to_facebook object_or_url "Facebook" %}</button>
+                <button><i class="fa-brands fa-square-x-twitter" style="color:black" aria-hidden="true"></i>{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Twitter" %}</button>
+                <button><i class="fa-brands fa-square-whatsapp" style="color:green" aria-hidden="true"></i>{% post_to_whatsapp object_or_url "WhatsApp" %}</button>
+                <hr>
+        </div>
+    </div>
+
         <!-- Comments -->
 
         <div class="container text-center mx-auto">
@@ -87,6 +101,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="container text-center mx-auto">
             <div class="col-sm-12">
