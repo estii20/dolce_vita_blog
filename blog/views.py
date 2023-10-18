@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment, Category
 from .forms import CommentForm, PostForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -120,3 +120,28 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+
+class CategoryView(generic.ListView):
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content = {
+            'cat' : self.kwargs['category'],
+            'posts': Post.objects.filter(category_name=self.kwargs
+            ['category']).order_by("-created_on")
+        }
+
+        return content
+
+
+def category_list(request):
+    category_list = Category.objects.exclude(name='default')
+    context = {
+        'category_list' : category_list,
+    }
+
+    return context
+
+
