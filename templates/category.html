@@ -28,10 +28,11 @@ Catlist
                     <div class="card-group col-md-4">
                         <div class="card border-dark card mb-4">
                             <div class="card-body">
-                                <div class="card-header bg-light text-dark">{{ post.category }}</div>
+                                <div class="card-header bg-light text-dark">{{ post.category | title }}</div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
                                     <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title | truncatechars:50 }}</h2>
                                 </a>
+                                {% endfor %}
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
                                     <img class="card-img-top img-thumbnail rounded"

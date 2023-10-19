@@ -128,9 +128,8 @@ class CategoryView(generic.ListView):
 
     def get_queryset(self):
         content = {
-            'cat' : self.kwargs['category'],
-            'posts': Post.objects.filter(category_name=self.kwargs
-            ['category']).order_by("-created_on")
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(category_name=self.kwargs['category']).order_by("-created_on")
         }
 
         return content
@@ -139,9 +138,7 @@ class CategoryView(generic.ListView):
 def category_list(request):
     category_list = Category.objects.exclude(name='default')
     context = {
-        'category_list' : category_list,
+        'category_list': category_list,
     }
 
     return context
-
-

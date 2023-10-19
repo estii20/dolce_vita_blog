@@ -78,7 +78,7 @@
                         <div class="card border-dark card mb-4">
                             <div class="card-body">
                                 <a href="{% url 'category' post.category %}">
-                                <div class="card-header bg-light text-dark">{{ post.category }}</div>
+                                <div class="card-header bg-light text-dark">{{ post.category | title }}</div>
                                 </a>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
                                     <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title| truncatechars:50 }}</h2>
