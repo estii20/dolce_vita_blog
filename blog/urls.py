@@ -10,6 +10,6 @@ urlpatterns = [
          name='post_edit'),
     path('<slug:slug>/delete/', views.DeletePost.as_view(),
          name='post_delete'),
-    path('category/<category>/', views.CategoryView.as_view(),
+    path('category/<category>', views.CategoryView.as_view(),
          name='category'),
 ]

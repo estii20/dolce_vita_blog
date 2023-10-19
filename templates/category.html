@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}
-Catlist
-{% endblock %}
-
 {% block content %}
 
 
@@ -11,12 +7,10 @@ Catlist
 <section>
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
-            <h1> {{ post.category }} Posts</h1>
+            <h1> {{ catlist.cat }} Posts</h1>
         </div>
     </div>
 </section>
-
-{{ % for post in catlist.posts % }}
 
 <section>
     <div class="container-fluid">
@@ -28,7 +22,8 @@ Catlist
                     <div class="card-group col-md-4">
                         <div class="card border-dark card mb-4">
                             <div class="card-body">
-                                <div class="card-header bg-light text-dark">{{ post.category | title }}</div>
+                                <div class="card-header bg-light text-dark">{{ catlist.cat | title }}</div>
+                                {{ % for post in catlist.posts % }}
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
                                     <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title | truncatechars:50 }}</h2>
                                 </a>
