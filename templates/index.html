@@ -92,7 +92,7 @@
                                         src=" {{ post.featured_image.url }}">
                                     {% endif %}
                                     <div class="blog_author">
-                                        <p><i class="fa-solid fa-user"></i> {{ post.author }}</p>
+                                        <p><i class="fa-solid fa-user"></i> {{ post.author | title }}</p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">

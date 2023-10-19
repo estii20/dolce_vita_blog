@@ -15,6 +15,14 @@ class Category(models.Model):
         return self.name
 
 
+# Author Bio model
+class AuthorBio(models.Model):
+    author_bio = models.CharField(max_length=600)
+
+    def __str__(self):
+        return self.author_bio
+
+
 # Post model
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -31,6 +39,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
+    author_bio = models.CharField(max_length=600, default='author')
+
 
     class Meta:
         ordering = ["-created_on"]

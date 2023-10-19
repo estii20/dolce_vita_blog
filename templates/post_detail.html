@@ -10,7 +10,7 @@
     <div class="container text-center">
         <div class="col-sm-12">
             <h1 class="blog_title">{{ post.title }}</h1>
-            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-regular fa-user"></i> {{ post.author }} | <i
+            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-regular fa-user"></i> {{ post.author | title }} | <i
                     class="fa-regular fa-clock"></i> {{ post.created_on }}</h6>
         </div>
         <hr>
@@ -26,6 +26,12 @@
                 <p class="container-fluid">
                     {{ post.content | safe }}
                 </p>
+                <div>
+                <h2>Author Bio</h2>
+                <p class="container-fluid">
+                    {{ post.author_bio | safe }}
+                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -90,7 +96,7 @@
                     {% for comment in comments %}
                     <div class="comments" style="padding: 12px;">
                         <p class="font-weight-bold">
-                            {{ comment.name }}
+                            {{ comment.name | title }}
                             <span class=" text-muted font-weight-normal">
                                 {{ comment.created_on }}
                             </span> wrote:
@@ -114,7 +120,7 @@
                     {% if user.is_authenticated %}
 
                     <h3>Leave a comment:</h3>
-                    <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username }}</p>
+                    <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username | title }}</p>
                     <form method="post" style="margin-top: 1.5em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
