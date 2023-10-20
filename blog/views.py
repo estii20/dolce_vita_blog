@@ -146,16 +146,15 @@ def category_list(request):
     return context
 
 
-class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    def get_success_url(self):
-        slug = self.kwargs['slug']
-        return reverse_lazy('post_detail', kwargs={'slug': slug})
+class DeleteComment(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Comment
+    template_name = 'post_detail.html'
+    success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
-        return super(CommentDelete, self).delete(request, *args, **kwargs)
+        return super(DeleteComment, self).delete(request, *args, **kwargs)
 
     def test_func(self):
-        """Test that logged in user is comment author"""
         comment = self.get_object()
         if self.request.user == comment.author:
             return True
