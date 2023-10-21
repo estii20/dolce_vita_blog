@@ -10,8 +10,8 @@
 <!-- Post Title -->
 
 <section>
-    <a href="{% url 'home' %}">
-        <button type="button" class="btn-back btn btn-dark">Back</button>
+    <a href="{% url 'post_detail' object.post.pk %}">
+        <button type="button" class="btn-back btn btn-dark">Back to Post</button>
     </a>
     <div class="container text-justify">
         <div class="row">
@@ -19,6 +19,8 @@
                 <h2>Delete Comment?</h2>
                 <form method="POST">
                     {% csrf_token %}
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}" />
+                    <input type="hidden" name="post_id" value="{{ post.id }}" />
                     <hr>
                     <strong>Are you sure you want to delete this comment?</strong>
                     <hr>

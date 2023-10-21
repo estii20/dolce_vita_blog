@@ -103,23 +103,22 @@
                         </p>
                         {{ comment.body | linebreaks }}
                     </div>
-                    {% endfor %}
+
                 </div>
             </div>
         </div>
 
         <!-- Delete commment if authenticated -->
-        {% if comments %}
+
+        {% if request.username == comment.username %}
         <div class="container text-center mx-auto">
             <div class="col-sm-12">
                 <div class="card-body">
                     <p>Would you like to delete your comment?</p>
-                    <a href="{% url 'comment_delete' post.slug %}" class="btn btn-signup btn-submit">
-                        <i class="fa-regular fa-pen-to-square"></i> Delete Comment</a>
-                    {% else %}
-                    {% if request.user == post.author %}
-        
-                    {% endif %}
+                    <a href="{% url 'comment_delete' post.slug comment.pk %}" 
+                    class="btn btn-signup btn-submit">
+                    <i class="fa-regular fa-pen-to-square"></i> Delete Comment
+                    </a>
                     {% endif %}
 
 
@@ -146,7 +145,7 @@
             </div>
         </div>
     </div>
-
+{% endfor %}
 </section>
 
 {% endblock content %}
