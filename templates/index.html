@@ -75,7 +75,7 @@
                 <div class="row">
                     {% for post in post_list %}
                     <div class="card-group col-md-4">
-                        <div class="card border-dark card mb-4">
+                        <div class="card border-dark card mb-4 blog_card">
                             <div class="card-body">
                                 <a href="{% url 'category' post.category %}">
                                 <div class="card-header bg-light text-dark">{{ post.category | title }}</div>
@@ -97,7 +97,8 @@
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                     <p class="post_text">{{ post.excerpt| truncatechars:50 }}</p>
-                                    <p class="fst-normal text-end read">Read more...</p>
+                                    <p class="fst-normal text-end read" data-bs-toggle="collapse" 
+                                    role="button">Read more...</p>
                                 </a>
                                 <hr />
                                 <footer class="blockquote-footer fw-bold">{{ post.created_on}} <i
@@ -118,7 +119,7 @@
 
         <!-- Pagination -->
         {% if is_paginated %}
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation pagination_blog">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>

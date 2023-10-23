@@ -49,6 +49,36 @@ p {
     text-align: justify;
 }
 
+/*Blog card*/
+
+.blog_card {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 5px 8px #219C90, 10px 10px 8px #E9E824, 15px 15px 8px #D83F31;
+    margin: 20px;
+}
+
+/*Pagination*/
+
+.pagination_blog {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination_blog a.active {
+    background-color: #E9E824;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination_blog a:hover:not(.active) {
+    background-color: #D83F31;
+    border-radius: 5px;
+}
+
+
 /*Signup*/
 
 .btn-submit {
@@ -64,6 +94,7 @@ p {
     min-width: 100px;
     padding: 10px;
     margin: 10px;
+    margin-left: 20px;
     color: white;
 }
 
@@ -120,6 +151,8 @@ footer {
     margin-top: 20px;
 }
 
+/* Social share */
+
 .social-sharing {
     float: left;
     margin-left: 10px
@@ -137,7 +170,6 @@ footer {
     color: white;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 15px;
     margin: 4px 2px;
@@ -149,39 +181,46 @@ footer {
 
   color: black; 
   border: 3px solid #3B5998;
-  text-decoration: none;
+}
+
+.button-fb:hover {
+    background-color: #3B5998;
+    color: white;
 }
 
 .button-x {
-
   color: black; 
   border: 3px solid black;
-  text-decoration: none;
+}
+
+.button-x:hover {
+    background-color: black;
+    color: white;
 }
 
 .button-w {
-
   color: black; 
-  border: 3px solid green;
-  text-decoration: none;
+  border: 3px solid green;;
+}
+
+.button-w:hover {
+    background-color: green;
+    color: white;
 }
 
 .fa-facebook {
     background-color: #3B5998;
-    color: white;
-    text-decoration: none;
+    color: white;;
 }
 
 .fa-twitter {
     background-color: black;
-    color: white;
-    text-decoration: none;
+    color: white;;
 }
 
 .fa-whatsapp {
     background-color: green;
-    color: white;
-    text-decoration: none;
+    color: white;;
 }
 
 a {

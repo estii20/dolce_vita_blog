@@ -98,10 +98,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         return False
 
 
-class EditPost(LoginRequiredMixin, 
-                UserPassesTestMixin, 
-                SuccessMessageMixin, 
-                generic.UpdateView):
+class EditPost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.UpdateView):
     model = Post
     template_name = 'post_edit.html'
     form_class = PostForm
@@ -118,10 +115,7 @@ class EditPost(LoginRequiredMixin,
         return False
 
 
-class DeletePost(LoginRequiredMixin, 
-                    UserPassesTestMixin, 
-                    SuccessMessageMixin, 
-                    generic.DeleteView):
+class DeletePost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
@@ -156,10 +150,7 @@ def category_list(request):
     return context
 
 
-class CommentDeleteView(LoginRequiredMixin,
-                        UserPassesTestMixin,
-                        SuccessMessageMixin,
-                        generic.DeleteView):
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
 
     model = Comment
     template_name = 'comment_delete.html'
@@ -168,7 +159,7 @@ class CommentDeleteView(LoginRequiredMixin,
     def get_success_url(self):
         slug = self.kwargs['slug']
         return reverse_lazy('post_detail', kwargs={'slug': slug})
-    
+
     def delete(self, request, *args, **kwargs):
         return super(CommentDeleteView, self).delete(request, *args, **kwargs)
 
