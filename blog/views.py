@@ -165,3 +165,7 @@ class CommentDeleteView(LoginRequiredMixin,
         if self.request.username == comment.username:
             return True
         return False
+
+
+def about_view(request, View):
+    return render(request, 'blog/about.html')
