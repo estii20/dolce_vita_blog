@@ -6,6 +6,7 @@ from .forms import CommentForm, PostForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class PostList(generic.ListView):
@@ -83,11 +84,12 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class AddPost(LoginRequiredMixin, generic.CreateView):
+class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Post
     template_name = 'add_post.html'
     form_class = PostForm
     success_url = reverse_lazy('home')
+    success_message = "Post was created successfully"
 
     def test_func(self):
         post = self.get_object()
@@ -96,10 +98,14 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
         return False
 
 
-class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+class EditPost(LoginRequiredMixin, 
+                UserPassesTestMixin, 
+                SuccessMessageMixin, 
+                generic.UpdateView):
     model = Post
     template_name = 'post_edit.html'
     form_class = PostForm
+    success_message = "Post was edited successfully"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -112,10 +118,14 @@ class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         return False
 
 
-class DeletePost(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+class DeletePost(LoginRequiredMixin, 
+                    UserPassesTestMixin, 
+                    SuccessMessageMixin, 
+                    generic.DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
+    success_message = "Post was deleted successfully"
 
     def test_func(self):
         post = self.get_object()
@@ -148,10 +158,12 @@ def category_list(request):
 
 class CommentDeleteView(LoginRequiredMixin,
                         UserPassesTestMixin,
+                        SuccessMessageMixin,
                         generic.DeleteView):
 
     model = Comment
     template_name = 'comment_delete.html'
+    success_message = "Comment was deleted successfully"
 
     def get_success_url(self):
         slug = self.kwargs['slug']
