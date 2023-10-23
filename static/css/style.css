@@ -124,3 +124,67 @@ footer {
     float: left;
     margin-left: 10px
 }
+
+.social-sharing i {
+    margin: 1%;
+    padding: 1%;
+    font-size: 200%;
+}
+
+.btn-social {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-fb {
+
+  color: black; 
+  border: 3px solid #3B5998;
+  text-decoration: none;
+}
+
+.button-x {
+
+  color: black; 
+  border: 3px solid black;
+  text-decoration: none;
+}
+
+.button-w {
+
+  color: black; 
+  border: 3px solid green;
+  text-decoration: none;
+}
+
+.fa-facebook {
+    background-color: #3B5998;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-twitter {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-whatsapp {
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

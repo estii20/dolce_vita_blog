@@ -80,9 +80,9 @@
         <div class="col-sm-12">
             <strong>
                 <h3>Share this content:</h3>
-                <button><i class="fa-brands fa-square-facebook" style="color:#3B5998"></i>{% post_to_facebook object_or_url "Facebook" %}</button>
-                <button><i class="fa-brands fa-square-x-twitter" style="color:black" aria-hidden="true"></i>{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Twitter" %}</button>
-                <button><i class="fa-brands fa-square-whatsapp" style="color:green" aria-hidden="true"></i>{% post_to_whatsapp object_or_url "WhatsApp" %}</button>
+                <button class="btn-social button-fb"><i class="fa-brands fa-square-facebook fa-facebook"></i>{% post_to_facebook object_or_url "Facebook" %}</button>
+                <button class="btn-social button-x"><i class="fa-brands fa-square-x-twitter fa-twitter" aria-hidden="true"></i>{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Twitter" %}</button>
+                <button class="btn-social button-w"><i class="fa-brands fa-square-whatsapp fa-whatsapp"  aria-hidden="true"></i>{% post_to_whatsapp object_or_url "WhatsApp" %}</button>
                 <hr>
         </div>
     </div>
