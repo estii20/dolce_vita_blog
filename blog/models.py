@@ -39,7 +39,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
-    author_bio = models.CharField(max_length=600, default='author')
+    author_bio = models.CharField(max_length=6000, default='author')
 
 
     class Meta:
