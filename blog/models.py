@@ -58,6 +58,9 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+    def read_time(self):
+        return round(len(self.content.split(' ')) / 250)
+
 
 # Comments
 class Comment(models.Model):
