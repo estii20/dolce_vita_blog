@@ -17,7 +17,7 @@
         <div class="clearfix">
             <div class="img-thumbnail rounded mx-auto">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://afar.brightspotcdn.com/dims4/default/75b7351/2147483647/strip/true/crop/1166x800+217+0/resize/660x453!/format/webp/quality/90/?url=https%3A%2F%2Fafar-media-production-web.s3.us-west-2.amazonaws.com%2Fbrightspot%2F50%2F45%2F36ae8762e22c5c0500a03a440769%2Foriginal-29bb7b0628149153e5b15f20cc479464.jpg"
+                <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg"
                     class="col-md-6 float-md-end mb-3 ms-md-3">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3" width="100%"
@@ -38,18 +38,19 @@
     </div>
 
         <!-- Update / Delete blog post if authenticated -->
-<div class="container-fluid">
-    <div class="d-flex align-items-start mb-auto">
-        {% if request.user == post.author %}
-        <button type="button" class="btn btn-warning btn-edit">
-            <a href="{% url 'post_edit' post.slug %}" class="link-light">
-                <i class="fa-regular fa-pen-to-square"></i> Update</a>
-            <button type="button" class="btn btn-danger btn-edit">
-                <a href="{% url 'post_delete' post.slug %}" class="link-light">
-                    <i class="fa-solid fa-delete-left text"></i> Delete</a>
-        {% endif %}
+    <div class="container text-center">
+        <div class="col-sm-12">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            {% if request.user == post.author %}
+            <button type="button" class="btn btn-warning btn-edit">
+                <a href="{% url 'post_edit' post.slug %}" class="link-light">
+                    <i class="fa-regular fa-pen-to-square"></i> Update</a>
+                <button type="button" class="btn btn-danger btn-edit">
+                    <a href="{% url 'post_delete' post.slug %}" class="link-light">
+                        <i class="fa-solid fa-delete-left text"></i> Delete</a>
+            {% endif %}
+        </div>
     </div>
-</div>
 
     <!-- Likes -->
 
@@ -89,10 +90,10 @@
 
         <!-- Comments -->
 
-        <div class="container text-center mx-auto">
-            <div class="col-sm-12">
+        <div class="container text-left mx-auto">
+            <div class="col-md-12 card mb-4 mt-3">
                 <h3 class="h3">Comments:</h3>
-                <div class="card-body d-flex justify-content-center">
+                <div class="card-body">
                     {% for comment in comments %}
                     <div class="comments" style="padding: 12px;">
                         <p class="font-weight-bold">
@@ -107,21 +108,18 @@
                 </div>
             </div>
         </div>
-
         <!-- Delete commment if authenticated -->
-
+        
         {% if request.username == comment.username %}
-        <div class="container text-center mx-auto">
-            <div class="col-sm-12">
+        <div class="container text-left mx-auto">
+            <div class="col-md-12 card mb-4 mt-3">
                 <div class="card-body">
                     <p>Would you like to delete your comment?</p>
-                    <a href="{% url 'comment_delete' post.slug comment.pk %}" 
-                    class="btn btn-signup btn-submit">
-                    <i class="fa-regular fa-pen-to-square"></i> Delete Comment
+                    <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-submit btn-sm">
+                        <i class="fa-regular fa-pen-to-square"></i> Delete Comment
                     </a>
                     {% endif %}
-
-
+                    
         <div class="container text-center mx-auto">
             <div class="col-sm-12">
                 <div class="card-body">
