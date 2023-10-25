@@ -128,26 +128,22 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, g
         return False
 
 
-class CategoryView(generic.ListView):
+class CategoryView(generic.ListView, object):
+    model = Post
     template_name = 'category.html'
-    context_object_name = 'catlist'
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    paginate_by = 6
 
-    def get_queryset(self):
-        content = {
-            'cat': self.kwargs['category'],
-            'posts': Post.objects.filter(category_name=self.kwargs['category']).order_by("-created_on")
-        }
+    def get(self, request, cats, *args, **kwargs):
+        category = Category.objects.get(name__iexact=cats).exclude(name='default')
+        category_list = Post.objects.filter(category=category)
 
-        return content
-
-
-def category_list(request):
-    category_list = Category.objects.exclude(name='default')
-    context = {
-        'category_list': category_list,
-    }
-
-    return context
+        return render(
+            request,
+            self.template_name,
+            {'cats': cats.title(),
+             'category_list': category_list},
+        )
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
