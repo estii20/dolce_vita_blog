@@ -26,7 +26,7 @@
 
     <!--Navbar-->
     <section>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark text-white">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><i class="fa-solid fa-wine-glass"></i>
                     <span class="strapline">La Dolce Vita</span></a>
@@ -107,32 +107,12 @@
 
     <!-- Footer -->
     <footer class="container-fluid text text-center mt-auto">
+        <strong>
         <p class="m-0 text-dark text-center ">Django Blog for Educational Purposes</p>
         <p class="m-0 text-dark text-center ">Images © Unsplash.com</p>
             <p class="m-0 text-dark text-center">
-                <a href="{% url 'about' %}" class="link-dark">About Us</a></p>
-        <ul class="social-media">
-            <li>
-                <a href="https://facebook.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Facebook page (opens in a new tab)"><i
-                        class="fa-brands fa-square-facebook"></i></a>
-            </li>
-            <li>
-                <a href="https://twitter.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Twitter page (opens in a new tab)"><i
-                        class="fa-brands fa-square-twitter"></i></a>
-            </li>
-            <li>
-                <a href="https://youtube.com" target="_blank" rel="noopener"
-                    aria-label="Visit our YouTube page (opens in a new tab)"><i
-                        class="fa-brands fa-square-youtube"></i></a>
-            </li>
-            <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Instagram page (opens in a new tab)"><i
-                        class="fa-brands fa-square-instagram"></i></a>
-            </li>
-        </ul>
+                </strong>
+                <a href="{% url 'about' %}" class="about_link">About Us</a></p>      
     </footer>
 
     <!-- JavaScript tags timeout function at 3 seconds -->

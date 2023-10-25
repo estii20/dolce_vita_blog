@@ -14,7 +14,7 @@ body {
 /* Navbar */
 
 .navbar {
-    background-color: black;
+    background-color: #000000;
     color: white;
 }
 
@@ -24,12 +24,27 @@ body {
     padding-top: 25px;
 }
 
+h3 .food {
+    color: #ff4d00;
+    font-size: 200%;
+}
+
+h3 .drink {
+    color: #ff0000;
+    font-size: 200%;
+}
+
+h3 .share {
+    color: #443737;
+    font-size: 200%;
+}
+
 /* Blockquote */
 
 .blockquote {
     font-family: 'Pacifico', sans-serif;
-    background-color: rgba(216, 63, 49, 0.5);
-    color: darkslategrey;
+    background-color: #D83F31;
+    color: #443737;
     padding: 10px;
 }
 
@@ -54,21 +69,21 @@ p {
 .blog_card {
     border: 1px solid;
     padding: 10px;
-    box-shadow: 5px 5px 8px #219C90, 10px 10px 8px #E9E824, 15px 15px 8px #D83F31;
+    box-shadow: 5px 5px #443737, 10px 10px #ff4d00;
     margin: 20px;
 }
 
 /*Pagination*/
 
 .pagination_blog {
-    color: black;
+    color: #443737;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
 }
 
 .pagination_blog a.active {
-    background-color: #E9E824;
+    background-color: #ff4d00;
     color: white;
     border-radius: 5px;
 }
@@ -99,13 +114,13 @@ p {
 }
 
 .btn-submit:hover {
-    background-color: grey;
+    background-color: #443737;
 }
 
 /* Footer */
 
 footer {
-    background-color: rgba(216, 63, 49, 0.5);
+    background-color: #D83F31;
 }
 
 .social-media {
@@ -220,10 +235,24 @@ footer {
 
 .fa-whatsapp {
     background-color: green;
-    color: white;;
+    color: white;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+.about_link {
+    text-transform: uppercase;
+    color: #ff4d00;
+    font-size: 200%;
 }
+
+.about_link:hover {
+    color: #D83F31;
+}
+
+.about_link:visited {
+    color: #272121;
+}
+
+.about_link:active {
+    color: white;
+}
+
