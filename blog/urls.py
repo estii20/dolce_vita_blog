@@ -14,5 +14,5 @@ urlpatterns = [
          name='category'),
     path('<slug:slug>/comment_delete/<int:pk>/',
          views.CommentDeleteView.as_view(), name='comment_delete'),
-    path('about/', views.about_view, name='about'),
+    path('about/', views.AboutView.as_view(), name='about'),
 ]
