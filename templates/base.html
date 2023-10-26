@@ -45,8 +45,8 @@
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
                             </a>
-                            {% for category in categories %}
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for category in categories %}
                                 <a class="dropdown-item" 
                                 href="{% url 'category' category.name %}">
                                 {{ category.name | title }}
