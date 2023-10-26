@@ -57,7 +57,7 @@
                 </div>
                 <div class="row">
                     {% endif %}
-                    {% endfor %}
+                    {% else %}
                 </div>
             </div>
         </div>
@@ -79,13 +79,8 @@
     </div>
 </section>
 
-{% else %}
+{% endif %}
 
 <h2>Sorry this post does not exist...</h2>
 
-{% endif %}
-
-{{ % endfor % }}
-
-
-{% endblock %}
+{% endblock content %}

@@ -134,9 +134,16 @@ class CategoryView(generic.ListView, object):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     paginate_by = 6
 
-    def get(self, request, cats, *args, **kwargs):
+
+class CategoryView(generic.ListView, object):
+    model = Post
+    template_name = 'category.html'
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    paginate_by = 6
+
+    def get_absolute_url(self, request, cats, *args, **kwargs):
         category = Category.objects.get(
-            name__iexact=cats).exclude(name='default')
+            name__iexact=cats)
         category_list = Post.objects.filter(category=category)
 
         return render(
