@@ -135,7 +135,8 @@ class CategoryView(generic.ListView, object):
     paginate_by = 6
 
     def get(self, request, cats, *args, **kwargs):
-        category = Category.objects.get(name__iexact=cats).exclude(name='default')
+        category = Category.objects.get(
+            name__iexact=cats).exclude(name='default')
         category_list = Post.objects.filter(category=category)
 
         return render(
@@ -171,4 +172,3 @@ class AboutView(generic.CreateView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
-
