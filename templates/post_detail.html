@@ -24,15 +24,15 @@
                 <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid" width="100%"
                     height="80%">
                 {% endif %}
-                <p class="container-fluid">
+                <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe }}
                 </p>
                 <div>
                 <div class="container text-left mx-auto">
                     <div class="col-md-12 card mb-4 mt-3">
-                        <h5>Author Bio</h5>
+                        <h3 class="blog_title">Author Bio</h3>
                         <div class="card-body">
-                            <p class="container-fluid">
+                            <p class="container-fluid fs-5 post_text">
                                 {{ post.author_bio | safe }}
                             </p>
                     </div>
@@ -85,7 +85,7 @@
     <div class="social-sharing container text-start">
         <div class="col-sm-12">
             <strong>
-                <h3>Share this content:</h3>
+                <h3 class="blog_title">Share this content:</h3>
                 <button class="btn-social button-fb link-light"><i class="fa-brands fa-square-facebook fa-facebook"></i>{% post_to_facebook object_or_url "Facebook" %}</button>
                 <button class="btn-social button-x link-light"><i class="fa-brands fa-square-x-twitter fa-twitter" aria-hidden="true"></i>{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Twitter" %}</button>
                 <button class="btn-social button-w link-light"><i class="fa-brands fa-square-whatsapp fa-whatsapp"  aria-hidden="true"></i>{% post_to_whatsapp object_or_url "WhatsApp" %}</button>
@@ -101,41 +101,41 @@
                 <div class="card-body">
                     {% for comment in comments %}
                     <div class="comments" style="padding: 12px;">
-                        <p class="font-weight-bold">
+                        <p class="blog_title">
                             {{ comment.name | title }}
-                            <span class=" text-muted font-weight-normal">
+                            <span class="text-muted font-weight-normal">
                                 {{ comment.created_on }}
                             </span> wrote:
                         </p>
+                        <p class="post_text">
                         {{ comment.body | linebreaks }}
+                        </p>
                     </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Delete commment if authenticated -->
-        
-        {% if request.username == comment.username %}
-        <div class="container text-left mx-auto">
-            <div class="col-md-12 card mb-4 mt-3">
-                <div class="card-body">
-                    <p>Would you like to delete your comment?</p>
-                    <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-submit btn-sm">
-                        <i class="fa-regular fa-pen-to-square"></i> Delete Comment
-                    </a>
-                    {% endif %}
+                    <!-- Delete commment if authenticated -->
                     
-        <div class="container text-center mx-auto">
-            <div class="col-sm-12">
-                <div class="card-body">
+                    {% if request.username == comment.username %}
+                                <span class="text-muted font-weight-normal">Delete your comment?</span>
+                                <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-submit btn-sm">
+                                    <i class="fa-regular fa-pen-to-square"></i> Delete
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
                     {% if commented %}
                     <div class="alert alert-success" role="alert">
                         Your comment is awaiting approval
                     </div>
-                    {% else %}
-                    {% if user.is_authenticated %}
-
-                    <h3>Leave a comment:</h3>
+                </div>
+            </div>
+        </div>            
+        {% else %}
+        {% if user.is_authenticated %}
+                <div class="container text-left mx-auto">
+                    <div class="col-md-12 card mb-4 mt-3" style="padding: 12px;">
+                    <h3 class="h3">Leave a comment:</h3>
                     <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username | title }}</p>
                     <form method="post" style="margin-top: 1.5em;">
                         {{ comment_form | crispy }}
