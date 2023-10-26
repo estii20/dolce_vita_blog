@@ -6,7 +6,6 @@
 <!-- Post Title -->
 
 <section>
-    <a href="{% url 'home' %}"><button type="button" class="btn-back btn btn-dark">Back</button></a>
     <div class="container text-center">
         <div class="col-sm-12">
             <h1 class="blog_title">{{ post.title }}</h1>
@@ -29,10 +28,10 @@
                 </p>
                 <div>
                 <div class="container text-left mx-auto">
-                    <div class="col-md-12 card mb-4 mt-3">
+                    <div class="col-md-12 card mb-4 mt-3 author">
                         <h3 class="blog_title">Author Bio</h3>
                         <div class="card-body">
-                            <p class="container-fluid fs-5 post_text">
+                            <p class="container-fluid fs-5 post_text author">
                                 {{ post.author_bio | safe }}
                             </p>
                     </div>
@@ -67,14 +66,14 @@
                     {% csrf_token %}
                     {% if liked %}
                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                            class="fa-regular fa-thumbs-up"></i></button>
+                            class="fa-solid fa-thumbs-up"></i></button>
                     {% else %}
                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                            class="fa-solid fa-thumbs-up"></i></button>
+                            class="fa-regular fa-thumbs-up"></i></button>
                     {% endif %}
                 </form>
                 {% else %}
-                <span class="text-secondary"><i class="fa-regular fa-thumbs-up"></i></span>
+                <span class="text-secondary"><i class="fa-solid fa-thumbs-up"></i></span>
                 {% endif %}
                 <span class="text-secondary">{{ post.number_of_likes }} </span>
             </strong>
@@ -83,7 +82,7 @@
     <!-- Social Sharing -->
     
     <div class="social-sharing container text-start">
-        <div class="col-sm-12">
+        <div class="d-grid gap-2 d-md-block">
             <strong>
                 <h3 class="blog_title">Share this content:</h3>
                 <button class="btn-social button-fb link-light"><i class="fa-brands fa-square-facebook fa-facebook"></i>{% post_to_facebook object_or_url "Facebook" %}</button>
@@ -96,7 +95,8 @@
         <!-- Comments -->
 
         <div class="container text-left mx-auto">
-            <div class="col-md-12 card mb-4 mt-3">
+            <div class="row">
+            <div class="col-sm-12 card mb-4 mt-3 comments">
                 <h3 class="h3">Comments:</h3>
                 <div class="card-body">
                     {% for comment in comments %}
@@ -111,11 +111,12 @@
                         {{ comment.body | linebreaks }}
                         </p>
                     </div>
+                    </div>
                     <!-- Delete commment if authenticated -->
                     
                     {% if request.username == comment.username %}
                                 <span class="text-muted font-weight-normal">Delete your comment?</span>
-                                <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-submit btn-sm">
+                                <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
                                     <i class="fa-regular fa-pen-to-square"></i> Delete
                                 </a>
                                 {% endif %}
@@ -133,8 +134,8 @@
         </div>            
         {% else %}
         {% if user.is_authenticated %}
-                <div class="container text-left mx-auto">
-                    <div class="col-md-12 card mb-4 mt-3" style="padding: 12px;">
+                <div class="container text-left mx-auto d-flex justify-content-center">
+                    <div class="col-md-6 card mb-4 mt-3 d-flex leave_comment" style="padding: 12px;">
                     <h3 class="h3">Leave a comment:</h3>
                     <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username | title }}</p>
                     <form method="post" style="margin-top: 1.5em;">

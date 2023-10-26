@@ -102,7 +102,7 @@ p {
 .btn-edit {
     min-width: 100px;
     padding: 10px;
-    margin-right: 10px;
+    margin: 5px;
     color: white;
     align-items: center;
 }
@@ -118,6 +118,7 @@ footer {
 .blog_title {
     font-family: garamond, sans-serif;
     color: #D83F31;
+    padding: 2px;
 }
 
 .post-link {
@@ -136,9 +137,18 @@ footer {
 
 /* Post detail */
 
-.btn-back {
-    margin-left: 20px;
-    margin-top: 20px;
+.author{
+    background-color: rgba(133, 126, 126, 0.1);
+}
+
+/* Comments */
+
+.comments {
+    background-color: rgb(255, 770, 0, 0.3);
+}
+
+.leave_comment{
+    background-color: rgb(255, 770, 0, 0.3);
 }
 
 /* Social share */
@@ -158,19 +168,25 @@ footer {
     background-color: white;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px;
     text-align: center;
     display: inline-block;
-    font-size: 15px;
-    margin: 4px 2px;
+    font-size: 12px;
+    margin: 4px;
     cursor: pointer;
     border-radius: 5px;
+    width: 100px;
+}
+
+.link-light a {
+    text-decoration: none;
+    color: #3f3f3f;
+    font-size: 16px;
 }
 
 .button-fb {
-
-  color: black; 
-  border: 3px solid #3B5998;
+    color: black; 
+    border: 3px solid #3B5998;
 }
 
 .button-fb:hover {
@@ -179,8 +195,8 @@ footer {
 }
 
 .button-x {
-  color: black; 
-  border: 3px solid black;
+    color: black; 
+    border: 3px solid black;
 }
 
 .button-x:hover {
@@ -189,8 +205,8 @@ footer {
 }
 
 .button-w {
-  color: black; 
-  border: 3px solid green;;
+    color: black; 
+    border: 3px solid green;;
 }
 
 .button-w:hover {
