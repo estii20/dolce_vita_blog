@@ -9,6 +9,11 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Category model
 class Category(models.Model):
+    """
+    Models the fields for Post Categories.
+    Can separate the views of the posts
+    by category value.
+    """
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -20,6 +25,9 @@ class Category(models.Model):
 
 # Author Bio model
 class AuthorBio(models.Model):
+    """
+    Model for the author bio field for a blog Post.
+    """
     author_bio = models.CharField(max_length=600)
 
     def __str__(self):
@@ -28,6 +36,9 @@ class AuthorBio(models.Model):
 
 # Post model
 class Post(models.Model):
+    """
+    Model of the fields for the blog Posts.
+    """
     title = models.CharField(max_length=200, unique=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     slug = models.SlugField(max_length=200, unique=True)
@@ -43,7 +54,6 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
     author_bio = models.CharField(max_length=6000, default='author')
-
 
     class Meta:
         ordering = ["-created_on"]
@@ -67,6 +77,9 @@ class Post(models.Model):
 
 # Comments
 class Comment(models.Model):
+    """
+    Model for comments in Posts.
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(max_length=80)
