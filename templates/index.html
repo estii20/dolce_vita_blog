@@ -14,22 +14,19 @@
             aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 1/v1697019500/media/django-summernote/2023-10-11/a78451b5-b0fa-4eec-aa9a-09932c19b28e_oxv5p0.jpg" class="d-block w-100" alt="Evening image of Venice">
+        <div class="carousel-item active"><img class="d-block w-100" src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 1/v1697019500/media/django-summernote/2023-10-11/a78451b5-b0fa-4eec-aa9a-09932c19b28e_oxv5p0.jpg" alt="Evening image of Venice">
             <div class="carousel-caption d-none d-md-block">
-                <h1 class="h1">Eat Venice</h2>
+                <h1 class="h1">Eat Venice</h1>
                 <h3 class="h3">Taste of what this enchanting city has to offer</h3>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 2/v1698223166/dylan-freedom-I14L_1L7LZg-unsplash_1600x500-hero_jtkcnw.jpg" class="d-block w-100" alt="Black and white image of Venice">
+        <div class="carousel-item"><img class="d-block w-100" src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 2/v1698223166/dylan-freedom-I14L_1L7LZg-unsplash_1600x500-hero_jtkcnw.jpg" alt="Black and white image of Venice">
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="h1">Drink Venice</h1>
                 <h3 class="h3">The best wines from around the Venento region</h3>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 1/v1698223186/andrea-cairone-C-CU0Y26TII-unsplash_1600x500-hero_wyfvps.jpg" class="d-block w-100" alt="Man harvesting grapes">
+        <div class="carousel-item"><img class="d-block w-100" src="https://res.cloudinary.com/df7xksq2h/image/upload/t_Hero 1/v1698223186/andrea-cairone-C-CU0Y26TII-unsplash_1600x500-hero_wyfvps.jpg" alt="Man harvesting grapes">
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="h1">Share your stories</h1>
                 <h3 class="h3">Join in with the conversation</h3>
@@ -47,10 +44,9 @@
 </div>
 
 <!-- Introduction section-->
-<section>
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
-            <h1>Welcome to Venice</h1>
+            <h2>Welcome to Venice</h2>
             <h3>
                 <small class="text-muted">"The guide on the best food and drink to be found in Venice"</small>
             </h3>
@@ -59,11 +55,10 @@
 
 
 <!-- Features section -->
-<section>
     <div class="container-fluid text-center container-wrapper-info">
         <div class="row">
                         <div class="col-sm">
-                            <h3><i class="fa-solid fa-pizza-slice"></i></h3>
+                            <i class="fa-solid fa-pizza-slice"></i>
                             <hr>
                             <p>In this blog, we'll delve into the
                             delectable world of food in Venice, offering 
@@ -71,7 +66,7 @@
                         </p>
                         </div>
                         <div class="col-sm">
-                            <h3><i class="fa-solid fa-wine-glass"></i></h3>
+                            <i class="fa-solid fa-wine-glass"></i>
                             <hr>
                             <p>What is the meaning of life? To Italians, 
                                 it means going out after a long day at work, 
@@ -80,13 +75,15 @@
                             </p>
                         </div>
                         <div class="col-sm">
-                            <h3><i class="fa-solid fa-share"></i></h3>
+                            <i class="fa-solid fa-share"></i>
                             <hr>
                             <p>Why not join in with the conversation, 
                                 and let us know your experiences 
                                 in this enchanting city.
                             </p>
                         </div>
+                    </div>
+                </div>
 
     <!-- Blockquote -->
     <div class="container text-center">
@@ -96,10 +93,8 @@
             <span>Those who travel live twice!</span>
         </blockquote>
     </div>
-</section>
 
 <!-- Blog Entries Column -->
-<section>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3 left">
@@ -107,31 +102,25 @@
                     {% for post in post_list %}
                     <div class="card-group col-md-4">
                         <div class="card border-dark card mb-4 blog_card">
-                            <div class="card-body">
-                                <a href="{% url 'category' post.category %}" class="post-link">
+                            <div class="card-body"><a href= "{% url 'category' post.category %}" class="post-link">
                                 <div class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">{{ post.category | title }}</div>
                                 </a>
-                                <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
-                                    <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title| truncatechars:50 }}</h2>
+                                <a href= "{% url 'post_detail' post.slug  %}" class="post-link blog_title">
+                                    <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title| truncatechars:50 }}</h4>
                                 </a>
-                                <div class="image-container">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-thumbnail rounded"
-                                        src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg">
+                                <div class="image-container">{% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top img-thumbnail rounded" src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of table at Venice restaurant">
                                     {% else %}
-                                    <img class="card-img-top img-thumbnail rounded"
-                                        src=" {{ post.featured_image.url }}">
+                                    <img class="card-img-top img-thumbnail rounded" src="{{ post.featured_image.url }}">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i> {{ post.author | title }}</p>
                                     </div>
                                 </div>
-                                <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                <a href= "{% url 'post_detail' post.slug  %}" class="post-link">
                                     <p class="post_text">{{ post.excerpt| truncatechars:50 }}</p>
-                                    <p class="fst-normal text-end read" data-bs-toggle="collapse" 
-                                    role="button">Read more...</p>
+                                    <p class="fst-normal text-end read" data-bs-toggle="collapse">Read more...</p>
                                 </a>
-                                <hr />
                                 <footer class="footer fw-bold">{{ post.created_on}} | 
                                     <i class="fa-regular fa-clock"></i> {{ post.read_time }} mins |
                                     <i class="fa-regular fa-thumbs-up"></i> {{ post.number_of_likes }}</footer>
@@ -151,8 +140,7 @@
         <!-- Pagination -->
         {% if is_paginated %}
         <nav aria-label="Page navigation pagination_blog">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
+            <ul class="pagination justify-content-center">{% if page_obj.has_previous %}
                 <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
@@ -163,5 +151,5 @@
         </nav>
         {% endif %}
     </div>
-</section>
-{%endblock%}
+
+{% endblock %}
