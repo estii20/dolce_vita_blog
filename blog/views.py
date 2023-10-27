@@ -115,13 +115,6 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     success_url = reverse_lazy('home')
     success_message = "Post was created successfully"
 
-    def test_func(self):
-        """Test that logged in user is post author"""
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
-
 
 class EditPost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.UpdateView):
     """
@@ -166,28 +159,25 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, g
         return False
 
 
-class CategoryView(generic.ListView, object):
+class CategoryView(View):
     """
     View to display Category page dependent on user choice.
     Requests list of posts with matching category.
     Renders view of the category.html template.
     """
-    model = Post
-    template_name = 'category.html'
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
-    paginate_by = 6
-
-    def get_absolute_url(self, request, cats, *args, **kwargs):
+    def get(self, request, category, *args, **kwargs):
         """ Gets posts filtered by category """
-        category = Category.objects.get(
-            name__iexact=cats)
-        category_list = Post.objects.filter(category=category)
+        queryset = Category.objects.all()
+        category = get_object_or_404(self.queryset, category=category)
+        posts = category.filter(status=1).order_by("-created_on")
+        paginate_by = 6
+        template_name = 'category.html'
 
         return render(
             request,
-            self.template_name,
-            {'cats': cats.title(),
-             'category_list': category_list},
+            'category.html',
+            {'category': category,
+             'posts': posts},
         )
 
 
