@@ -40,7 +40,6 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -134,13 +133,6 @@ class CategoryView(generic.ListView, object):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     paginate_by = 6
 
-
-class CategoryView(generic.ListView, object):
-    model = Post
-    template_name = 'category.html'
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
-    paginate_by = 6
-
     def get_absolute_url(self, request, cats, *args, **kwargs):
         category = Category.objects.get(
             name__iexact=cats)
@@ -155,7 +147,6 @@ class CategoryView(generic.ListView, object):
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
-
     model = Comment
     template_name = 'comment_delete.html'
     success_message = "Comment was deleted successfully"
@@ -175,7 +166,13 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
 
 
 class AboutView(generic.CreateView):
+    model = Post
     template_name = 'about.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
+
+
+def handler404(request, exception):
+    
+    return render(request, '404.html', status=404)
