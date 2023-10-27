@@ -144,11 +144,11 @@ footer {
 /* Comments */
 
 .comments {
-    background-color: rgb(255, 770, 0, 0.3);
+    background-color: rgba(255, 77, 0, 0.1);
 }
 
 .leave_comment{
-    background-color: rgb(255, 770, 0, 0.3);
+    background-color: rgba(255, 77, 0, 0.1);
 }
 
 /* Social share */
@@ -167,7 +167,6 @@ footer {
 .btn-social {
     background-color: white;
     border: none;
-    color: white;
     padding: 5px;
     text-align: center;
     display: inline-block;
