@@ -4,12 +4,19 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for comments
+    """
     class Meta:
+        """Form fields"""
         model = Comment
         fields = ('body',)
 
 
 class PostForm(forms.ModelForm):
+    """
+    Form for posts
+    """
     class Meta:
         model = Post
         fields = [
