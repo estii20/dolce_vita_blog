@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="jumbotron">
+    <h1>Wrong address</h1>
+    <h1>Ooops! Error: 403</h1>
+    <h2>I cannot find the file you requested!</h2>
+    <p>Please use the button below to return to the Dolce Vita website and by
+        clicking on the button below.</p>
+    <p class="lead">
+        <a class="btn btn-style btn-md" href="{% url 'home' %}" role="button">
+            Home</a>
+</div> {% endblock %}
