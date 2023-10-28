@@ -10,8 +10,9 @@ urlpatterns = [
          name='post_edit'),
     path('<slug:slug>/delete/', views.DeletePost.as_view(),
          name='post_delete'),
-    path('<slug:slug>/comment_delete/<int:pk>/', views.CommentDeleteView.as_view(), name='comment_delete'),
-    path('category/<str:cats>/', views.CategoryView.as_view(),
+    path('<slug:slug>/comment_delete/<int:pk>/', views.CommentDeleteView.as_view(), 
+         name='comment_delete'),
+    path('category/<category>/', views.CategoryView.as_view(),
          name='category'),
     path('about/', views.AboutView.as_view(), name='about'),
 ]

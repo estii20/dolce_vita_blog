@@ -165,19 +165,21 @@ class CategoryView(View):
     Requests list of posts with matching category.
     Renders view of the category.html template.
     """
+    model = Post
+    queryset = Category.objects.all()
+    template_name = 'category.html'
+    paginate_by = 6
+
     def get(self, request, category, *args, **kwargs):
         """ Gets posts filtered by category """
-        queryset = Category.objects.all()
-        category = get_object_or_404(self.queryset, category=category)
-        posts = category.filter(status=1).order_by("-created_on")
-        paginate_by = 6
-        template_name = 'category.html'
+        category = Category.objects.get(name=category)
+        category_posts = Post.objects.filter(category=category)
 
         return render(
             request,
-            'category.html',
+            self.template_name,
             {'category': category,
-             'posts': posts},
+             'category_posts': category_posts},
         )
 
 
