@@ -15,10 +15,14 @@
                 <p class="card-text post_text">Email us at: dolce_vita@gmail.com </p>
 
                 <p class="card-text post_text">Join in the conversation by registering for an account: 
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    <span>
+                    <a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit btn-submit">Register</a>
+                    </span>
                 </p>
                 <p class="card-text post_text">Or logging in: 
-                    <a class="nav-link"href="{% url 'account_signup' %}">Login</a>
+                    <span>
+                        <a href="{% url 'account_login' %}" class="btn btn-signup btn-edit btn-submit">Login</a>
+                    </span>
                 </p>
             </div>
         </div>
