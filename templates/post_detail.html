@@ -120,7 +120,7 @@
             </form> {% endif %}
         </div>
         <!--- If user not authenticated login or register buttons  -->
-        {{% if not user.is_authenticated %}
+        {% if not user.is_authenticated % }
         <div class="container text-left mx-auto">
             <div class="row">
                 <div class="col-sm-12 text-center card mb-4 mt-3 comments">

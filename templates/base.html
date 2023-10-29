@@ -43,12 +43,17 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+
                     <!--Navbar Category Dropdown-->
-                    <li class="nav-item">
-                        {% for category in categories %}
-                        <a href="{% url 'category' category.name %}" class="nav-link">{{ category.name | title }}
-                            Categories</a>
-                        {% endfor %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Categories</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                            {% for category in categories %} 
+                            <a class="dropdown-item" href="{% url 'category' category.name %}"
+                                class="nav-link">{{category.name}}</a> 
+                                {% endfor %} 
+                        </div>
                     </li>
 
                     <!--Navbar when authenticated--> 
@@ -96,7 +101,6 @@
         <strong>
             <p class="m-0 text-dark text-center ">Django Blog for Educational Purposes</p>
             <p class="m-0 text-dark text-center ">Images © Unsplash.com</p>
-            <p class="m-0 text-dark text-center">
         </strong>
         <a href="{% url 'about' %}" class="about_link">About Us</a>
         </p>
