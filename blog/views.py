@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Category, AuthorBio
 from .forms import CommentForm, PostForm
@@ -54,39 +55,23 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        Post method validates comment input, save comment and then re-load
+        Post method validates comment input, save comment and then returns to
         the post detail page.
-        Success message feedback for the user.
         """
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by("-created_on")
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
+        if request.user.is_authenticated:
+            queryset = Post.objects.filter(status=1)
+            post = get_object_or_404(queryset, slug=slug)
+            comment_form = CommentForm(data=request.POST)
 
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.save()
-        else:
-            comment_form = CommentForm()
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.name = request.user
+                comment.save()
+                messages.success(request, 'Thank you for your comment \
+                    - Comment will be published shortly')
 
-        return render(
-            request,
-            "post_detail.html",
-            {
-                "post": post,
-                "comments": comments,
-                "commented": True,
-                "comment_form": comment_form,
-                "liked": liked,
-                "author_bio": post
-            },
-        )
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 class PostLike(View):

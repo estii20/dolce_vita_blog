@@ -10,7 +10,11 @@
         </div>
         <hr>
         <div class="clearfix">
-            <div class="img-thumbnail rounded mx-auto"> {% if "placeholder" in post.featured_image.url %} <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of restaurant table in Venice" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"> {% else %} <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
+            <div class="img-thumbnail rounded mx-auto"> {% if "placeholder" in post.featured_image.url %} 
+                <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" 
+                alt="Image of restaurant table in Venice" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"> 
+                {% else %} 
+                <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
                 width="100%" height="80%"> {% endif %} <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe }}
                 </p>
@@ -38,7 +42,9 @@
                             <i class="fa-regular fa-pen-to-square m-1"></i> Update</button></a>
                         <button type="button" class="btn btn-danger btn-edit">
                             <a href="{% url 'post_delete' post.slug %}" class="link-light">
-                                <i class="fa-solid fa-delete-left text m-1"></i> Delete</button></a> {% endif %} </div>
+                                <i class="fa-solid fa-delete-left text m-1"></i> Delete</button></a> 
+                                {% endif %} 
+                </div>
             </div>
 
             <!-- Likes -->
@@ -66,12 +72,13 @@
     </div>
 
                 <!-- Comments -->
+                {% for comment in comments %}
                 <div class="container text-left mx-auto">
                     <div class="row">
                         <div class="col-sm-12 card mb-4 mt-3 comments">
                             <h3 class="h3">Comments:</h3>
-                            <div class="card-body"> {% for comment in comments %} <div class="comments"
-                                    style="padding: 12px;">
+                            <div class="card-body">  
+                                <div class="comments" style="padding: 12px;">
                                     <p class="blog_title">
                                         {{ comment.name | title }}
                                         <span class="text-muted font-weight-normal">
@@ -83,30 +90,52 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Delete commment if authenticated --> {% if request.username == comment.username %}
+                            <!-- Delete commment if authenticated --> 
+                            {% if request.username == comment.username %}
                             <span class="text-muted font-weight-normal">Delete your comment?</span>
                             <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
-                                <i class="fa-regular fa-pen-to-square"></i> Delete </a> {% endif %}
+                                <i class="fa-regular fa-pen-to-square"></i> Delete </a> 
+                                {% endif %}
+                                {% endfor %}
                         </div>
                     </div>
                 </div>
-            </div> {% if commented %} <div class="alert alert-success" role="alert"> Your comment is awaiting approval
-            </div>
+            </div> {% if commented %} 
+            <div class="alert alert-success" role="alert"> 
+                Your comment is awaiting approval
+            </div>{% endif %}
         </div>
-
-    </div> {% else %} {% if user.is_authenticated %} <div
-        class="container text-left mx-auto d-flex justify-content-center">
+    </div>
+    <!--- Signed in user can leave a comment -->
+    {% if user.is_authenticated %} 
+    <div class="container text-left mx-auto d-flex justify-content-center">
         <div class="col-md-6 card mb-4 mt-3 d-flex leave_comment" style="padding: 12px;">
             <h3 class="h3">Leave a comment:</h3>
             <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username | title }}
             </p>
+            <!---Form to submit users comment  -->
             <form method="post" style="margin-top: 1.5em;">
-                {{ comment_form | crispy }} {% csrf_token %} <button type="submit"
-                    class="btn btn-signup btn-submit">Submit</button>
-            </form> {% endif %} {% endif %}
+                {{ comment_form | crispy }} {% csrf_token %} 
+                <button type="submit" class="btn btn-signup btn-submit">Submit</button>
+            </form> {% endif %}
         </div>
+        <!--- If user not authenticated login or register buttons  -->
+        {{% if not user.is_authenticated %}
+        <div class="container text-left mx-auto">
+            <div class="row">
+                <div class="col-sm-12 text-center card mb-4 mt-3 comments">
+                    <p>To leave a comment or like a post, please log in. 
+                        If you have not created an account yet, then
+                        register first.
+                    </p>
+                    <br>
+                    <span>
+                        <a href="{% url 'account_login' %}" class="btn btn-signup btn-edit btn-submit">Login</a>
+                        <a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit btn-submit">Register</a>
+                    </span>
+                </div>
+                {% endif %}
     </div>
     </div>
-  {% endfor %}
 
  {% endblock content %}
