@@ -86,21 +86,81 @@
     </main>
 
     <!-- Footer -->
-    <footer class="container-fluid text text-center mt-auto">
-        <strong>
-            <p class="m-0 text-dark text-center ">Django Blog for Educational Purposes</p>
-            <p class="m-0 text-dark text-center ">Images © Unsplash.com</p>
-                <!--Navbar Category Menu-->
-            <p class="m-0 text-dark text-center ">
-                <li class="nav-item">
-                    {% for category in categories %}
-                    <a href="{% url 'category' category.name %}" class="nav-link">Category {{ category.name | title }}
-                    </a>{% endfor %}
-                </li>
-            </p>
-        </strong>
-        <a href="{% url 'about' %}" class="about_link">About Us</a>
-        </p>
+    <footer class="mt-5 pt-5 pb-5 footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-xs-12">
+                    <h4 class="mt-lg-0 mt-sm-3">
+                    <a href="{% url 'about' %}" class="about_link">About</a>
+                    </h4>
+                    <p class="pr-5 text-white-50">
+                        Tips, suggestions and practical advice.
+                    </p>
+                    <p class="pr-5 text-white-50">
+                        All things food and drink in Venice.
+                    </p>
+                    <p class="pr-5 text-white-50">
+                        Join in the conversation and login
+                        <span><a href="{% url 'account_login' %}" class="btn btn-signup btn-edit">Login</a></span>
+                    </p>
+                    <p class="pr-5 text-white-50">
+                        If  you don't have an account...
+                        <span><a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit">Register</a></span>
+                    </p>
+                    <ul class="social-media">
+                        <li>
+                            <a href="https://facebook.com" target="_blank" rel="noopener"
+                                aria-label="Visit our Facebook page (opens in a new tab)">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com" target="_blank" rel="noopener"
+                                aria-label="Visit our Twitter page (opens in a new tab)">
+                                <i class="fa-brands fa-square-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com" target="_blank" rel="noopener"
+                                aria-label="Visit our YouTube page (opens in a new tab)">
+                                <i class="fa-brands fa-square-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com" target="_blank" rel="noopener"
+                                aria-label="Visit our Instagram page (opens in a new tab)">
+                                <i class="fa-brands fa-square-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-xs-12 links">
+                    <h4 class="mt-lg-0 mt-sm-3">Categories</h4>
+                    <ul class="m-0 p-0">
+                        <li class="nav-item"> {% for category in categories %} <a href="{% url 'category' category.name %}"
+                                class="nav-link mb-0 text-white">{{ category.name | title }}
+                            </a>{% endfor %} </li>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <h4 class="mt-lg-0 mt-sm-4">Contact Us</h4>
+                    <p class="mb-0 text-white">Via Giovanni Randaccio, 60, Venezia, Italia</p>
+                    <p class="mb-0 text-white">
+                        <i class="fa fa-phone mr-3"></i> +39 754-3010
+                    </p>
+                    <p class="mb-0 text-white">
+                        <i class="fa fa-envelope-o mr-3"></i> dolce_vita@google.com
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <p class="m-0 text-center">
+                    <small class="text-white-50"></small>Django Blog for Educational Purposes</small>                
+                </p>
+                <p class="m-0 text-center ">
+                    <small class="text-white-50"></small>Images © Unsplash.com</small>
+                </p>
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript tags timeout function at 3 seconds -->
