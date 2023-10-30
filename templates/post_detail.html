@@ -96,7 +96,10 @@
                             {% if request.username == comment.username %}
                             <span class="text-muted font-weight-normal">Delete your comment?</span>
                             <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
-                                <i class="fa-regular fa-pen-to-square"></i> Delete </a> 
+                                <i class="fa-regular fa-pen-to-square"></i> Delete </a>
+                            <span class="text-muted font-weight-normal">Update your comment?</span>
+                            <a href="{% url 'comment_edit' post.slug comment.pk %}" class="btn btn-signup btn-md">
+                                <i class="fa-regular fa-pen-to-square"></i> Edit </a>
                                 {% endif %}
                                 {% endfor %}
                         </div>

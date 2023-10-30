@@ -195,6 +195,35 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         return False
 
 
+class CommentEdit(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+    """
+    View to allow validated users to edit their comment
+    on the post detail page.
+    Success message feedback to the user.
+    """
+    model = Comment
+    template_name = 'comment_edit.html'
+    form_class = CommentForm
+    success_message = 'Comment successfully edited'
+
+    def get_success_url(self):
+        """ Success url for comment with assciated comment """
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    def form_valid(self, form):
+        """Validate form after connecting form name of user to logged in user"""
+        form.instance.name = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        """ Test that logged in user is comment user """
+        comment = self.get_object()
+        if self.request.user == comment.name:
+            return True
+        return False
+
+
 class AboutView(generic.CreateView):
     """
     View for About page.
