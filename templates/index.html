@@ -109,9 +109,9 @@
                                     <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title| truncatechars:50 }}</h4>
                                 </a>
                                 <div class="image-container">{% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-thumbnail rounded" src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of table at Venice restaurant">
+                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of table at Venice restaurant">
                                     {% else %}
-                                    <img class="card-img-top img-thumbnail rounded" src="{{ post.featured_image.url }}">
+                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="{{ post.featured_image.url }}">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i> {{ post.author | title }}</p>

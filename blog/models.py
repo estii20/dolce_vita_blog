@@ -40,11 +40,10 @@ class Post(models.Model):
     Model of the fields for the blog Posts.
     """
     title = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
-    )
+        User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -53,7 +52,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
-    author_bio = models.CharField(max_length=6000, default='author')
+    author_bio = models.CharField(
+        max_length=6000, blank=True)
 
     class Meta:
         ordering = ["-created_on"]

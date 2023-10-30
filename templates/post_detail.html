@@ -16,16 +16,18 @@
                 {% else %} 
                 <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
                 width="100%" height="80%"> {% endif %} <p class="container-fluid fs-5 post_text">
-                    {{ post.content | safe }}
+                    {{ post.content | safe | linebreaks }}
                 </p>
                 <div>
+                    {% if author_bio in author_bio %}
                     <div class="container text-left mx-auto">
                         <div class="col-md-12 card mb-4 mt-3 author">
                             <h3 class="blog_title">Author Bio</h3>
                             <div class="card-body">
                                 <p class="container-fluid fs-5 post_text author">
-                                    {{ post.author_bio | safe }}
+                                    {{ post.author_bio | safe | linebreaks }}
                                 </p>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
