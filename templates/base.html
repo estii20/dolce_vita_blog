@@ -86,27 +86,28 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-5 pt-5 pb-5 footer">
+    <footer class="mt-5 pt-5 pb-5 footer mt-auto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-xs-12">
                     <h4 class="mt-lg-0 mt-sm-3">
                     <a href="{% url 'about' %}" class="about_link">About</a>
                     </h4>
-                    <p class="pr-5 text-white-50">
+                    <p class="pr-5 text-white">
                         Tips, suggestions and practical advice.
                     </p>
-                    <p class="pr-5 text-white-50">
+                    <p class="pr-5 text-white">
                         All things food and drink in Venice.
                     </p>
-                    <p class="pr-5 text-white-50">
-                        Join in the conversation and login
+                    <p class="pr-5 text-white">
+                        {% if user.is.not_authenticated %}
+                        Join in the conversation and login:
                         <span><a href="{% url 'account_login' %}" class="btn btn-signup btn-edit">Login</a></span>
                     </p>
-                    <p class="pr-5 text-white-50">
-                        If  you don't have an account...
+                    <p class="pr-5 text-white">
+                        If you don't have an account:
                         <span><a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit">Register</a></span>
-                    </p>
+                    </p> {% endif %}
                     <ul class="social-media">
                         <li>
                             <a href="https://facebook.com" target="_blank" rel="noopener"
@@ -117,7 +118,7 @@
                         <li>
                             <a href="https://twitter.com" target="_blank" rel="noopener"
                                 aria-label="Visit our Twitter page (opens in a new tab)">
-                                <i class="fa-brands fa-square-twitter"></i>
+                                <i class="fa-brands fa-square-x-twitter"></i>
                             </a>
                         </li>
                         <li>

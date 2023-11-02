@@ -4,7 +4,7 @@
 
 {% if category_posts %}
 <!-- Title Section -->
-<section>
+
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
             {% for post in category_posts %}
@@ -12,8 +12,7 @@
             <h1> {{ post.category | title }} Posts</h1>
         </div>
     </div>
-</section>
-<section>
+
     <div class="container-fluid">
         <div class="row">
             <!-- Blog Entries Column -->
@@ -61,7 +60,16 @@
                 </li> {% endif %} </ul>
         </nav> {% endif %}
     </div>
-</section> {% else %} <h2 class="blog_title">Sorry this post does not exist...</h2> 
-{% endif %}
+    {% else %} 
+    <div class="container text-justify container-wrapper-info">
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <h2 class="blog_title">Sorry this post does not exist...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
 {% endblock content %}

@@ -58,6 +58,11 @@ p {
     font-size: 1.2rem;
 }
 
+.fa-solid {
+    font-weight: 900;
+    font-size: 200%;
+}
+
 /*Blog card*/
 
 .blog_card {
@@ -117,10 +122,11 @@ footer {
 
 .about_link {
     cursor: pointer;
+    color: #272121;
 }
 
 .about_link:hover {
-    color: #272121;
+    color: white;
 }
 
 .social-media {
