@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .models import Post, Comment, AuthorBio, Category
 from django.contrib.auth import get_user_model
+from django.template.defaultfilters import slugify
 
 
 User = get_user_model()
@@ -62,5 +63,18 @@ class TestModels(TestCase):
                          f'/post/{self.post.slug}/')
 
     def test_post_model__category_str(self):
-        """Test the __str__ method for category post"""
+        """
+        Test the __str__ method for category post
+        """
         self.assertEqual(self.category.__str__(), self.category.name)
+
+    def test_post_model__title_str(self):
+        """Test the __str__ method for post"""
+        self.assertEqual(self.post.__str__(), self.post.title)
+
+    def test_slug_value_for_title(self):
+        """
+        Test that two posts with identical titles 
+        don't get assigned the same slug.
+        """
+        self.assertEqual(self.post.slug, slugify(self.post.title))
