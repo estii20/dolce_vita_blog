@@ -10,7 +10,7 @@ This blog is made for site users that are on a short visit to Venice. Time is va
 
 P4 Project for the Code Institute
 
-[Live Site](https://estii20.github.io/)
+[Live Site]()
 
 [Website Mock-up](https:)
 
@@ -111,6 +111,37 @@ For more information: [Kanban Board - User Stories](https://github.com/users/est
 
 ### User stories
 
+| User Story | Title | Must Have | Should Have | Could Have |
+| --- | --- | --- | --- | --- |
+| US1. | As a Site User I can click on a post so that I can read the full text. | x | | |
+| US2. | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular or viral. | x | | |
+| US3. | As a Site User I can view a list of posts so that I can select one to read. | x | | |
+| US4. | As a Site User I can see a list of posts so I can choose which blog post to view. | x | | |
+| US5. | As a Site Admin I can create draft posts so that I can finish writing the content later. | x | | |
+| US6. | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments. | x | | |
+| US7. | As a Site Admin I can create, read, update and delete posts so that I can manage my blog content. | x | | |
+| US8. | As a Site User / Admin I can view comments on an individual post so that I can read the conversation. | x | | |
+| US9. | As a Site User I can register an account so that I can comment and like. | x | | |
+| US10. | As a Site User I can leave comments on a post so that I can be involved in the conversation. | x | | |
+| US11. | As a Site User I can edit a post so that I can update my blog post. |  | x| |
+| US12. | As a Site User I can add a post so that I can engage with the blog. |  | x | |
+| US13. | As a Site User I can delete a post so that I can remove invalid blog posts. |  | x | |
+| US14. | As a Site User I want to share posts to my social media accounts so that I can repost posts on other sites. |  | x | |
+| US15. | As a Site User I can see and choose a category of blog post so that I can easily find relevant posts. |  | x | |
+| US16. | As a Site User I can see the author bio of a blog post so that I can read about their background information. |  | x | |
+| US17. | As a Site User I want to be able to delete a comment so that I can remove comments from posts. |  | x | |
+| US18. | As a Site User I want to be able to edit a comment so that I can amend typos from comments. |  | x | |
+| US19. | As a Site Admin I want to be able to display an about page so that the user can know who/what the blog is for. | x | | |
+| US20. | As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site. | | | x  |
+| US21. | As a Site User I want to be able to search for posts so that I can find posts that interest me. |  | | x |
+| US22. | As a Site User I want to see success messages so that I know when an action has been taken. | x | | |
+| US23. | As a Site User / Admin I want to show the read time of a post so that visitors can click on posts that they have time to read. |  | x | |
+| US24. | As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read. | | | x |
+| US25. | As a Site User / Admin I want to be able to contact the site owner so that it is possible to offer feedback and ask for information. | x | | |
+| US26. | As a Site User/ Admin I want to be able to view posts with the most recent post featured first so that it is possible to get the latest blog post. | x | | |
+| US27. | As a Site User / Admin I want to be able to see loggedin user name so that I know when I am logged into the site. |  | x | |
+| US28. | As a Site User I want to be able to search for posts so that I can find posts by keywords. | | | x |
+
 ### Data Model
 
 ### Site map
@@ -174,7 +205,7 @@ Bootstrap fully responsive carousel - three rolling images of Venice. Overlay te
 
 __Navbar__
 
-The navbar is present on all pages of the site. It is fully responsive, on smaller devices the navbar will collapse and the navigation links are accessed using a ”hamburger menu”.
+The navbar is present on all pages of the site. It is fully responsive, on smaller devices the navbar will collapse and the navigation links are accessed using a "hamburger menu".
 Navbar Logo is font awesome icon `fa-solid fa-wine-glass`.
 
 - Logged-in navbar left
@@ -237,7 +268,7 @@ Copyright of Unsplash.com where images have been used.
 
 Blog purpose as educational only website.
 
-__Post_Detail page__
+__Post Detail page__
 
 When a user clicks on a blog post, they are brought to the Post detail page. The user is shown the whole post with a commenting feature below. The user will be able to interact with the content depending on user status.
 
@@ -274,7 +305,7 @@ Features dependent on user status:
 
 - Edit Comment/Delete Comment - The comment author will have full CRUD functionality. They can update or delete their comments.
 
-__Add_Post page__
+__Add Post page__
 
 - Header with Logo and Navigation Links
 - 
@@ -284,15 +315,15 @@ __Add_Post page__
 - Author Bio - if added.
 - Footer with links to the Social Media platforms, About page, Categories and Contact Information.
 
-__Update_Post page__
+__Update Post page__
 
-__Delete_Post page__
+__Delete Post page__
 
-__Update_Comment page__
+__Update Comment page__
 
-__Delete_Post page__
+__Delete Post page__
 
-__Login_page__
+__Login page__
 
 User CRUD functionality on posts and comments, or the ability to like/unlike a post, requires users to login to the site.
 The Login page can be accessed:
@@ -306,7 +337,7 @@ The user needs to enter the following information:
 - Valid username
 - Correct password
 
-__Register_page__
+__Register page__
 
 To fully use the site features, a user is required to register and login.
 Unregistered users will be able to access the Register page:
@@ -323,29 +354,35 @@ A new account can be easily created. The user needs to provide the following inf
   
 Once all fields are entered correctly, the user clicks on register and new account is automatically created and the user is redirected to the homepage.
 
-__Logout_page__
+__Logout page__
 
 Users enter a correct username with a matching password and clicks on Login, they are logged in and redirected to the homepage.
 
 The Logout page can be accessed in the navbar link when a user is logged in. When the user clicks on Logout, they are directly logged out of their account and redirected to the homepage. If the user chooses to click on Cancel instead, the user will be returned to the previous page visited.
 
-__About_page__
+__About page__
 
-__Category_page__
+__Category page__
 
-__Admin_page__
+__Admin page__
 
 To manage the blog content, a superuser account was created. A superuser can administer the site. The Admin page is accessed by logging in to the /admin URL with the superuser account username and password.
 From the admin panel, the superuser will be able to delete and approve a specific post, comment or user. This functionality is necessary to maintain the blog and remove unwanted content. Also, a superuser can create post-drafts that can be published at a later time.
 
-__Additional_Features__
+__Additional Features__
 
 Messages are  displayed to the user as feedback when certain actions are completed. The message will appear at the top of the screen and after 2.5 seconds it will be automatically removed.
 
 ### Future Features
 
-- US#. Title:
-  - This user story was prioritized as a could-have feature and will not be implemented at this stage due to low priority.
+- US20. Title: As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site.
+  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
+  
+- US24. Title: As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read.
+  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
+  
+- US28. Title: As a Site User I want to be able to search for posts so that I can find posts by keywords.
+  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
 
 ## Technologies Used
 
@@ -365,6 +402,8 @@ __Colorspace__
 __Font Awesome__
 
 [Font Awesome](https://fontawesome.com/) provides visual cues to the user on the pages and was used for the social media icons.
+
+__Codeanywhere__
 
 [Codeanywhere](https://codeanywhere.com/signin) IDE used for the project.
 
