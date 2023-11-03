@@ -366,6 +366,8 @@ __Font Awesome__
 
 [Font Awesome](https://fontawesome.com/) provides visual cues to the user on the pages and was used for the social media icons.
 
+[Codeanywhere](https://codeanywhere.com/signin) IDE used for the project.
+
 ### Languages Used
 
 - HTML5
@@ -446,37 +448,49 @@ To access this project in GitHub;
 
 4. Retrieve the automatically generated link from the GitHub pages section.
 
-__Running the project locally;__
+Deployment to Heroku:
 
-1. To create a clone of this project follow the instructions below;
-
-2. Create a GitPod account [Gitpod](https://gitpod.io/login/).
-
-3. Open the Chrome browser.
-
-4. Click to the top of the Chrome navigation bar and enable the extension Gitpod Browser Extension for Chrome.
-
-5. Link it.
-
-6. Restart the browser when prompted to do so.
-
-7. Log into GitPod with your account username and password.
-
-8. Select the project in GitHub repositories.
-
-9. Click on the green “Gitpod” button to the top right of the page.
-
-10. A new gitpod workspace opens.
-
-11. It is now possible to work locally on the project.
-
-To make updates, it is necessary to commit with commit-m and push with git push so that the updates are pushed to Github.
-
-Cloning the project will link the changes to the project repo and will be sent for approval.
-
-Forking the project will create a new repo and the code will belong to the user. Any changes made will notify the user and will give them the option to pull this new code to their repo.
-
-Changes pushed to the main branch will automatically update on the site.
+- Login to [Heroku](https://dashboard.heroku.com/apps)
+- Create new app.
+- Choose a unique name for your applicationand enter your location.
+- Click on Create app.
+- Go to the Settings tab => click on Reveal Config Vars.
+- Copy the DATABASE_URL url value to the clipboard.
+- In IDE Create a new env.py file on top level directory.
+- Add an env.py file:
+  - Set environment variables: os.environ[”DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link”
+  - Add in secret key: os.environ[”SECRET_KEY"] = "Make up your own randomSecretKey”
+- In Heroku - Go to the Settings tab => click on Reveal Config Vars.
+- Add SECRET_KEY to Config Vars with the randomSecretKey value previously chosen.
+- In the settings.py file:
+  - Remove the unsecure secret key and replace it with: SECRET_KEY = os.environ.get(’SECRET_KEY')
+  - Update to use the DATABASE_URL: dj_database_url.parse(os.environ.get(”DATABASE_URL"))
+- Save all files and Make Migrations: python3 manage.py migrate
+- Login to [Cloudinary](https://cloudinary.com/) and navigate to the Cloudinary Dashboard.
+- Copy your CLOUDINARY_URL API Environment Variable to the clipboard.
+- In the env.py file:
+  - Add Cloudinary URL: os.environ["CLOUDINARY_URL"] = ”cloudinary://paste in API Environment Variable”
+- In Heroku => Navigate to the Settings tab, click on Reveal Config Vars.
+- Add ’CLOUDINARY_URL’ to Config Vars with the in API Environment Variable value.
+- Add ’DISABLE_COLLECTSTATIC’ 1 to Heroku Config Vars (temporary, must be removed before final deployment).
+- In the settings.py file:
+  - Add Cloudinary Libraries to installed apps (note: order is important) ’cloudinary_storage',  ’django.contrib.staticfiles', ’cloudinary',
+  - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
+    - STATICFILES_STORAGE = ’cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    - STATICFILES_DIRS = [os.path.join(BASE_DIR, ’static')]
+    - STATIC_ROOT = os.path.join(BASE_DIR, ’staticfiles')
+    - MEDIA_URL = '/media/'
+    - DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+  - Link file to the templates directory in Heroku: TEMPLATES_DIR = os.path.join(BASE_DIR, ’templates')
+  - Change the templates directory to: TEMPLATES_DIR: 'DIRS': [TEMPLATES_DIR],
+  - Add Heroku Hostname to ALLOWED_HOSTS: ALLOWED_HOSTS = [”Your_Project_name.herokuapp.com”, ”localhost”]
+- Create 3 new folders on top level directory: media, static, templates
+- Create a Procfile on the top level directory
+- In the Procfile file:
+  - Add the following code with your project name: web: gunicorn PROJ_NAME.wsgi
+- In the terminal: Add, Commit and Push.
+- In Heroku go to the Deploy tab, click on Deploy Branch.
+- When build process is finished click on Open App to visit the live site.
 
 ## Credits
 
