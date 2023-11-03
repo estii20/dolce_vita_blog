@@ -29,8 +29,8 @@ P4 Project for the Code Institute
   - [Features](#features)
     - [Future Features](#future-features)
   - [Technologies Used](#technologies-used)
-    - [Languages Used:](#languages-used)
-    - [Frameworks and Libraries Used:](#frameworks-and-libraries-used)
+    - [Languages Used](#languages-used)
+    - [Frameworks and Libraries Used](#frameworks-and-libraries-used)
     - [Software and Web Applications Used](#software-and-web-applications-used)
   - [Testing](#testing)
     - [Browser Testing](#browser-testing)
@@ -87,7 +87,7 @@ Easy for readers to share the content on social media platforms.
 Enable comments to foster community engagement and discussions.
 
 - Accessibility:
-Blog is accessible to all users, including those with disabilities. The use of alt text for images.
+Blog is accessible to all users, including those with disabilities. The use of alt text for images. Text color chosen contrasts well to the background color to improve user visibility.
 
 - Security Measures:
 Security measures to protect the blog and user data, including SSL certificates.
@@ -107,7 +107,7 @@ __Project Strategy__
 
 Using An Agile methodology, this project was planned using a Kanban board in the GitHub Project with linked Issues based on a saved template. To cover the aims of this project, a total of ## User Stories were planned, each with their own acceptance criterias and tasks to complete. A total of ## User Stories were completed working on this project.
 
-For more information: [View the Kanban Board here.](https://github.com/)
+For more information: [Kanban Board - User Stories](https://github.com/users/estii20/projects/9/archive)
 
 ### User stories
 
@@ -175,6 +175,7 @@ Bootstrap fully responsive carousel - three rolling images of Venice. Overlay te
 __Navbar__
 
 The navbar is present on all pages of the site. It is fully responsive, on smaller devices the navbar will collapse and the navigation links are accessed using a ”hamburger menu”.
+Navbar Logo is font awesome icon `fa-solid fa-wine-glass`.
 
 - Logged-in navbar left
   - Home
@@ -197,7 +198,7 @@ Easy to read information about the blog purpose and use. Font awesome icons used
 
 __Blockquote__
 
-Itailian quote to give the feel and branding of the site.
+Italian quote to give the feel and branding of the site.
 
 __Blog Post Card__
 
@@ -348,25 +349,42 @@ Messages are  displayed to the user as feedback when certain actions are complet
 
 ## Technologies Used
 
-### Languages Used:
+__Image Resizer__
 
-  - HTML5
-  - CSS3
-  - JavaScript
-  - Python
+[Simple Image Resizer](https://www.simpleimageresizer.com/upload)
+Images resized to 300 px 300 px so that the images could be curved at the corner to soften them.
 
-### Frameworks and Libraries Used:
+__Balsamiq__
 
-  - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
-  - [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
-  - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files.
-  - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
-  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
-  - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
-  - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
-  - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
-  - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
-  - [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
+[Balsamiq](https://balsamiq.cloud/skgv95c/pk5rjyb) used to design the arrangement of the site.
+
+__Colorspace__
+
+[Colorspace](https://mycolor.space/) used to check the palette works together.
+
+__Font Awesome__
+
+[Font Awesome](https://fontawesome.com/) provides visual cues to the user on the pages and was used for the social media icons.
+
+### Languages Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Python
+
+### Frameworks and Libraries Used
+
+- [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
+- [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
+- [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files.
+- [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
+- [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
+- [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
+- [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
+- [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
+- [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
+- [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
 - [django-social-share 2.3.0:](https://pypi.org/project/django-social-share/) Used to allow users to share blog posts to their social media accounts.
 
 ### Software and Web Applications Used
@@ -381,7 +399,17 @@ Messages are  displayed to the user as feedback when certain actions are complet
 
 #### W3C Markup Validator
 
+[W3C HTML Validator](https://validator.w3.org/)
+
+Screenshot of W3C Validator test, all pages passed
+
 #### W3C CSS Validator
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+Screenshot of W3C Validator test, all pages passed
+
+![Dolce Vita Venice Blog Website](assets/images/readme-images/html.png "Dolce Vita Blog wesbite validator test")
 
 #### JSHint
 
@@ -403,6 +431,111 @@ Coverage test result:
 
 ## Deployment
 
+To access this project in GitHub;
+
+1. Firstly Log into [Github](https://github.com/).
+
+2. Select repository [estii20/dolce_vita_blog
+](https://github.com/estii20/dolce_vita_blog).
+
+1. Select settings from menu.
+
+2. Select Pages from left menu bar.
+
+3. Scroll and select Master branch from the drop down menu to deploy the website.
+
+4. Retrieve the automatically generated link from the GitHub pages section.
+
+__Running the project locally;__
+
+1. To create a clone of this project follow the instructions below;
+
+2. Create a GitPod account [Gitpod](https://gitpod.io/login/).
+
+3. Open the Chrome browser.
+
+4. Click to the top of the Chrome navigation bar and enable the extension Gitpod Browser Extension for Chrome.
+
+5. Link it.
+
+6. Restart the browser when prompted to do so.
+
+7. Log into GitPod with your account username and password.
+
+8. Select the project in GitHub repositories.
+
+9. Click on the green “Gitpod” button to the top right of the page.
+
+10. A new gitpod workspace opens.
+
+11. It is now possible to work locally on the project.
+
+To make updates, it is necessary to commit with commit-m and push with git push so that the updates are pushed to Github.
+
+Cloning the project will link the changes to the project repo and will be sent for approval.
+
+Forking the project will create a new repo and the code will belong to the user. Any changes made will notify the user and will give them the option to pull this new code to their repo.
+
+Changes pushed to the main branch will automatically update on the site.
+
 ## Credits
 
+__Content__
+
+Content information researched at:
+[Venice Travel Tips](https://devourtours.com/blog/visit-italy/venice-travel-tips/) and 
+[Hotel Blog Post Ideas](https://hotelblogpostideas.com/)
+
+[Quote](https://amindfultravellerblog.wordpress.com/2018/05/06/5-italian-phrases/#:~:text=Chi%20viaggia%20vive%20due%20volte,Those%20who%20travel%20live%20twice!)
+
+[Blog name generato](https://www.brandcrowd.com/business-name-generator?code=25OFFSEM&gclid=CjwKCAjw69moBhBgEiwAUFCx2ARv8JJSpPUvebSc7X7321mn9VZpFilr4s2KJTCrzHoEyGUWFXvyHRoCbsEQAvD_BwE)
+
+[Blog Post Content Chat GPT](https://chat.openai.com/auth/login)
+
+[Ordinarycoders.com - Bootstrap Footers](https://ordinarycoders.com/blog/article/bootstrap-footers)
+
+[Forum djangoproject.com - URL not found](https://forum.djangoproject.com/t/url-not-found/4588/3)
+
+[Stack Overflow - Context Processors to show categories](https://stackoverflow.com/questions/72977293/how-to-show-list-of-categories-in-navbar-using-django-framework)
+
+[Real Python - Category View](https://realpython.com/build-a-blog-from-scratch-django/)
+
+[Docs - djangoproject.com - Using success messages](https://docs.djangoproject.com/en/3.2/ref/contrib/messages/#using-messages-in-views-and-templates)
+
+[legionscript.medium.com - Add, edit and delete posts and comments](https://legionscript.medium.com/building-a-social-media-site-with-python-and-django-part-4-edit-delete-posts-add-comments-8e6ca1ef0441)
+
+[Django Testing for Beginners, Alice Campkin](https://alicecampkin.medium.com/django-testing-for-beginners-146bd285a178)
+
+[learndjango.com - Django Testing Tutorial](https://learndjango.com/tutorials/django-testing-tutorial )
+
+[medium.com - Class Based Views & CRUD](https://medium.com/jungletronics/a-django-blog-in-vs-code-3b6fc8eb19aa)
+
+[finxter.com - Add Read Time to a Blog](https://blog.finxter.com/how-i-made-a-django-blog-audio-versions-of-my-blog-articles-auto-gen/)
+
+[freecodecamp.org - CSS Shadow Effect](https://www.freecodecamp.org/news/how-to-create-beautiful-box-shadows-in-html-and-css/)
+
+[studygyaan.com - Social Share Button](https://studygyaan.com/django/adding-a-social-share-button-to-your-django-website)
+
+[Code Institute Template and Walkthrough Project - I think therefore I Blog](https://learn.codeinstitute.net/) - provided the project code for blog site extension and customisation.
+
+__Media__
+
+[Images](https://unsplash.com/)
+- Hero Image 1 - Alberto Caliman on Unsplash
+- Hero Image 2 - Cristina Gottardi on Unsplash
+- Hero Image 3 - Andrea Cairone on Unsplash
+- Default Featured Image -
+- Image Blog Post 1 -
+- Image Blog Post 2 -
+- Image Blog Post 3 -
+- Image Blog Post 4 -
+- Image Blog Post 5 -
+- Image Blog Post 6 -
+
 ### Acknowledgements
+
+Mentor - Brian Macharia, for help, feedback and always spending that bit extra time to explain things to me. Thanks so much!
+
+Support of Code Institute Team
+
+[Code Institute Slack Portfolio Project 4](code-institute-room.slack.com)
