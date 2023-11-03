@@ -120,8 +120,7 @@ class TestModels(TestCase):
         """
         response = self.client.get(reverse('about'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'base.html')
-        self.assertTemplateUsed(response, 'about.html')
+        self.assertTemplateUsed(response, 'base.html', 'about.html')
 
     def test_get_view_category(self):
         """
@@ -130,5 +129,4 @@ class TestModels(TestCase):
         response = self.client.get(
             reverse('category', args=[self.category.name]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'base.html')
-        self.assertTemplateUsed(response, 'category.html')
+        self.assertTemplateUsed(response, 'base.html', 'category.html')
