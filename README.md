@@ -2,9 +2,9 @@
 
 Venice is a magical city with 118 islands, 400 bridges and 170 canals. However, the fact is that such unique beauty attracts millions of tourists all rushing their way between St Mark’s Square and the Rialto, trying to get that perfect canal selfie and best value glass-blown souvenir. It’s hungry and thirsty work.
 
-This blog aims to take the beauty of Venice and combine it with the flavours of Venice, so that their time in Venice is ecpperienced the Italian way with good food and drink. Or alternatively to just learn about Venice's food and drink culture.
+This blog aims to take the beauty of Venice and combine it with the flavours of Venice, so that blog posts reflect the Italian ethos of good food and drink. Blog users can interact with the content by adding comments or posts. Or alternatively just read about Venice's food and drink culture.
 
-This blog is made for site users that are on a short visit to Venice. Time is valuable so they want to get to know about good food  at a reasonable price. If the site user is a full time expat they can read about the latest food and drink news happening in the city. The site user can also give back, by leaving comments of their real life experiences based on blog posts. They can also add their own incredible food and drink finds. This blog is made as a way to to provide users practical tips and interesting information.
+This blog is made for site users that may be interested in a visit to Venice. Time is valuable during a break away, site users can get to know about good food and drink in Venice. Also if the site user is a full time expat they can read about the latest food and drink news happening in the city. The site user can also give back, by leaving comments of their real life experiences based on blog posts. They can also add their own incredible food and drink finds. This blog is made as a way to to provide users practical tips and interesting information.
 
 ## Portfolio Project 4
 
@@ -24,7 +24,7 @@ P4 Project for the Code Institute
   - [UX Design](#ux-design)
     - [User stories](#user-stories)
     - [Data Model](#data-model)
-    - [Site map](#site-map)
+    - [Site plan](#site-plan)
     - [Design](#design)
   - [Features](#features)
     - [Future Features](#future-features)
@@ -43,7 +43,6 @@ P4 Project for the Code Institute
       - [Lighthouse](#lighthouse)
       - [Django testing tools](#django-testing-tools)
     - [User Stories testing](#user-stories-testing)
-    - [User Stories testing](#user-stories-testing-1)
     - [Further Testing](#further-testing)
     - [Solved bugs](#solved-bugs)
     - [Unresolved bugs](#unresolved-bugs)
@@ -144,7 +143,17 @@ For more information: [Kanban Board - User Stories](https://github.com/users/est
 
 ### Data Model
 
-### Site map
+This project is hosted on Heroku and the database used is Heroku PostgreSQL. Cloudinary is used to store all blog images.
+
+Entity Relationship Diagram - Post, Comment, Category, Django admin login.
+
+![Site data model](documentation/models_2.png "Data Model")
+
+### Site plan
+
+Structure of the site made in lucid chart.
+
+![Site plan structure](documentation/flow_chart_3.png "Site plan structure")
 
 ### Design
 
@@ -152,13 +161,41 @@ __Skeleton__
 
 Webpage and mobile version made using [Balsamiq](https://balsamiq.cloud/skgv95c/pk5rjyb).
 
-![Balsamiq design of index.html](assets/images/readme-images/index.png "Balsamiq Design for index.html")
+Login Page
+
+![Balsamiq design of login](documentation/wireframe_4.png "Balsamiq Design for login")
+
+Homepage
+
+![Balsamiq design of index.html](documentation/wireframe_3.png "Balsamiq Design for index.html")
+
+Post Detail page
+
+![Balsamiq design of post_detail.html](documentation/wireframe_12.png "Balsamiq Design for post_detail.html")
+
+Mobile version
+
+Login page
+
+![Balsamiq design of login](documentation/wireframe_9.png "Balsamiq Design for login")
+
+Homepage
+
+![Balsamiq design of login](documentation/wireframe_8.png "Balsamiq Design for index.html")
+
+Post Detail page
+
+![Balsamiq design of post_detail.html](documentation/wireframe_10.png "Balsamiq Design for post_detail.html")
 
 __Surface__
 
 To create a clear visual guide to the site user.
 
 __Color Palette__
+
+To create a cohesive site look, using the colors from the hero images to reflect throughout the site.
+
+![color Palette](documentation/color_palette.png "Image of colors")
 
 - Pagination color orange `# E9B824`, `rgb(233, 184, 36)`
 - Pagination color bright orange `# EE9322`, `rgb(238, 147, 34)`
@@ -307,21 +344,51 @@ Features dependent on user status:
 
 __Add Post page__
 
-- Header with Logo and Navigation Links
-- 
-- 
-- 
-- 
-- Author Bio - if added.
-- Footer with links to the Social Media platforms, About page, Categories and Contact Information.
+This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. On the Add post page, the user will be able to share their food and drink experience and add an image to their post. The form uses the SummernoteWidget for ease of editing and writing.
+
+![Add Post](documentation/features-addpost.jpg)
+
+The following fields are required to submit a post:
+
+- Title - required field.
+- Category - a dropdown list of categories available to select. Catgory options quite broad so that all posts have a category that would suit their post.
+- Featured Image - not a required field as a placeholder image will feature if one not added. The default image is of a restaurant table overlooking Venice at night.
+- Blog Content - SummernoteWidget allows the user will be add their story/experience of food and drink related posts about Venice. The user can add other images, fonts, and word document features to really individualise their post content.
+- Author Bio - not required field. SummernoteWidget allows the user to add their author bio and any images they wish to upload with full word functionailty.
+
+When all the required fields are completed and the user clicks on submit, their post will be automatically added to the list of posts and the user is redirected to their blog post.
 
 __Update Post page__
 
+The post author can update their blog post using the Post edit page, which can easily be accessed by clicking on the eidt button at the bottom of the post_detail.html page. The post author will have full control over their posts and can easily make changes or correct any typos in their post after it’s been published.
+
+The post edit page has all the fields pre-populated, so that the user can easily amend the post.
+
+![Update Post](documentation/features-updatepost.jpg)
+
+Once the edit post form is submitted, the blog post will immediately be updated and the user can view the post.
+
 __Delete Post page__
+
+- User is the post author:
+The post author will have full CRUD functionality over their posts. They can click on the delete post button and then be directed to the post_delete.html page.
+Delete this post? - The user can confirm to delete their post.
 
 __Update Comment page__
 
-__Delete Post page__
+The comment author will be able to edit their comment using the comment_edit.html page, which can easily be accessed by clicking on the update button of their comment. The comment author will have full control over their comments and can easily make changes or correct any mistakes in their comment after it’s been published.
+
+The comment edit form has the comment pre-populated so that the author can easily amend their comment.
+
+![Update Comment](documentation/features-updatecomment.jpg)
+
+Once the comment is finalised and submitted, the comment will immediately be updated.
+
+__Delete Comment page__
+
+- User is the comment author:
+The post author will have full CRUD functionality over their comments. They can click on the delete comment button and then be directed to the comment_delete.html page.
+Delete this comment? - The user can confirm to delete their comment.
 
 __Login page__
 
@@ -362,9 +429,22 @@ The Logout page can be accessed in the navbar link when a user is logged in. Whe
 
 __About page__
 
+A brief description of the blog and what it is about. The page invites the user to either register or login. Also they are encouraged to get in touch if they want further information.
+
 __Category page__
 
-__Admin page__
+Post list by category - This page shows a list of the most recent blog posts by date created and by category. The title of the category page reflects that the blog posts are all from the same category. The user can select the full blog post by clicking on the link to read more.
+
+Bootsrap card layout. CSS style added to reflect the look of the blog site.
+
+- Category Title and link
+- Blog Title
+- Featured Image
+- Excerpt
+- Read more link
+- Card footer with date created, number of likes and readtime of post
+
+__Dajango Admin page__
 
 To manage the blog content, a superuser account was created. A superuser can administer the site. The Admin page is accessed by logging in to the /admin URL with the superuser account username and password.
 From the admin panel, the superuser will be able to delete and approve a specific post, comment or user. This functionality is necessary to maintain the blog and remove unwanted content. Also, a superuser can create post-drafts that can be published at a later time.
@@ -433,6 +513,20 @@ __Codeanywhere__
 
 ### Software and Web Applications Used
 
+- [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
+- [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
+- [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report.
+- [Font Awesome:](https://fontawesome.com/) Used throughout the site to add icons for UX purposes, provided the logo for the site.
+- [Codeanywhere:](https://codeanywhere.com/) Used to commit to Git and Push to GitHub.
+- [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
+- [Google Fonts:](https://fonts.google.com/) To import font family used throughout the site.
+- [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
+- [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
+- [HTML Validator:](https://validator.w3.org/) HTML validation.
+- [JSHint:](https://jshint.com/) JavaScript validation.
+- [Lucidchart:](https://www.lucidchart.com/pages/) Used to create site project plan.
+- [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) CSS validation.
+
 ## Testing
 
 ### Browser Testing
@@ -464,8 +558,6 @@ Screenshot of W3C Validator test, all pages passed
 #### Django testing tools
 
 Coverage test result:
-
-### User Stories testing
 
 ### User Stories testing
 
@@ -650,7 +742,6 @@ To further ensure this application is working correctly and functions as expecte
   - Testing:
         - The site user can see their username at the top-right of the navbar when they are logged-in.
 
-
 ### Further Testing
 
 ### Solved bugs
@@ -663,8 +754,7 @@ To access this project in GitHub;
 
 1. Firstly Log into [Github](https://github.com/).
 
-2. Select repository [estii20/dolce_vita_blog
-](https://github.com/estii20/dolce_vita_blog).
+2. Select repository [estii20/dolce_vita_blog](https://github.com/estii20/dolce_vita_blog).
 
 1. Select settings from menu.
 
@@ -728,7 +818,7 @@ Content information researched at:
 
 [Quote](https://amindfultravellerblog.wordpress.com/2018/05/06/5-italian-phrases/#:~:text=Chi%20viaggia%20vive%20due%20volte,Those%20who%20travel%20live%20twice!)
 
-[Blog name generato](https://www.brandcrowd.com/business-name-generator?code=25OFFSEM&gclid=CjwKCAjw69moBhBgEiwAUFCx2ARv8JJSpPUvebSc7X7321mn9VZpFilr4s2KJTCrzHoEyGUWFXvyHRoCbsEQAvD_BwE)
+[Blog name generator](https://www.brandcrowd.com/business-name-generator?code=25OFFSEM&gclid=CjwKCAjw69moBhBgEiwAUFCx2ARv8JJSpPUvebSc7X7321mn9VZpFilr4s2KJTCrzHoEyGUWFXvyHRoCbsEQAvD_BwE)
 
 [Blog Post Content Chat GPT](https://chat.openai.com/auth/login)
 
