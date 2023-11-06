@@ -43,6 +43,7 @@ P4 Project for the Code Institute
       - [Lighthouse](#lighthouse)
       - [Django testing tools](#django-testing-tools)
     - [User Stories testing](#user-stories-testing)
+    - [User Stories testing](#user-stories-testing-1)
     - [Further Testing](#further-testing)
     - [Solved bugs](#solved-bugs)
     - [Unresolved bugs](#unresolved-bugs)
@@ -114,33 +115,32 @@ For more information: [Kanban Board - User Stories](https://github.com/users/est
 | User Story | Title | Must Have | Should Have | Could Have |
 | --- | --- | --- | --- | --- |
 | US1. | As a Site User I can click on a post so that I can read the full text. | x | | |
-| US2. | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular or viral. | x | | |
+| US2. | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular. | x | | |
 | US3. | As a Site User I can view a list of posts so that I can select one to read. | x | | |
-| US4. | As a Site User I can see a list of posts so I can choose which blog post to view. | x | | |
-| US5. | As a Site Admin I can create draft posts so that I can finish writing the content later. | x | | |
-| US6. | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments. | x | | |
-| US7. | As a Site Admin I can create, read, update and delete posts so that I can manage my blog content. | x | | |
-| US8. | As a Site User / Admin I can view comments on an individual post so that I can read the conversation. | x | | |
-| US9. | As a Site User I can register an account so that I can comment and like. | x | | |
-| US10. | As a Site User I can leave comments on a post so that I can be involved in the conversation. | x | | |
-| US11. | As a Site User I can edit a post so that I can update my blog post. |  | x| |
-| US12. | As a Site User I can add a post so that I can engage with the blog. |  | x | |
-| US13. | As a Site User I can delete a post so that I can remove invalid blog posts. |  | x | |
-| US14. | As a Site User I want to share posts to my social media accounts so that I can repost posts on other sites. |  | x | |
-| US15. | As a Site User I can see and choose a category of blog post so that I can easily find relevant posts. |  | x | |
-| US16. | As a Site User I can see the author bio of a blog post so that I can read about their background information. |  | x | |
-| US17. | As a Site User I want to be able to delete a comment so that I can remove comments from posts. |  | x | |
-| US18. | As a Site User I want to be able to edit a comment so that I can amend typos from comments. |  | x | |
-| US19. | As a Site Admin I want to be able to display an about page so that the user can know who/what the blog is for. | x | | |
-| US20. | As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site. | | | x  |
-| US21. | As a Site User I want to be able to search for posts so that I can find posts that interest me. |  | | x |
-| US22. | As a Site User I want to see success messages so that I know when an action has been taken. | x | | |
-| US23. | As a Site User / Admin I want to show the read time of a post so that visitors can click on posts that they have time to read. |  | x | |
-| US24. | As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read. | | | x |
-| US25. | As a Site User / Admin I want to be able to contact the site owner so that it is possible to offer feedback and ask for information. | x | | |
-| US26. | As a Site User/ Admin I want to be able to view posts with the most recent post featured first so that it is possible to get the latest blog post. | x | | |
-| US27. | As a Site User / Admin I want to be able to see loggedin user name so that I know when I am logged into the site. |  | x | |
-| US28. | As a Site User I want to be able to search for posts so that I can find posts by keywords. | | | x |
+| US4. | As a Site Admin I can create draft posts so that I can finish writing the content later. | x | | |
+| US5. | As a Site Admin I can approve or disapprove comments so that I can filter out unacceptable comments. | x | | |
+| US6. | As a Site Admin I can create, read, update and delete posts so that I can manage my blog content. | x | | |
+| US7. | As a Site User / Admin I can view comments on an individual post so that I can read the conversation. | x | | |
+| US8. | As a Site User I can register an account so that I can comment and like. | x | | |
+| US9. | As a Site User I can leave comments on a post so that I can be involved in the conversation. | x | | |
+| US10. | As a Site User I can edit a post so that I can update my blog post. |  | x| |
+| US11. | As a Site User I can add a post so that I can engage with the blog. |  | x | |
+| US12. | As a Site User I can delete a post so that I can remove invalid blog posts. |  | x | |
+| US13. | As a Site User I want to share posts to my social media accounts so that I can repost posts on other sites. |  | x | |
+| US14. | As a Site User I can see and choose a category of blog post so that I can easily find relevant posts. |  | x | |
+| US15. | As a Site User I can see the author bio of a blog post so that I can read about their background information. |  | x | |
+| US16. | As a Site User I want to be able to delete a comment so that I can remove comments from posts. |  | x | |
+| US17. | As a Site User I want to be able to edit a comment so that I can amend typos from comments. |  | x | |
+| US18. | As a Site Admin I want to be able to display an about page so that the user can know who/what the blog is for/about | x | | |
+| US19. | As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site. | | | x  |
+| US20. | As a Site User I want to be able to search for posts so that I can find posts that interest me. |  | | x |
+| US21. | As a Site User I want to see success messages so that I know when an action has been taken. | x | | |
+| US22. | As a Site User / Admin I want to show the read time of a post so that visitors can click on posts that they have time to read. |  | x | |
+| US23. | As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read. | | | x |
+| US24. | As a Site User / Admin I want to be able to contact the site owner so that it is possible to offer feedback and ask for information. | x | | |
+| US25. | As a Site User/ Admin I want to be able to view posts with the most recent post featured first so that it is possible to get the latest blog post. | x | | |
+| US26. | As a Site User / Admin I want to be able to see logged-in user name so that I know when I am logged into the site. |  | x | |
+| US27. | As a Site User I want to be able to save my user details such as my author bio so that I can add it to a post without rewriting it each post. | | | x |
 
 ### Data Model
 
@@ -158,16 +158,16 @@ __Surface__
 
 To create a clear visual guide to the site user.
 
-__Color Pallette__
+__Color Palette__
 
-`# 219C90`
-`# E9B824`
-`# EE9322`
-`# D83F31`
-`rgb(33, 156, 144)`
-`rgb(233, 184, 36)`
-`rgb(238, 147, 34)`
-`rgb(216, 63, 49)`
+- Pagination color orange `# E9B824`, `rgb(233, 184, 36)`
+- Pagination color bright orange `# EE9322`, `rgb(238, 147, 34)`
+- Title, Blog card shadow, button color deep red `# D83F31`, `rgb(216, 63, 49)`
+- Body background color white `#FFFFFF`
+- Body text color charcoal `3F3F3F`
+- Comment form and comments orange with opcacity `rgba(255, 77, 0, 0.1)`
+- Footer background color dark gray with opactiy `rgba(39, 33, 33. 0.6)`
+- Social share buttons blue Facebook `#3B5998`, green WhatsApp `#008000`, black for X (Twitter) `#000000`
 
 [Colorspace](https://mycolor.space/) used to check the palette works together.
 
@@ -381,7 +381,10 @@ Messages are  displayed to the user as feedback when certain actions are complet
 - US24. Title: As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read.
   - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
   
-- US28. Title: As a Site User I want to be able to search for posts so that I can find posts by keywords.
+- US20. Title: As a Site User I want to be able to search for posts so that I can find posts that interest me.
+  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
+
+- US27. Title: As a Site User I want to be able to save my user details such as my author bio so that I can add it to a post without rewriting it each post.
   - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
 
 ## Technologies Used
@@ -425,7 +428,7 @@ __Codeanywhere__
 - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
 - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
 - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
-- [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
+- [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customising new blog content and to add images.
 - [django-social-share 2.3.0:](https://pypi.org/project/django-social-share/) Used to allow users to share blog posts to their social media accounts.
 
 ### Software and Web Applications Used
@@ -463,6 +466,190 @@ Screenshot of W3C Validator test, all pages passed
 Coverage test result:
 
 ### User Stories testing
+
+### User Stories testing
+
+To further ensure this application is working correctly and functions as expected, manual testing was also performed. User Stories were tested successfully to verify that all acceptance criteria was met. 
+
+- US1: As a Site User I can click on a post so that I can read the full text.
+
+  - Acceptance Criteria:
+        - Site User can easily click on a blog post and be directed to the full blog post in the post_detail.html page.
+
+  - Testing:
+        - When clicking on the Blog Title, or Blog Excerpt Read more link it directs the user to the full blog post.
+
+- US2: As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular.
+
+  - Acceptance Criteria:
+        - The likes feature should fill as a solid thumbs up when clicked and show the number of likes next to it. This should be seen at the bottom of the post detail page, and also on the blog card in index.html so that site user and admin can see instantly if it is an interesting post.
+
+  - Testing:
+        - When viewing the homepage the site user can see at the bottom of the blog card the number of likes for the post and also at the bottom of the full blog post.
+
+- US3: As a Site User I can view a list of posts so that I can select one to read.
+
+  - Acceptance Criteria:
+        - The most recent six posts should be presented to the site user on the homepage, page pagination is available to explore the full list of posts.
+
+  - Testing:
+        - When viewing the homepage the site user can view up to six posts per page so that its possible to choose a blog post to view in full.
+
+- US4: As a Site Admin I can create draft posts so that I can finish writing the content later.
+
+  - Acceptance Criteria:
+        - The admin interface for the blog project should save the blog post in draft form which can then be reviewed at a later date.
+
+  - Testing:
+        - In the site admin panel it is possible write, save and later review the blog post, so that it can be published when complete.
+
+- US5: As a Site Admin I can approve or disapprove comments so that I can filter out unacceptable comments.
+
+  - Acceptance Criteria:
+        - The admin interface for the blog project it should be possible to read and then publish a suitable comment so that it can be seen on the blog site in connection with the blog post.
+
+  - Testing:
+        - In the site admin a list of comments can be viewed and chosen to be published if suitable.
+
+- US6: As a Site Admin I can create, read, update and delete posts so that I can manage my blog content.
+
+  - Acceptance Criteria:
+        - The admin interface for the blog project it should be possible to create blog posts, save blog posts in draft form, Edit blog posts and delete blog posts.
+
+  - Testing:
+        - In the site admin interface, the site admin can create posts, save drafts of posts, edit posts and delete posts.
+
+- US7: As a Site User / Admin I can view comments on an individual post so that I can read the conversation.
+
+  - Acceptance Criteria:
+        - The blog site should show the comments underneath the blog post, the most recent comment is first.
+
+  - Testing:
+        - The blog detail page shows the approved comments underneath the blog post with the most recent comment at the top.
+
+- US8: As a Site User I can register an account so that I can comment and like.
+
+  - Acceptance Criteria:
+        - The blog site should offer the site user the option to complete a registeration form, to have full access to the blog like and comment features.
+
+  - Testing:
+        - The homepage navbar has a register link when users are not logged-in which allows new users the option to register their name and password. Once completed the user can access all the like and comment features of the blog. There is also a register link in the footer if a user is not logged in.
+
+- US9: As a Site User I can leave comments on a post so that I can be involved in the conversation.
+
+  - Acceptance Criteria:
+        - Once a user is logged in it should be possible to complete a comment form below the blog post.
+
+  - Testing:
+        - The blog post page shows a comment form once the user is logged in, so that it is possible to add a comment to be reviewed and published by the site admin.
+
+- US10: As a Site User I can edit a post so that I can update my blog post.
+
+  - Acceptance Criteria:
+        - Once a user is logged in and authenticated as the post author, it should be possible to edit their blog post.
+
+  - Testing:
+        - The blog post page shows an edit button if the user is logged-in and authenticated as the post author. Once the edit button is clicked it takes the user to post_edit.html page where the post can be seen and amended and finally saved and reposted to the blog site.
+
+- US11: As a Site User I can add a post so that I can engage with the blog.
+
+  - Acceptance Criteria:
+        - The navbar should have the option to add a post if a user is registered and logged-in. Once a user is logged-in, it should be possible to add a blog post.
+
+  - Testing:
+        - The navbar has a link to add a post once the user is registered and logged in. The add_post.html form uses the sumernote widget which mirrors the form on the admin site. The user can complete the required fields, Blog Title, Excerpt, Blog Content. There are also the options to add a featured image and author biography, these are not required fields.
+
+- US12: As a Site User I can delete a post so that I can remove invalid blog posts.
+
+  - Acceptance Criteria:
+        - The blog post should have a delete button at the bottom of the post if the user is logged-in and the blog author. When selected it should take the user to the post_delete.html page so that they can confirm to delete the post.
+        - The blog post is then instantly deleted.
+
+  - Testing:
+        - At the bottom of the blog post is a delete button so that a authenticated user and author can select delete post. Once selected the user is taken to post_delete.html and it is possible to confirm that the post should be deleted. The blog post is then deleted.
+
+- US14: As a Site User I can see and choose a category of blog post so that I can easily find relevant posts.
+
+  - Acceptance Criteria:
+        - The category of the post should be visible on the homepage so that the user can quickly identify what the post is about. The category title should link to other posts so that the user can see all the categories posts as a list.
+        - The site navigation should offer users the chance to select a list of posts in a certain category so that they can find posts that interest them.
+
+  - Testing:
+        - The category for each post is shown above the blog title on the homepage. When the link is clicked which takes the site user all posts in that category.
+        - The footer has a list of all categories when clicked it takes the site user to all the posts in that category.
+
+- US15: As a Site User I can see the author bio of a blog post so that I can read about their background information.
+
+  - Acceptance Criteria:
+        - The option to the site user to add an author biography underneath their blog post. If added it should appear underneath the blog post in the post_detail.html page.
+
+  - Testing:
+        - The site user can add an author biography when adding a post and updating a post. It is not a required field. If the author has chosen to complete the author biography then it is seen at the bottom of the blog post.
+
+- US16: As a Site User I want to be able to delete a comment so that I can remove comments from posts.
+
+  - Acceptance Criteria:
+        - The option to the site user to delete their comment if they are logged-in and the comment author. Once selected the user should be directed to the comment_delete.html page to confirm that this is the comment they wish to delete.
+
+  - Testing:
+        - The site user can add see a delete comment button if they are logged-in and the comment author. Once clicked the user is taken to the comment_delete.html page to comfirm that the comment is the one to delete. Once clicked to confirm the comment is deleted.
+
+- US17: As a Site User I want to be able to edit a comment so that I can amend typos from comments.
+
+  - Acceptance Criteria:
+        - The option to the site user to edit their comment if they are logged-in and the comment author. Once selected the user should be directed to the comment_edit.html page to confirm that this is the comment they wish to edit. The user should be able to edit the comment and submit.
+
+  - Testing:
+        - The site user can add see an edit comment button if they are logged-in and the comment author. Once clicked the user is taken to the comment_edit.html page to comfirm that the comment is the one to dit. Once edited the comment can be saved and republished.
+
+- US18: As a Site Admin I want to be able to display an about page so that the user can know who/what the blog is for/about.
+
+  - Acceptance Criteria:
+        - There should be a link to an about page which gives some information to the user what the blog is about to better understand if the site is useful to the user.
+
+  - Testing:
+        - The site user can see an about link in the footer which when clicked takes the user to the about page. The about page gives the user information about the blog and who/what the blog is about. The about page gives the user the key reasons for the blog and what the intention of the blog is.
+
+- US21: As a Site User I want to see success messages so that I know when an action has been taken.
+
+  - Acceptance Criteria:
+        - User action should provide feedback when they are logged-in, when they are logged-out, when a post is added/edited/deleted, when a comment is added/edited/deleted.
+
+  - Testing:
+        - The site user can see a success message when they log-in, log-out and add/delete/edit a comment/post, so that they know an action has happened successfully.
+
+- US22: As a Site User / Admin I want to show the read time of a post so that visitors can click on posts that they have time to read.
+
+  - Acceptance Criteria:
+        - The site user should see a read time for a post so make a descision if they have time to read it in full.
+
+  - Testing:
+        - The site user can see a the read time for a post on the blog card in the homepage and also underneath the blog post title in the post_detail.html page.
+
+- US24: As a Site User / Admin I want to be able to contact the site owner so that it is possible to offer feedback and ask for information.
+
+  - Acceptance Criteria:
+        - The site user should see contact information so that they know how to contact the site owner.
+
+  - Testing:
+        - The site user can see the blog site contact information in the footer so that they can email, phone or write to the blog site owner.
+
+- US25: As a Site User/ Admin I want to be able to view posts with the most recent post featured first so that it is possible to get the latest blog post.
+
+  - Acceptance Criteria:
+        - The site user should see a list of posts in the homepage that have been created most recently.
+
+  - Testing:
+        - The site user can see a list of blog posts in the homepage, the most recent blog is listed first.
+
+- US26: As a Site User / Admin I want to be able to see logged-in user name so that I know when I am logged into the site.
+
+  - Acceptance Criteria:
+        - The site user should see their username on the navbar if they are logged-in.
+
+  - Testing:
+        - The site user can see their username at the top-right of the navbar when they are logged-in.
+
 
 ### Further Testing
 
