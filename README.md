@@ -513,7 +513,7 @@ __Codeanywhere__
 
 ### Software and Web Applications Used
 
-- [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
+- [Am I Responsive:](http://ami.responsivedesign.is) Check the responsiveness.
 - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
 - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report.
 - [Font Awesome:](https://fontawesome.com/) Used throughout the site to add icons for UX purposes, provided the logo for the site.
@@ -526,6 +526,7 @@ __Codeanywhere__
 - [JSHint:](https://jshint.com/) JavaScript validation.
 - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create site project plan.
 - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) CSS validation.
+- [Python Checker:](https://www.pythonchecker.com/) Python checker.
 
 ## Testing
 
