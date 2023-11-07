@@ -542,17 +542,83 @@ __Codeanywhere__
 
 Screenshot of W3C Validator test, all pages passed
 
+- index.html
+
+![Dolce Vita Venice Blog index.html](documentation/testing/index_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- post_detail.html
+  
+![Dolce Vita Venice Blog post_detail.html](documentation/testing/post_detail_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- category.html
+
+![Dolce Vita Venice Blog category.html](documentation/testing/category_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- add_post.html
+
+![Dolce Vita Venice Blog add_post.html](documentation/testing/add_post_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- comment_delete.html
+
+![Dolce Vita Venice Blog comment_delete.html](documentation/testing/comment_delete_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- comment_edit.html
+
+![Dolce Vita Venice Blog comment_edit.html](documentation/testing/comment_edit_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- about.html
+
+![Dolce Vita Venice Blog about.html](documentation/testing/about_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- post_delete.html
+
+![Dolce Vita Venice Blog post_delete.html](documentation/testing/post_delete_W3C_Results.png "Dolce Vita Blog website validator test")
+
+-post_edit.html
+
+![Dolce Vita Venice Blog post_edit.html](documentation/testing/post_edit_W3C_Results.png "Dolce Vita Blog website validator test")
+
 #### W3C CSS Validator
 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-Screenshot of W3C Validator test, all pages passed
+Screenshot of W3C Validator test, style.css passed
 
-![Dolce Vita Venice Blog Website](assets/images/readme-images/html.png "Dolce Vita Blog wesbite validator test")
+![Dolce Vita Venice Blog Website](documentation/testing/W3C_css_results.png "Dolce Vita Blog website validator test")
 
 #### JSHint
 
+- JSHint results
+  
+![Dolce Vita Venice Blog Website](documentation/testing/JSHint.png "Dolce Vita Blog website validator test")
+
 #### PEP8 Online
+
+- Python checker PEP8
+
+    - models.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/models_PEP8_test.png "Dolce Vita Blog website validator test")
+
+    - views.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/views_PEP8_test.png "Dolce Vita Blog website validator test")
+
+    - forms.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/forms_PEP8_test.png "Dolce Vita Blog website validator test")
+
+    - test_models.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/test_models_PEP8_test.png "Dolce Vita Blog website validator test")
+
+    - test_views.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/test_views_PEP8_test.png "Dolce Vita Blog website validator test")
+
+    - test_forms.py
+
+![Dolce Vita Venice Blog Website](documentation/testing/test_forms_PEP8_test.png "Dolce Vita Blog website validator test")
 
 #### Lighthouse
 
