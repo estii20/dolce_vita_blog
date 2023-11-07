@@ -214,7 +214,7 @@ The fonts chosen reflects the rich and delicious nature of Italian cuisine whils
 
 - Garamond: Garamond is a timeless serif font that offers a sense of tradition.
 - Pacifico: Pacifico is a fun and informal script font used for blog titles or special callouts.
-- Bodoni: Bodoni is a classic serif font which is elegant and sophisticated.
+- EB Garamond: EB Garamond is a classic serif font which is elegant and sophisticated.
 - Sans-serif used as an alternative font.
 
 - Fonts imported from [Google Fonts](https://fonts.google.com/).
@@ -234,11 +234,15 @@ __Homepage__
 - Link to read more which goes to the post_detail.html page.
 - Footer with associated social media links, about page link, categories links and contact information.
 
-![Logo and Navigation Links](assets/images/readme-images/logo.png "Logo and Navigation Links")
-
 __Hero Image__
 
 Bootstrap fully responsive carousel - three rolling images of Venice. Overlay text informs users about what the blog is about.
+
+![Hero](documentation/hero_1.png "hero_image")
+
+![Hero](documentation/hero_2.png "hero_image")
+
+![Hero](documentation/hero_3.png "hero_image")
 
 __Navbar__
 
@@ -256,7 +260,15 @@ Navbar Logo is font awesome icon `fa-solid fa-wine-glass`.
   - Register
   - Signin
 
-__Jumbotron Header__
+![Logo and Navigation Links](documentation/sign_in_navbar_1.png "Logo and Navigation Links")
+
+![Logo and Navigation Links](documentation/sign_in_navbar_2.png "Logo and Navigation Links")
+
+![Logo and Navigation Links](documentation/navbar_1.png "Logo and Navigation Links")
+
+![Logo and Navigation Links](documentation/navbar_2.png "Logo and Navigation Links")
+
+__Jumbotron Header and Blockquote__
 
 Easy to read information about the blog purpose and use. Font awesome icons used to show the main features of the blog.
 
@@ -264,11 +276,11 @@ Easy to read information about the blog purpose and use. Font awesome icons used
 - Drink Venice `fa-solid fa-wine-glass`
 - Share your stories `fa-solid fa-share`
 
-__Blockquote__
-
 Italian quote to give the feel and branding of the site.
 
-__Blog Post Card__
+![jumbotron](documentation/info.png "Jumbotron and Blockquote")
+
+__Blog Card__
 
 Bootsrap card layout. CSS style added to reflect the look of the blog site.
 
@@ -279,13 +291,13 @@ Bootsrap card layout. CSS style added to reflect the look of the blog site.
 - Read more link
 - Card footer with date created, number of likes and readtime of post
 
+![blog card](documentation/blog_card.png "Blog Card")
+
 __Pagination__
 
 Bootstrap pagination with CSS style added to reflect the look of the blog site. Paginate blog posts by six per page.
 
 __Footer__
-
-![Footer with links to the Social Media platforms, Categories and About Page](assets/images/readme-images/footer.png "Footer with links to the Social Media platforms")
 
 About link to about.html so that visitors can know more about the blog site.
 
@@ -304,6 +316,18 @@ Contact information so that users can get in touch with feedback and suggestions
 Copyright of Unsplash.com where images have been used.
 
 Blog purpose as educational only website.
+
+Logged-in/Registered user:
+
+![Footer with links to the Social Media platforms, Categories and About Page](documentation/footer_1.png "Footer with links to the Social Media platforms")
+
+Not logged-in/Registered user:
+
+![Footer with links to the Social Media platforms, Categories and About Page](documentation/footer_not_loggedin.png "Footer with links to the Social Media platforms")
+
+Mobile version:
+
+![Footer with links to the Social Media platforms, Categories and About Page](documentation/footer_2.png "Footer with links to the Social Media platforms")
 
 __Post Detail page__
 
@@ -326,27 +350,52 @@ The following information will be presented to the user:
   - Unclicked `fa-regular fa-thumbs-up`
   - Clicked: `fa-solid fa-thumbs-up`
   - Counts the number of likes
+- Social media share buttons
 - Comments - Edit/Delete comments if user if authenticated and comment author. Order the comments by date ascending.
   - Delete: `fa-solid fa-delete`
   - Update: `fa-regular fa-pen-to-square`
 - Add Comments form - if user is logged-in. Alternatively, a reminder to users to login or register in order to comment.
 - Footer with links to the Social Media platforms, About page, Categories and Contact Information.
 
+![Post Detail](documentation/post_detail_1.png "Blog Post Detail Page")
+
+![Post Detail](documentation/post_detail_2.png "Blog Post Detail Page")
+
+![Post Detail](documentation/share_like.png "Blog Post Detail Page")
+
+![Post Detail](documentation/author_bio.png "Blog Post Detail Page")
+
 Features dependent on user status:
 
 - Comment - The comment form is presented to the user and the user can comment on the post. Once the user clicks on Submit, the comment is automatically approved and added to the list of comments. Automatically approving comments will encourage the user to continue commenting on posts, without any delays.
 
+![Post Detail Comments](documentation/leave_comment.png "Blog Post Detail Page Comments")
+
+![Post Detail Comments](documentation/leave_comment_not_logged_in.png "Blog Post Detail Page Comments")
+
 - Likes - Counts the number of post likes if user is logged-in.
+
+![Post Detail Likes](documentation/like.png "Blog Post Detail Page Likes")
   
 - Edit Post/Delete Post - The post author will have full CRUD functionality. They can update or delete their posts.
 
+![Post Detail Edit and Delete Post](documentation/update_delete_buttons.png "Blog Post Detail Page Edit and Delete Posts")
+
+![Post Detail Edit and Delete Post](documentation/edit_post.png.png "Blog Post Detail Page Edit and Delete Posts")
+
 - Edit Comment/Delete Comment - The comment author will have full CRUD functionality. They can update or delete their comments.
+
+![Post Detail Comments](documentation/posted_comment.png "Blog Post Detail Page Comments")
+
+- Error forbidden message if not authorised to delete/edit comments and/or posts.
+
+![Error forbidden](documentation/error_page_forbidden.png "Blog Post Detail Page Error Forbidden message")
 
 __Add Post page__
 
 This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. On the Add post page, the user will be able to share their food and drink experience and add an image to their post. The form uses the SummernoteWidget for ease of editing and writing.
 
-![Add Post](documentation/features-addpost.jpg)
+![Add Post](documentation/add_post.png "Add Post Page")
 
 The following fields are required to submit a post:
 
@@ -364,7 +413,7 @@ The post author can update their blog post using the Post edit page, which can e
 
 The post edit page has all the fields pre-populated, so that the user can easily amend the post.
 
-![Update Post](documentation/features-updatepost.jpg)
+![Update Post](documentation/edit_post.png "Update Post Page")
 
 Once the edit post form is submitted, the blog post will immediately be updated and the user can view the post.
 
@@ -374,13 +423,15 @@ __Delete Post page__
 The post author will have full CRUD functionality over their posts. They can click on the delete post button and then be directed to the post_delete.html page.
 Delete this post? - The user can confirm to delete their post.
 
+![Delete Post](documentation/delete_post.png "Delete Post Page")
+
 __Update Comment page__
 
 The comment author will be able to edit their comment using the comment_edit.html page, which can easily be accessed by clicking on the update button of their comment. The comment author will have full control over their comments and can easily make changes or correct any mistakes in their comment after it’s been published.
 
 The comment edit form has the comment pre-populated so that the author can easily amend their comment.
 
-![Update Comment](documentation/features-updatecomment.jpg)
+![Update Comment](documentation/edit_comment.png "Update Comment Page")
 
 Once the comment is finalised and submitted, the comment will immediately be updated.
 
@@ -389,6 +440,8 @@ __Delete Comment page__
 - User is the comment author:
 The post author will have full CRUD functionality over their comments. They can click on the delete comment button and then be directed to the comment_delete.html page.
 Delete this comment? - The user can confirm to delete their comment.
+
+![Delete Comment](documentation/delete_comment.png "Delete Comment Page")
 
 __Login page__
 
@@ -403,6 +456,8 @@ The user needs to enter the following information:
 
 - Valid username
 - Correct password
+
+![Login](documentation/login.png "Login Page")
 
 __Register page__
 
@@ -421,19 +476,25 @@ A new account can be easily created. The user needs to provide the following inf
   
 Once all fields are entered correctly, the user clicks on register and new account is automatically created and the user is redirected to the homepage.
 
+![Register](documentation/register.png "Register Page")
+
 __Logout page__
 
 Users enter a correct username with a matching password and clicks on Login, they are logged in and redirected to the homepage.
 
 The Logout page can be accessed in the navbar link when a user is logged in. When the user clicks on Logout, they are directly logged out of their account and redirected to the homepage. If the user chooses to click on Cancel instead, the user will be returned to the previous page visited.
 
+![Logout](documentation/sign_out.png "Logout Page")
+
 __About page__
 
 A brief description of the blog and what it is about. The page invites the user to either register or login. Also they are encouraged to get in touch if they want further information.
 
+![About](documentation/about.png "About Page")
+
 __Category page__
 
-Post list by category - This page shows a list of the most recent blog posts by date created and by category. The title of the category page reflects that the blog posts are all from the same category. The user can select the full blog post by clicking on the link to read more.
+Post list by category - This page shows a list of the most recent blog posts by date created and by category. The title of the category page reflects that the blog posts are all from the same category. The user can select the full blog post by clicking on the link to read more. If there is no posts in a category, the user sees "sorry no posts".
 
 Bootsrap card layout. CSS style added to reflect the look of the blog site.
 
@@ -444,10 +505,29 @@ Bootsrap card layout. CSS style added to reflect the look of the blog site.
 - Read more link
 - Card footer with date created, number of likes and readtime of post
 
-__Dajango Admin page__
+![Category Page](documentation/category_post_list.png "Category Page")
+
+![Category Page](documentation/no_post.png "Category Page")
+
+__Django Admin page__
 
 To manage the blog content, a superuser account was created. A superuser can administer the site. The Admin page is accessed by logging in to the /admin URL with the superuser account username and password.
 From the admin panel, the superuser will be able to delete and approve a specific post, comment or user. This functionality is necessary to maintain the blog and remove unwanted content. Also, a superuser can create post-drafts that can be published at a later time.
+
+Sign-in:
+![Admin Page](documentation/django_signin.png "Admin Page")
+
+Admin:
+![Admin Page](documentation/admin.png "Admin Page")
+
+Publish Post:
+![Admin Page](documentation/admin_publish.png "Admin Page")
+
+Post:
+![Admin Page](documentation/admin_post.png "Admin Page")
+
+Comments:
+![Admin Page](documentation/approve_comments.png "Admin Page")
 
 __Additional Features__
 
@@ -574,9 +654,21 @@ Screenshot of W3C Validator test, all pages passed
 
 ![Dolce Vita Venice Blog post_delete.html](documentation/testing/post_delete_W3C_Results.png "Dolce Vita Blog website validator test")
 
--post_edit.html
+- post_edit.html
 
 ![Dolce Vita Venice Blog post_edit.html](documentation/testing/post_edit_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- register.html
+
+![Dolce Vita Venice Blog post_edit.html](documentation/testing/register_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- signup.html
+
+![Dolce Vita Venice Blog post_edit.html](documentation/testing/sign_up_W3C_Results.png "Dolce Vita Blog website validator test")
+
+- logout.html
+
+![Dolce Vita Venice Blog post_edit.html](documentation/testing/logout_W3C_Results.png "Dolce Vita Blog website validator test")
 
 #### W3C CSS Validator
 
@@ -621,6 +713,10 @@ Screenshot of W3C Validator test, style.css passed
 ![Dolce Vita Venice Blog Website](documentation/testing/test_forms_PEP8_test.png "Dolce Vita Blog website validator test")
 
 #### Lighthouse
+
+The colors and fonts chosen are easy to read and accessible by running it through lighthouse in Chrome developer tools.
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_index.png "Dolce Vita Blog website validator test")
 
 #### Django testing tools
 
