@@ -93,18 +93,18 @@
                     <h4 class="mt-lg-0 mt-sm-3">
                     <a href="{% url 'about' %}" class="about_link">About</a>
                     </h4>
-                    <p class="pr-5 text-white">
+                    <p class="pr-5 text-white-50">
                         Tips, suggestions and practical advice.
                     </p>
-                    <p class="pr-5 text-white">
+                    <p class="pr-5 text-white-50">
                         All things food and drink in Venice.
                     </p>
-                    <p class="pr-5 text-white">
-                        {% if user.is.not_authenticated %}
+                    <p class="pr-5 text-white-50">
+                        {% if not user.is_authenticated %}
                         Join in the conversation and login:
                         <span><a href="{% url 'account_login' %}" class="btn btn-signup btn-edit">Login</a></span>
                     </p>
-                    <p class="pr-5 text-white">
+                    <p class="pr-5 text-white-50">
                         If you don't have an account:
                         <span><a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit">Register</a></span>
                     </p> {% endif %}
@@ -139,17 +139,17 @@
                     <h4 class="mt-lg-0 mt-sm-3">Categories</h4>
                     <ul class="m-0 p-0">
                         <li class="nav-item"> {% for category in categories %} <a href="{% url 'category' category.name %}"
-                                class="nav-link mb-0 text-white">{{ category.name | title }}
+                                class="nav-link mb-0 text-white-50">{{ category.name | title }}
                             </a>{% endfor %} </li>
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <h4 class="mt-lg-0 mt-sm-4">Contact Us</h4>
-                    <p class="mb-0 text-white">Via Giovanni Randaccio, 60, Venezia, Italia</p>
-                    <p class="mb-0 text-white">
+                    <p class="mb-0 text-white-50">Via Giovanni Randaccio, 60, Venezia, Italia</p>
+                    <p class="mb-0 text-white-50">
                         <i class="fa fa-phone mr-3"></i> +39 754-3010
                     </p>
-                    <p class="mb-0 text-white">
-                        <i class="fa fa-envelope-o mr-3"></i> dolce_vita@google.com
+                    <p class="mb-0 text-white-50">
+                        <i class="fa fa-envelope-o mr-3"></i> dolce_vita@gmail.com
                     </p>
                 </div>
             </div>

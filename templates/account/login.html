@@ -1,21 +1,18 @@
 {% extends "base.html" %}
-
 {% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
+{% block title %}{% trans 'Sign In' %}{% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3>{% trans "Sign Up" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the Dolce Vita Venice blog.
+            <p>Welcome back to the Dolce Vita Venice blog.
                 To leave a comment or like a post, please log
                 in. If you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+                first.</p>
         </div>
     </div>
     <div class="row">
@@ -24,9 +21,9 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                 {% endif %}
-                <button class="btn btn-signup btn-submit" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-signup btn-submit" type="submit">{% trans 'Login' %}</button>
             </form>
         </div>
     </div>
