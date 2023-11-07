@@ -31,7 +31,7 @@
                                 </a> {% endif %} <div class="image-container"> {% if "placeholder" in post.featured_image.url %} <img class="card-img-top img-thumbnail rounded"
                                         src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image if table in Venice restaurant">
                                     {% else %} <img class="card-img-top img-thumbnail rounded"
-                                        src=" {{ post.featured_image.url }}"> {% endif %} <div class="blog_author">
+                                        src=" {{ post.featured_image.url }}" alt="Venice food and drink picture"> {% endif %} <div class="blog_author">
                                         <p>
                                             <i class="fa-solid fa-user"></i> {{ post.author }}
                                         </p>
@@ -41,7 +41,6 @@
                                     <p class="post_text">{{ post.excerpt | truncatechars:50 }}</p>
                                     <p class="fst-normal text-end read">Read more...</p>
                                 </a>
-                            </hr>
                                 <footer class="footer fw-bold">{{ post.created_on}} | <i
                                         class="fa-regular fa-clock"></i> {{ post.read_time }} mins | <i
                                         class="fa-regular fa-thumbs-up"></i> {{ post.number_of_likes }}

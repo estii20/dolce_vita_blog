@@ -111,7 +111,7 @@
                                 <div class="image-container">{% if "placeholder" in post.featured_image.url %}
                                     <img class="card-img-top img-thumbnail rounded img-fluid" src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of table at Venice restaurant">
                                     {% else %}
-                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="{{ post.featured_image.url }}">
+                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="{{ post.featured_image.url }}" alt="Image of Venice">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i> {{ post.author | title }}</p>

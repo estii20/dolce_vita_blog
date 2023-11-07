@@ -6,7 +6,7 @@
 }
 
 body {
-    font-style: Garamond, sans-serif;
+    font-family: 'EB Garamond', serif;
     color: #3f3f3f;
     background-color: white;
 }
@@ -40,19 +40,19 @@ body {
 }
 
 .container-wrapper-dark {
-    font-family: garamond, sans-serif;
+    font-family: 'EB Garamond', sans-serif;
     color: #3f3f3f;
     padding: 20px;
     margin: 20px;
 }
 
 .container-wrapper-info {
-    font-family: garamond, sans-serif;
+    font-family: 'EB Garamond', serif;
     color: #3f3f3f;
 }
 
 p {
-    font-family: garamond, sans-serif;
+    font-family: 'EB Garamond', sans-serif;
     color: #3f3f3f;
     text-align: justify;
     font-size: 1.2rem;

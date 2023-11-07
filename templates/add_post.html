@@ -7,12 +7,7 @@
 {% block content %}
 
 
-<!-- Post Title -->
-
-<section>
-    <a href="{% url 'home' %}">
-        <button type="button" class="btn-back btn btn-dark">Back</button>
-    </a>
+<!-- Add Post -->
     <div class="container text-justify">
         <div class="row">
             <div class="col-sm-12">
@@ -22,11 +17,8 @@
                     {{ form | crispy }}
                     <hr>
                     <button type="submit" class="btn btn-signup btn-submit">Submit</button>
+                </form>
+                </div>
             </div>
         </div>
-
-    </div>
-
-</section>
-
 {% endblock content %}

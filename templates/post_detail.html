@@ -15,7 +15,7 @@
                 alt="Image of restaurant table in Venice" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"> 
                 {% else %} 
                 <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
-                width="100%" height="80%"> {% endif %} <p class="container-fluid fs-5 post_text">
+                width="100%" height="80%" alt="Image of food and drink in Venice"> {% endif %} <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe | linebreaks }}
                 </p>
                 <div>
@@ -39,13 +39,12 @@
         <div class="container text-center">
             <div class="col-sm-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end"> {% if request.user == post.author %} 
-                    <button type="button" class="btn btn-warning btn-edit">
-                        <a href="{% url 'post_edit' post.slug %}" class="link-light">
-                            <i class="fa-regular fa-pen-to-square m-1"></i> Update</button></a>
-                        <button type="button" class="btn btn-danger btn-edit">
-                            <a href="{% url 'post_delete' post.slug %}" class="link-light">
-                                <i class="fa-solid fa-delete-left text m-1"></i> Delete</button></a> 
-                                {% endif %} 
+                    <a href="{% url 'post_edit' post.slug %}" button type="button" class="btn btn-warning btn-edit link-light">
+                        <i class="fa-regular fa-pen-to-square m-1"></i> Update</button>
+                    </a>
+                        <a href="{% url 'post_delete' post.slug %}"  button type="button" class="btn btn-danger btn-edit link-light">
+                            <i class="fa-solid fa-delete-left text m-1"></i> Delete</button></a>
+                            {% endif %} 
                 </div>
             </div>
 
@@ -92,7 +91,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Delete commment if authenticated --> 
+                            <!-- Delete comment if authenticated --> 
                             {% if request.username == comment.username %}
                             <span class="text-muted font-weight-normal">Delete your comment?</span>
                             <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
@@ -140,6 +139,8 @@
                     </span> 
                 </div>
     </div>
-    </div> {% endif %}
+    </div>
+    </div>
+    {% endif %}
 
  {% endblock content %}
