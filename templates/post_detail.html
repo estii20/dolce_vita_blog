@@ -10,12 +10,17 @@
         </div>
         <hr>
         <div class="clearfix">
-            <div class="img-thumbnail rounded mx-auto"> {% if "placeholder" in post.featured_image.url %} 
-                <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" 
-                alt="Image of restaurant table in Venice" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"> 
+            <div class="img-thumbnail rounded mx-auto"> 
+                {% if "placeholder" in post.featured_image.url %} 
+                <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg" 
+                alt="Image of restaurant table in Venice" 
+                class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"> 
                 {% else %} 
-                <img src=" {{ post.featured_image.url }}" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
-                width="100%" height="80%" alt="Image of food and drink in Venice"> {% endif %} <p class="container-fluid fs-5 post_text">
+                <img src=" {{ post.featured_image.url }}" 
+                class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid"
+                alt="Image of food and drink in Venice"> 
+                {% endif %} 
+                <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe | linebreaks }}
                 </p>
                 <div>
@@ -57,18 +62,26 @@
 
             <!-- Likes -->
             <div class="container text-center">
-                <div class="col-sm-12">{% if user.is_authenticated %} 
+                <div class="col-sm-12">
+                    {% if user.is_authenticated %} 
                     <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"> 
                         {% csrf_token %} 
                         {% if liked %}
                             <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
                                 <i class="fa-solid fa-thumbs-up"></i>
-                            </button> {% else %} <button type="submit" name="blogpost_id" value="{{post.slug}}"
-                                class="btn-like">
+                            </button> {% else %} 
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
                                 <i class="fa-regular fa-thumbs-up"></i>
-                            </button> {% endif %} </form> {% else %} <span class="text-secondary">
+                            </button> 
+                            {% endif %} 
+                        </form> 
+                        {% else %} 
+                        <span class="text-secondary">
                             <i class="fa-solid fa-thumbs-up"></i>
-                        </span> {% endif %} <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        </span> 
+                        {% endif %} 
+                        <span class="text-secondary">{{ post.number_of_likes }} 
+                        </span>
                 </div>
 
     <!-- Social Sharing -->

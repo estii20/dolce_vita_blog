@@ -1017,7 +1017,7 @@ __Media__
 - Hero Image 1 - Alberto Caliman on Unsplash
 - Hero Image 2 - Cristina Gottardi on Unsplash
 - Hero Image 3 - Andrea Cairone on Unsplash
-- Default Featured Image -
+- Default Featured Image - Igor Oliyarnik on Unsplash
 - Image Blog Post 1 -
 - Image Blog Post 2 -
 - Image Blog Post 3 -

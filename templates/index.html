@@ -54,7 +54,9 @@
         <div class="container text-center">
             <h2>Welcome to Venice</h2>
             <h3>
-                <small class="text-muted">"The guide on the best food and drink to be found in Venice"</small>
+                <small class="text-muted">
+                    "The guide on the best food and drink to be found in Venice"
+                </small>
             </h3>
         </div>
     </div>
@@ -108,28 +110,46 @@
                     {% for post in post_list %}
                     <div class="card-group col-md-4">
                         <div class="card border-dark card mb-4 blog_card">
-                            <div class="card-body"><a href= "{% url 'category' post.category %}" class="post-link">
-                                <div class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">{{ post.category | title }}</div>
+                            <div class="card-body">
+                                <a href= "{% url 'category' post.category %}" class="post-link">
+                                <div class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">
+                                    {{ post.category | title }}
+                                </div>
                                 </a>
                                 <a href= "{% url 'post_detail' post.slug  %}" class="post-link blog_title">
-                                    <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">{{ post.title| truncatechars:50 }}</h4>
+                                    <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">
+                                        {{ post.title | truncatechars:50 }}
+                                    </h4>
                                 </a>
-                                <div class="image-container">{% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image of table at Venice restaurant">
+                                <div class="image-container">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top img-thumbnail rounded img-fluid" 
+                                    src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg" 
+                                    alt="Image of table at Venice restaurant">
                                     {% else %}
-                                    <img class="card-img-top img-thumbnail rounded img-fluid" src="{{ post.featured_image.url }}" alt="Image of Venice">
+                                    <img class="card-img-top img-thumbnail rounded img-fluid" 
+                                    src="{{ post.featured_image.url }}" 
+                                    alt="Image of Venice">
                                     {% endif %}
                                     <div class="blog_author">
-                                        <p><i class="fa-solid fa-user"></i> {{ post.author | title }}</p>
+                                        <p><i class="fa-solid fa-user"></i> 
+                                            {{ post.author | title }}
+                                        </p>
                                     </div>
                                 </div>
                                 <a href= "{% url 'post_detail' post.slug  %}" class="post-link">
-                                    <p class="post_text">{{ post.excerpt| truncatechars:50 }}</p>
-                                    <p class="fst-normal text-end read" data-bs-toggle="collapse">Read more...</p>
+                                    <p class="post_text">{{ post.excerpt| truncatechars:200 }}</p>
+                                    <p class="fst-normal text-end read" data-bs-toggle="collapse">
+                                        Read more...
+                                    </p>
                                 </a>
-                                <footer class="footer fw-bold">{{ post.created_on}} | 
-                                    <i class="fa-regular fa-clock"></i> {{ post.read_time }} mins |
-                                    <i class="fa-regular fa-thumbs-up"></i> {{ post.number_of_likes }}</footer>
+                                <footer class="footer fw-bold">
+                                    {{ post.created_on}} | 
+                                    <i class="fa-regular fa-clock"></i> 
+                                    {{ post.read_time }} mins |
+                                    <i class="fa-regular fa-thumbs-up"></i> 
+                                    {{ post.number_of_likes }}
+                                </footer>
                             </div>
                         </div>
                     </div>
@@ -146,12 +166,18 @@
         <!-- Pagination -->
         {% if is_paginated %}
         <nav aria-label="Page navigation pagination_blog">
-            <ul class="pagination justify-content-center">{% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV 
+                    </a>
+                </li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
+                <li>
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;
+                    </a>
+                </li>
                 {% endif %}
             </ul>
         </nav>
