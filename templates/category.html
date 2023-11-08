@@ -21,7 +21,7 @@
                 <div class="card-group col-md-4">
                         <div class="card border-dark card mb-4 blog_card">
                             <div class="card-body">
-                                <div class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">
+                                <div class="card-header bg-dark text-light text-decoration-none text-center">
                                     {{ post.category | title }}
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
@@ -32,14 +32,14 @@
                                 {% endif %} 
                                 <div class="image-container"> 
                                     {% if "placeholder" in post.featured_image.url %} 
-                                    <img class="card-img-top img-thumbnail rounded"
+                                    <img class="card-img-top img-thumbnail rounded img-fluid"
                                     src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg"
-                                     alt="Image of table in Venice restaurant">
+                                    alt="Image of table in Venice restaurant">
                                     {% else %} 
-                                    <img class="card-img-top img-thumbnail rounded"
-                                        src=" {{ post.featured_image.url }}" 
-                                        alt="Venice food and drink picture"> 
-                                        {% endif %} 
+                                    <img class="card-img-top img-thumbnail rounded img-fluid"
+                                    src=" {{ post.featured_image.url }}" 
+                                    alt="Venice food and drink picture"> 
+                                    {% endif %} 
                                         <div class="blog_author">
                                         <p>
                                             <i class="fa-solid fa-user">
