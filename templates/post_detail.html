@@ -10,7 +10,7 @@
         </div>
         <hr>
         <div class="clearfix">
-            <div class="img-thumbnail rounded mx-auto"> 
+            <div class="img rounded mx-auto"> 
                 {% if "placeholder" in post.featured_image.url %} 
                 <img src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg" 
                 alt="Image of restaurant table in Venice" 
@@ -23,8 +23,8 @@
                 <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe | linebreaks }}
                 </p>
-                <div>
-                    {% if author_bio %}
+            </div>
+                    {% if post.author_bio %}
                     <div class="container text-left mx-auto">
                         <div class="col-md-12 card mb-4 mt-3 author">
                             <h3 class="blog_title">Author Bio</h3>
@@ -35,7 +35,6 @@
                                 {% endif %}
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
