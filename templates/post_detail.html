@@ -38,19 +38,29 @@
         <!-- Update / Delete blog post if authenticated -->
         <div class="container text-center">
             <div class="col-sm-12">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end"> {% if request.user == post.author %} 
-                    <a href="{% url 'post_edit' post.slug %}" button type="button" class="btn btn-warning btn-edit link-light">
-                        <i class="fa-regular fa-pen-to-square m-1"></i> Update</button>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+                    {% if request.user == post.author %} 
+                    <a href="{% url 'post_edit' post.slug %}" 
+                    button type="button" 
+                    class="btn btn-warning btn-edit link-light">
+                        <i class="fa-regular fa-pen-to-square m-1"></i> Update
+                    </button>
                     </a>
-                        <a href="{% url 'post_delete' post.slug %}"  button type="button" class="btn btn-danger btn-edit link-light">
-                            <i class="fa-solid fa-delete-left text m-1"></i> Delete</button></a>
-                            {% endif %} 
+                        <a href="{% url 'post_delete' post.slug %}"  
+                        button type="button" class="btn btn-danger btn-edit link-light">
+                            <i class="fa-solid fa-delete-left text m-1"></i> Delete
+                        </button>
+                    </a>
+                    {% endif %} 
                 </div>
             </div>
 
             <!-- Likes -->
             <div class="container text-center">
-                <div class="col-sm-12">{% if user.is_authenticated %} <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"> {% csrf_token %} {% if liked %}
+                <div class="col-sm-12">{% if user.is_authenticated %} 
+                    <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"> 
+                        {% csrf_token %} 
+                        {% if liked %}
                             <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
                                 <i class="fa-solid fa-thumbs-up"></i>
                             </button> {% else %} <button type="submit" name="blogpost_id" value="{{post.slug}}"
@@ -92,7 +102,7 @@
                                 </div>
                             </div>
                             <!-- Delete comment if authenticated --> 
-                            {% if request.username == comment.username %}
+                            {% if request.user == comment.name %}
                             <span class="text-muted font-weight-normal">Delete your comment?</span>
                             <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
                                 <i class="fa-regular fa-pen-to-square"></i> Delete </a>
@@ -115,12 +125,14 @@
     <div class="container text-left mx-auto d-flex justify-content-center">
         <div class="col-md-6 card mb-4 mt-3 d-flex leave_comment" style="padding: 12px;">
             <h3 class="h3">Leave a comment:</h3>
-            <p>Posting as: <i class="fa-regular fa-user"></i> {{ user.username | title }}
+            <p>Posting as: <i class="fa-regular fa-user"></i> 
+                {{ user.username | title }}
             </p>
             <!---Form to submit users comment  -->
             <form method="post" style="margin-top: 1.5em;">
                 {{ comment_form | crispy }} {% csrf_token %} 
-                <button type="submit" class="btn btn-signup btn-submit">Submit</button>
+                <button type="submit" class="btn btn-signup btn-submit">Submit
+                </button>
             </form> 
         </div> 
         {% else %}
@@ -134,8 +146,10 @@
                     </p>
                     <br>
                     <span>
-                        <a href="{% url 'account_login' %}" class="btn btn-signup btn-edit btn-submit">Login</a>
-                        <a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit btn-submit">Register</a>
+                        <a href="{% url 'account_login' %}" class="btn btn-signup btn-edit btn-submit">Login
+                        </a>
+                        <a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit btn-submit">Register
+                        </a>
                     </span> 
                 </div>
     </div>
