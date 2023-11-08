@@ -74,7 +74,7 @@ class PostDetail(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
     """
     View on post detail page to remove or add like.
     """
