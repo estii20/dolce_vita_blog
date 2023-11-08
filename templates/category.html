@@ -27,23 +27,41 @@
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
                                     <h4 class="card-title text-uppercase text-decoration-none blog_title text-center">
                                         {{ post.title | truncatechars:50 }}
-                                        </h4>
-                                </a> {% endif %} <div class="image-container"> {% if "placeholder" in post.featured_image.url %} <img class="card-img-top img-thumbnail rounded"
-                                        src="https://res.cloudinary.com/df7xksq2h/image/upload/v1697019300/by3ajnbxijww3n0kpjot.jpg" alt="Image if table in Venice restaurant">
-                                    {% else %} <img class="card-img-top img-thumbnail rounded"
-                                        src=" {{ post.featured_image.url }}" alt="Venice food and drink picture"> {% endif %} <div class="blog_author">
+                                    </h4>
+                                </a> 
+                                {% endif %} 
+                                <div class="image-container"> 
+                                    {% if "placeholder" in post.featured_image.url %} 
+                                    <img class="card-img-top img-thumbnail rounded"
+                                    src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg"
+                                     alt="Image of table in Venice restaurant">
+                                    {% else %} 
+                                    <img class="card-img-top img-thumbnail rounded"
+                                        src=" {{ post.featured_image.url }}" 
+                                        alt="Venice food and drink picture"> 
+                                        {% endif %} 
+                                        <div class="blog_author">
                                         <p>
-                                            <i class="fa-solid fa-user"></i> {{ post.author }}
+                                            <i class="fa-solid fa-user">
+                                            </i> 
+                                            {{ post.author | title }}
                                         </p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                    <p class="post_text">{{ post.excerpt | truncatechars:50 }}</p>
-                                    <p class="fst-normal text-end read">Read more...</p>
+                                    <p class="post_text">
+                                        {{ post.excerpt | truncatechars:150 }}
+                                    </p>
+                                    <p class="fst-normal text-end read">
+                                        Read more...
+                                    </p>
                                 </a>
-                                <footer class="footer fw-bold">{{ post.created_on}} | <i
-                                        class="fa-regular fa-clock"></i> {{ post.read_time }} mins | <i
-                                        class="fa-regular fa-thumbs-up"></i> {{ post.number_of_likes }}
+                                <footer class="footer fw-bold">
+                                    {{ post.created_on}} | 
+                                    <i class="fa-regular fa-clock"></i> 
+                                        {{ post.read_time }} mins | 
+                                        <i class="fa-regular fa-thumbs-up"></i> 
+                                        {{ post.number_of_likes }}
                                 </footer>
                             </div>
                         </div>
@@ -51,12 +69,16 @@
                 <div class="row"> {% endif %} {% endfor %} </div>
             </div>
         </div>
-        <!-- Pagination --> {% if is_paginated %} <nav aria-label="Page navigation">
+        <!-- Pagination --> {% if is_paginated %} 
+        <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center"> {% if page_obj.has_previous %} <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV 
+                    </a>
                 </li> {% endif %} {% if page_obj.has_next %} <li>
-                    <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
-                </li> {% endif %} </ul>
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;
+                    </a>
+                </li> {% endif %} 
+            </ul>
         </nav> {% endif %}
     </div>
     {% else %} 
