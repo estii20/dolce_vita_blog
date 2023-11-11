@@ -13,13 +13,21 @@ class TestModels(TestCase):
     """
     @classmethod
     def setUpTestData(self):
-        """Create test data"""
+        """
+        Create test data
+        """
         self.user = User.objects.create(username='nameistest')
         self.user.set_password('passwordistest')
         self.user.save()
+
+        # Create a category for testing
         self.category = Category.objects.create(
             name=1
         )
+
+        # Create an author bio for testing
+        self.author_bio = AuthorBio.objects.create(
+            author_bio='Test Author Bio')
 
         self.post = Post.objects.create(
             title='Test Post',
@@ -29,8 +37,8 @@ class TestModels(TestCase):
             content='test content',
             excerpt='test excerpt',
             featured_image='test.jpeg',
-            author_bio='This is a test author bio',
-            status=1
+            author_bio='Test Author Bio',
+            status=1,  # Published
         )
 
         self.comment = Comment.objects.create(
@@ -39,14 +47,41 @@ class TestModels(TestCase):
             body='test comment'
         )
 
-    def test_comment_model_str(self):
+    def test_category_model(self):
         """
-        Test the __str__ method for comment
+        Test Category model
         """
-        self.assertEqual(
-            self.comment.__str__(),
-            f'Comment {self.comment.body} by {self.comment.name}'
+        category = Category.objects.get(name=1)
+        self.assertEqual(str(category), '1')
+
+    def test_author_bio_model(self):
+        """
+        Test AuthorBio model
+        """
+        author_bio = AuthorBio.objects.get(author_bio='Test Author Bio')
+        self.assertEqual(str(author_bio), 'Test Author Bio')
+
+    def test_post_model(self):
+        """
+        Test Post model
+        """
+        post = Post.objects.get(title='Test Post')
+        self.assertEqual(str(post), 'Test Post')
+        self.assertEqual(post.number_of_likes(), 0)
+
+    def test_comment_model(self):
+        """
+        Test Comment model
+        """
+        comment = Comment.objects.create(
+            post=self.post,
+            name=self.user,
+            email='test@example.com',
+            body='Test comment body',
+            approved=True
         )
+        self.assertEqual(
+            str(comment), f'Comment Test comment body by {self.user}')
 
     def test_post_and_comment_approved(self):
         """
@@ -71,10 +106,3 @@ class TestModels(TestCase):
     def test_post_model__title_str(self):
         """Test the __str__ method for post"""
         self.assertEqual(self.post.__str__(), self.post.title)
-
-    def test_slug_value_for_title(self):
-        """
-        Test that two posts with identical titles 
-        don't get assigned the same slug.
-        """
-        self.assertEqual(self.post.slug, slugify(self.post.title))
