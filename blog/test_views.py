@@ -1,7 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, AuthorBio
+from .views import PostList, PostDetail, PostLike, AddPost, EditPost, DeletePost, CategoryView, CommentDeleteView, CommentEdit, AboutView
 
 
 User = get_user_model()
@@ -14,13 +15,21 @@ class TestModels(TestCase):
     @classmethod
     def setUpTestData(self):
         """Create test data"""
+        # Create a user for testing
         self.user = User.objects.create(username='nameistest')
         self.user.set_password('passwordistest')
         self.user.save()
+
+        # Create a category for testing
         self.category = Category.objects.create(
             name=1
         )
 
+        # Create an author bio for testing
+        self.author_bio = AuthorBio.objects.create(
+            author_bio='Test Author Bio')
+
+        # Create a post for testing
         self.post = Post.objects.create(
             title='Test Post',
             slug='test-post',
@@ -30,14 +39,17 @@ class TestModels(TestCase):
             excerpt='test excerpt',
             featured_image='test.jpeg',
             author_bio='This is a test author bio',
-            status=1
+            status=1  # Published
         )
 
+        # Create a comment for testing
         self.comment = Comment.objects.create(
             post=self.post,
             name=self.user,
             body='test comment'
         )
+
+        self.factory = RequestFactory()
 
     def test_get_view_post_list(self):
         """
@@ -96,6 +108,26 @@ class TestModels(TestCase):
             data={'body': 'testcomment'})
         self.assertRedirects(
             response, reverse('post_detail', args=[self.post.slug]))
+
+    def test_comment_edit_view(self):
+        """
+        Tests CommentEdit view
+        """
+        self.client.login(username='nameistest', password='passwordistest')
+        response = self.client.get(
+            reverse('comment_edit', args=['test-post', self.comment.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'comment_edit.html')
+
+    def test_comment_delete_view(self):
+        """
+        Tests CommentDeleteView
+        """
+        self.client.login(username='nameistest', password='passwordistest')
+        response = self.client.get(
+            reverse('comment_delete', args=['test-post', self.comment.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'comment_delete.html')
 
     def test_view_post_like(self):
         """
