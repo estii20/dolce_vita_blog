@@ -2,17 +2,18 @@
 
 {% load cloudinary %}
 
+{% cloudinary post.featured_image %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
-
 
 <!-- Add Post -->
     <div class="container text-justify">
         <div class="row">
             <div class="col-sm-12">
                 <h1>Share your Venice food and drink stories below:</h1>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <hr>

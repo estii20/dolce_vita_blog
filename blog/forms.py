@@ -1,5 +1,6 @@
 from .models import Comment, Post
 from django import forms
+from cloudinary.forms import CloudinaryFileField
 from django_summernote.widgets import SummernoteWidget
 
 
@@ -33,3 +34,5 @@ class PostForm(forms.ModelForm):
             'content': SummernoteWidget(),
             'author_bio': SummernoteWidget()
         }
+
+        featured_image = CloudinaryFileField()
