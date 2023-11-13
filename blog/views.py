@@ -7,6 +7,7 @@ from .forms import CommentForm, PostForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class PostList(generic.ListView):
@@ -156,20 +157,35 @@ class CategoryView(generic.ListView):
     Renders view of the category.html template.
     """
     model = Post
-    queryset = Category.objects.all()
     template_name = 'category.html'
-    paginate_by = 6
 
     def get(self, request, category, *args, **kwargs):
         """ Gets posts filtered by category """
-        category = Category.objects.get(name=category)
-        category_posts = Post.objects.filter(category=category)
+        category_list = Category.objects.all()
+        category = get_object_or_404(category_list, name=category)
+        category_posts = Post.objects.filter(
+            category=category).order_by("-created_on")
+
+        # Number of items per page
+        items_per_page = 6
+
+        paginator = Paginator(category_posts, items_per_page)
+        page = request.GET.get('page')
+
+        try:
+            categories = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer
+            categories = paginator.page(1)
+        except EmptyPage:
+            # If page is not in range
+            categories = paginator.page(paginator.num_pages)
 
         return render(
             request,
             self.template_name,
             {'category': category,
-             'category_posts': category_posts},
+             'category_posts': categories},
         )
 
 

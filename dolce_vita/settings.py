@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'django_social_share',
+    'django.core.paginator',
     'blog',
 ]
 

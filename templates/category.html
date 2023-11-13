@@ -15,7 +15,6 @@
         <div class="col-12 mt-3 left">
             <div class="row">
             {% for post in category_posts %}
-            {% if post.status == 1 %}
                 <div class="card-group col-md-4">
                     <div class="card border-dark card mb-4 blog_card">
                         <div class="card-body">
@@ -62,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
                 {% if forloop.counter|divisibleby:3 %}
                 </div>
                     <div class="row">
@@ -73,24 +71,27 @@
             </div>
             
         <!-- Pagination -->
-        {% if is_paginated %}
         <nav aria-label="Page navigation pagination_blog">
             <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
+                {% if category_posts.has_previous %}
                 <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV
-                    </a>
+                    <a href="{% url 'category' category.name %}?page=1">&laquo; first</a>
+                    <a href="{% url 'category' category.name %}?page={{ category_posts.previous_page_number }}"
+                        class="page-link">PREV</a>
                 </li>
                 {% endif %}
-                {% if page_obj.has_next %}
                 <li>
-                    <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;
-                    </a>
+                    Page {{ category_posts.number }} of {{ category_posts.paginator.num_pages }}.
+                </li>
+                {% if category_posts.has_next %}
+                <li>
+                    <a href="{% url 'category' category.name %}?page={{ category_posts.next_page_number }}"
+                        class="page-link"> NEXT &raquo;</a>
                 </li>
                 {% endif %}
             </ul>
         </nav>
-        {% endif %}
+
         </div>
     {% else %}
     <div class="container text-justify container-wrapper-info">
@@ -98,9 +99,10 @@
             <div class="col-md-8 card mb-4  mt-3 left  top">
                 <div class="card-body">
                     <h2 class="blog_title">Sorry there are no posts in this category. 
-                        Please use the link below to return to the homepage.</h2>
-                        <a href="{% url 'home' %}" class="btn btn-signup btn-edit">Home
-                        </a>
+                        Please use the link below to return to the homepage.
+                    </h2>
+                    <a href="{% url 'home' %}" class="btn btn-signup btn-edit">Home
+                    </a>
                 </div>
             </div>
         </div>
