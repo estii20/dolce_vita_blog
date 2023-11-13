@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Category, AuthorBio
 from .forms import CommentForm, PostForm
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -101,7 +100,10 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     success_message = "Post was created successfully"
 
 
-class EditPost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.UpdateView):
+class EditPost(LoginRequiredMixin,
+               UserPassesTestMixin,
+               SuccessMessageMixin,
+               generic.UpdateView):
     """
     View to allow validated users to edit their blog post
     on the post detail page.
@@ -125,7 +127,10 @@ class EditPost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, gen
         return False
 
 
-class DeletePost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
+class DeletePost(LoginRequiredMixin,
+                 UserPassesTestMixin,
+                 SuccessMessageMixin,
+                 generic.DeleteView):
     """
     View to allow validated users to delete their blog post
     on the post detail page.
@@ -144,7 +149,7 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, g
         return False
 
 
-class CategoryView(View):
+class CategoryView(generic.ListView):
     """
     View to display Category page dependent on user choice.
     Requests list of posts with matching category.
@@ -168,7 +173,10 @@ class CategoryView(View):
         )
 
 
-class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView):
+class CommentDeleteView(LoginRequiredMixin,
+                        UserPassesTestMixin,
+                        SuccessMessageMixin,
+                        generic.DeleteView):
     """
     View to allow validated users to delete their comment
     on the post detail page.
@@ -195,7 +203,10 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         return False
 
 
-class CommentEdit(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+class CommentEdit(LoginRequiredMixin,
+                  UserPassesTestMixin,
+                  SuccessMessageMixin,
+                  generic.UpdateView):
     """
     View to allow validated users to edit their comment
     on the post detail page.
@@ -212,7 +223,7 @@ class CommentEdit(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, 
         return reverse_lazy('post_detail', kwargs={'slug': slug})
 
     def form_valid(self, form):
-        """Validate form after connecting form name of user to logged in user"""
+        """Validate form after connecting form name of user to loggedin user"""
         form.instance.name = self.request.user
         return super().form_valid(form)
 
