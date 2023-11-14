@@ -5,17 +5,26 @@
 {% block content %}
 
 <!-- Add Post -->
-    <div class="container text-justify">
-        <div class="row">
-            <div class="col-sm-12">
+    <div class="container fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-3 offset-md-2">
                 <h1>Share your Venice food and drink stories below:</h1>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
+                    <div class="text-left mt-3">
+                        <small>*Author biography not required field, max 6000 characters
+                        </small>
+                    </div>
                     <hr>
-                    <button type="submit" class="btn btn-signup btn-submit">Submit</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-signup btn-submit">
+                            Submit
+                        </button>
+                    </div>
                 </form>
-                </div>
             </div>
         </div>
+    </div>
+
 {% endblock content %}
