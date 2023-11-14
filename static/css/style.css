@@ -14,14 +14,13 @@ body {
 /* Navbar */
 
 .navbar {
-    font-family: 'Libre Bodoni',
-        serif;
+    font-family: 'Libre Bodoni', sans-serif;
     background-color: #000000;
     color: white;
 }
 
 .h1 {
-    font-family: 'Libre Bodoni', serif;
+    font-family: 'Libre Bodoni', sans-serif;
     text-align: center;
     padding-top: 25px;
 }
@@ -50,7 +49,7 @@ body {
 }
 
 .container-wrapper-info {
-    font-family: 'EB Garamond', serif;
+    font-family: 'EB Garamond', sans-serif;
     color: #3f3f3f;
 }
 
@@ -122,15 +121,6 @@ p {
 
 .btn-submit:hover {
     background-color: rgb(216, 63, 49, 0.7);
-}
-
-.btn-edit {
-    width: 100px;
-    height: 65px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    align-items: center;
 }
 
 /* Footer */
