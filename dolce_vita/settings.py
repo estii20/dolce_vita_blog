@@ -108,6 +108,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dolce_vita.wsgi.application'
 
+SUMMERNOTE_CONFIG = {
+    # Summernote settings
+    'summernote': {
+        # Change editor size
+        'width': '100%',
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
