@@ -65,7 +65,7 @@ p {
     font-size: 150%;
 }
 
-/*Blog card*/
+/* Blog card */
 
 .blog_card {
     border: 1px solid;
@@ -83,22 +83,33 @@ p {
     padding: 2px;
 }
 
-/*Pagination*/
+/* Custom Pagination */
 
 .pagination_blog {
+    justify-content: center;
+}
+
+.pagination_blog .page-item .page-link {
     color: #443737;
-    float: left;
-    padding: 8px 16px;
+    border-radius: 0.25rem;
+    margin: 0 2px;
+    padding: 0.5rem 0.75rem;
+    transition: 0.3s;
     text-decoration: none;
 }
 
-.pagination_blog a.active {
+/* Style for active page link */
+
+.pagination_blog .page-item.active .page-link {
     background-color: #ff4d00;
-    color: white;
+    border-color: #443737;
+    color: #3f3f3f;
     border-radius: 5px;
 }
 
-.pagination_blog a:hover:not(.active) {
+/* Hover effect on links */
+
+.pagination_blog .page-item.active .page-link {
     background-color: #D83F31;
     border-radius: 5px;
 }
