@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{% trans 'Sign In' %}{% endblock %}
+{% block title %}{% trans 'Sign Up' %}{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign Up" %}</h3>
+            <h3>{% trans "Login" %}</h3>
 
             <p>Welcome back to the Dolce Vita Venice blog.
                 To leave a comment or like a post, please log
-                in. If you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+                in. If you have not created an account yet, then <a class="link-register" href="{{ signup_url }}">register</a>
                 first.</p>
         </div>
     </div>
