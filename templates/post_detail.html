@@ -169,16 +169,13 @@
         <div class="row">
             <div class="col-md-12 card mb-4 mt-3 comments">
                 <p>
-                    To leave a comment or like a post, please log in. 
-                    If you have not created an account yet, then register first.
+                    To leave a comment or like a post, please 
+                    <a class="link-register" href="{% url 'account_login' %}">login.</a>
+                    If you have not created an account yet, then 
+                    <a class="link-register" href="{% url 'account_signup' %}">register</a> 
+                    first.
                 </p>
                 <br>
-                <span>
-                    <a href="{% url 'account_login' %}" class="btn btn-signup btn-edit btn-submit">Login
-                    </a>
-                    <a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit btn-submit">Register
-                    </a>
-                </span> 
             </div>
         </div>
     </div>

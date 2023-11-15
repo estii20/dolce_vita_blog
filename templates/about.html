@@ -52,6 +52,7 @@
                     <p class="card-text post_text">
                         Email us at: dolce_vita@gmail.com
                     </p>
+                    {% if not user.is_authenticated %}
                     <p class="card-text post_text">
                         Join in the conversation by registering for an account: 
                         <span>
@@ -67,6 +68,7 @@
                             </a>
                         </span>
                     </p>
+                    {% endif %}
                 </div>
             </div>
         </div>
