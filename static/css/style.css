@@ -108,7 +108,7 @@ p {
     border-radius: 5px;
 }
 
-/*Signup and Edit/Delete Buttons*/
+/* Submit button */
 
 .btn-submit {
     background-color: #D83F31;
@@ -271,6 +271,8 @@ footer {
     background-color: green;
     color: white;
 }
+
+/* Register/Login/Logout Forms */
 
 .link-register {
     color: #3f3f3f;
