@@ -143,9 +143,12 @@
                 <div class="col-lg-3 col-xs-12 links">
                     <h4 class="mt-lg-0 mt-sm-3">Categories</h4>
                     <ul class="m-0 p-0">
-                        <li class="nav-item"> {% for category in categories %} <a href="{% url 'category' category.name %}"
-                                class="nav-link mb-0 text-white-50">{{ category.name | title }}
-                            </a>{% endfor %} </li>
+                        <li class="nav-item"> {% for category in categories %} 
+                            <a href="{% url 'category' category.name %}" class="nav-link mb-0 text-white-50">
+                                {{ category.name | title }}
+                            </a>{% endfor %} 
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <h4 class="mt-lg-0 mt-sm-4">Contact Us</h4>
@@ -160,10 +163,10 @@
             </div>
             <div class="row mt-5">
                 <p class="m-0 text-center">
-                    <small class="text-white-50"></small>Django Blog for Educational Purposes</small>                
+                    <small class="text-white-50">Django Blog for Educational Purposes</small>                
                 </p>
                 <p class="m-0 text-center ">
-                    <small class="text-white-50"></small>Images © Unsplash.com</small>
+                    <small class="text-white-50">Images © Unsplash.com</small>
                 </p>
             </div>
         </div>
