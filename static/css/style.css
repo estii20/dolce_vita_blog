@@ -83,6 +83,18 @@ p {
     text-overflow: ellipsis;
 }
 
+.card-body {
+    position: relative;
+    min-height: 300px;
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    padding: 8px 16px;
+}
+
 /* Custom Pagination */
 
 .pagination {
