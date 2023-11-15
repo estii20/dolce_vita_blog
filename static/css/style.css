@@ -162,6 +162,11 @@ footer {
     font-size: 200%;
 }
 
+.border {
+    border: 2px solid;
+    padding: 5px 10px;
+}
+
 /* Blog Entries Column */
 
 .blog_title {
