@@ -83,7 +83,7 @@ p {
     justify-content: center;
 }
 
-.pagination .page-item .page-link {
+.page-link {
     color: #443737;
     border-radius: 0.25rem;
     margin: 0 2px;
@@ -92,20 +92,8 @@ p {
     text-decoration: none;
 }
 
-/* Style for active page link */
-
-.pagination .page-item.active .page-link {
-    background-color: #ff4d00;
-    border-color: #443737;
-    color: #3f3f3f;
-    border-radius: 5px;
-}
-
-/* Hover effect on links */
-
-.pagination .page-item.active .page-link {
-    background-color: #D83F31;
-    border-radius: 5px;
+.page-link:hover {
+    color: #D83F31;
 }
 
 /* Submit button */
