@@ -29,6 +29,7 @@ class TestModels(TestCase):
         self.author_bio = AuthorBio.objects.create(
             author_bio='Test Author Bio')
 
+        # Create a post for testing
         self.post = Post.objects.create(
             title='Test Post',
             slug='test-post',
@@ -41,6 +42,7 @@ class TestModels(TestCase):
             status=1,  # Published
         )
 
+        # Create a comment for testing
         self.comment = Comment.objects.create(
             post=self.post,
             name=self.user,
@@ -51,23 +53,57 @@ class TestModels(TestCase):
         """
         Test Category model
         """
+        # test post has a category
         category = Category.objects.get(name=1)
         self.assertEqual(str(category), '1')
+
+        # test post is in correct post category
+        self.assertEqual(self.post.category, self.category)
 
     def test_author_bio_model(self):
         """
         Test AuthorBio model
         """
+        # test author_bio field content
         author_bio = AuthorBio.objects.get(author_bio='Test Author Bio')
         self.assertEqual(str(author_bio), 'Test Author Bio')
+
+        # test post if multiple author bios added
+        author_bio = AuthorBio.objects.create(
+            author_bio='Multiple Author Bios')
+        self.assertEqual(str(author_bio), 'Multiple Author Bios')
 
     def test_post_model(self):
         """
         Test Post model
         """
+        # test post string
         post = Post.objects.get(title='Test Post')
         self.assertEqual(str(post), 'Test Post')
+        # test post likes
         self.assertEqual(post.number_of_likes(), 0)
+        # test post approved
+        self.assertTrue(self.post.status == 1)
+        # test post title string
+        self.assertEqual(self.post.__str__(), self.post.title)
+        # test post absolute url
+        self.assertEqual(self.post.get_absolute_url(),
+                         f'/post/{self.post.slug}/')
+        # test post update title
+        self.post.title = 'Update Test Post Title'
+        # test save post
+        self.post.save()
+        # test update post title and update post slug
+        self.assertEqual(self.post.slug, 'update-test-post-title')
+
+    def test_post_title_maximum_length(self):
+        """
+        Test maximum length of a post
+        """
+        Post.objects.create(title='A' * 300,
+                            slug='test-post',
+                            author=self.user,
+                            category_id=1)
 
     def test_comment_model(self):
         """
@@ -76,33 +112,30 @@ class TestModels(TestCase):
         comment = Comment.objects.create(
             post=self.post,
             name=self.user,
-            email='test@example.com',
             body='Test comment body',
             approved=True
         )
+        # test comment body by comment user name
         self.assertEqual(
             str(comment), f'Comment Test comment body by {self.user}')
-
-    def test_post_and_comment_approved(self):
-        """
-        Test for Comment and post is an approved field
-        """
-        self.assertTrue(self.post.status == 1)
+        # test comment approved field
         self.assertFalse(self.comment.approved)
+        # test comment is for correct post
+        self.assertEqual(self.comment.post, self.post)
+        # test comment user is comment name
+        self.assertEqual(self.comment.name, self.user)
 
-    def test_absolute_url_str(self):
+    def test_comment_ordering(self):
         """
-        Test absolute_url for post
+        Test to add a second comment and comment order
         """
-        self.assertEqual(self.post.get_absolute_url(),
-                         f'/post/{self.post.slug}/')
+        comment_2 = Comment.objects.create(
+            post=self.post,
+            name=self.user,
+            body='Test comment body two',
+            approved=True
+        )
 
-    def test_post_model__category_str(self):
-        """
-        Test the __str__ method for category post
-        """
-        self.assertEqual(self.category.__str__(), self.category.name)
-
-    def test_post_model__title_str(self):
-        """Test the __str__ method for post"""
-        self.assertEqual(self.post.__str__(), self.post.title)
+        comments = Comment.objects.filter(post=self.post)
+        self.assertEqual(comments.first(), self.comment)
+        self.assertEqual(comments.last(), comment_2)
