@@ -13,8 +13,8 @@ class AdminTest(TestCase):
         """
         # Create a superuser for testing
         self.user = User.objects.create_superuser(
-            username='adminuser', 
-            password='adminpassword', 
+            username='adminuser',
+            password='adminpassword',
             email='admin@dolcevita.com')
         self.client = Client()
         self.client.login(username='adminuser', password='adminpassword')
@@ -50,7 +50,7 @@ class AdminTest(TestCase):
 
     def test_approve_comments_action(self):
         """
-        Tests the approve_comments action in CommentAdmin
+        Tests the approve comments action in CommentAdmin
         """
         post = Post.objects.create(
             title='Test Post',
@@ -62,10 +62,10 @@ class AdminTest(TestCase):
             status=1,  # Published
             author_bio='Test author bio'
         )
-        comment = Comment.objects.create(
+
+        self.comment = Comment.objects.create(
             post=post,
             name=self.user,
-            email='test@example.com',
             body='Test comment body',
             approved=False
         )
