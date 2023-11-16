@@ -2,7 +2,6 @@ from django.test import TestCase, RequestFactory
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Category, AuthorBio
-from .views import PostList, PostDetail, PostLike, AddPost, EditPost, DeletePost, CategoryView, CommentDeleteView, CommentEdit, AboutView
 
 
 User = get_user_model()
@@ -19,6 +18,12 @@ class TestModels(TestCase):
         self.user = User.objects.create(username='nameistest')
         self.user.set_password('passwordistest')
         self.user.save()
+
+        # Create another user for testing
+        self.another_user = User.objects.create_user(
+            username='anotheruser',
+            password='anotherpassword'
+        )
 
         # Create a category for testing
         self.category = Category.objects.create(
@@ -79,7 +84,7 @@ class TestModels(TestCase):
 
     def test_get_view_edit_post(self):
         """
-        Test to get Edit Post page and template post_detail.html
+        Test to get Edit Post page and template post_edit.html
         """
         self.client.login(username='nameistest', password='passwordistest')
         response = self.client.get(
@@ -162,3 +167,12 @@ class TestModels(TestCase):
             reverse('category', args=[self.category.name]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'base.html', 'category.html')
+
+    def test_404_error_page(self):
+        """
+        Test to get 404 error page and template
+        """
+        # Test for 404 error page
+        response = self.client.get('/non-existing-page/')
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
