@@ -28,7 +28,7 @@ class AuthorBio(models.Model):
     """
     Model for the author bio field for a blog Post.
     """
-    author_bio = models.CharField(max_length=600)
+    author_bio = models.CharField(max_length=6000)
 
     def __str__(self):
         return self.author_bio
