@@ -50,7 +50,7 @@ class TestPostForm(TestCase):
         self.assertEqual(form.Meta.fields, ['title', 'category', 'author',
                          'featured_image', 'excerpt', 'content', 'author_bio'])
 
-    def test_post_content_is_required(self):
+    def test_post_category_is_required(self):
         """
         Tests that category field is required in post form
         """
@@ -59,13 +59,38 @@ class TestPostForm(TestCase):
         self.assertIn('category', form.errors.keys())
         self.assertEqual(form.errors['category'][0], 'This field is required.')
 
+    def test_post_title_is_required(self):
+        """
+        Tests that title field is required in post form
+        """
+        form = PostForm({'title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors.keys())
+        self.assertEqual(form.errors['title'][0], 'This field is required.')
+
+    def test_post_author_is_required(self):
+        """
+        Tests that author field is not required in post form
+        """
+        form = PostForm({'author': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('author', form.errors.keys())
+        self.assertEqual(form.errors['author'][0], 'This field is required.')
+
+    def test_post_content_is_required(self):
+        """
+        Tests that content field is not required in post form
+        """
+        form = PostForm({'content': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('content', form.errors.keys())
+        self.assertEqual(form.errors['content'][0], 'This field is required.')
+
     def test_post_form_with_invalid_data(self):
         """
         Tests PostForm submission with invalid data
         """
-        data = {# Missing required fields, intentionally causing validation 
-        #error
-        }
+        data = {}  # no data entered
         form = PostForm(data)
         self.assertFalse(form.is_valid())
 
