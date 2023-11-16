@@ -13,7 +13,9 @@ class AdminTest(TestCase):
         """
         # Create a superuser for testing
         self.user = User.objects.create_superuser(
-            username='adminuser', password='adminpassword', email='admin@dolcevita.com')
+            username='adminuser', 
+            password='adminpassword', 
+            email='admin@dolcevita.com')
         self.client = Client()
         self.client.login(username='adminuser', password='adminpassword')
 
@@ -68,14 +70,9 @@ class AdminTest(TestCase):
             approved=False
         )
 
-    def test_category_model_registered(self):
+    def test_category_model_and_author_bio_registered(self):
         """
-        Tests Category model registration in admin
+        Tests Category model and AuthorBio registration in admin
         """
         self.assertIn(Category, admin.site._registry)
-
-    def test_author_bio_model_registered(self):
-        """
-        Tests AuthorBio model registration in admin
-        """
         self.assertIn(AuthorBio, admin.site._registry)
