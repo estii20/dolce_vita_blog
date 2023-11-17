@@ -36,7 +36,7 @@ DEBUG = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-estii20-dolce-vita-blog-46k8samxqz.us2.codeanyapp.com',
-                 'dolce-vita-blog.herokuapp.com', 'localhost']
+                 'dolce-vita-blog-d2c3285a70fd.herokuapp.com', 'localhost']
 
 
 # Application definition
