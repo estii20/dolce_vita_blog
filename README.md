@@ -10,11 +10,11 @@ This blog is made for site users that may be interested in a visit to Venice. Ti
 
 P4 Project for the Code Institute
 
-[Live Site]()
+[Live Site](https://dolce-vita-blog-d2c3285a70fd.herokuapp.com/)
 
-[Website Mock-up](https:)
+[Website Mock-up](https://ui.dev/amiresponsive?url=https://dolce-vita-blog-d2c3285a70fd.herokuapp.com/)
 
-![Dolce Vita Venice Blog](assets/images/readme-images/am-i-responsive.png "Am I Responsive Mockup of Dolce Vita Venice Blog")
+![Dolce Vita Venice Blog](documentation/am_i_responsive.png "Am I Responsive Mockup of Dolce Vita Venice Blog")
 
 ## Table of contents
 
@@ -147,7 +147,7 @@ This project is hosted on Heroku and the database used is Heroku PostgreSQL. Clo
 
 Entity Relationship Diagram - Post, Comment, Category, Django admin login.
 
-![Site data model](documentation/models_2.png "Data Model")
+![Site data model](documentation/models.png "Data Model")
 
 ### Site plan
 
@@ -296,6 +296,8 @@ Bootsrap card layout. CSS style added to reflect the look of the blog site.
 __Pagination__
 
 Bootstrap pagination with CSS style added to reflect the look of the blog site. Paginate blog posts by six per page.
+
+![blog card](documentation/pagination.png "Blog Pagination")
 
 __Footer__
 
@@ -459,6 +461,10 @@ The user needs to enter the following information:
 
 ![Login](documentation/login.png "Login Page")
 
+If user exists:
+
+![Login](documentation/user_exists.png "Login Page")
+
 __Register page__
 
 To fully use the site features, a user is required to register and login.
@@ -488,9 +494,15 @@ The Logout page can be accessed in the navbar link when a user is logged in. Whe
 
 __About page__
 
-A brief description of the blog and what it is about. The page invites the user to either register or login. Also they are encouraged to get in touch if they want further information.
+A brief description of the blog and what it is about. If not logged in as a user the page invites the user to either register or login. Also they are encouraged to get in touch if they want further information.
 
-![About](documentation/about.png "About Page")
+About.html logged-in
+
+![About](documentation/about_logged-in.png "About Page")
+
+About.html logged out
+
+![About](documentation/about.png "About Page - not logged-in")
 
 __Category page__
 
@@ -535,13 +547,13 @@ Messages are  displayed to the user as feedback when certain actions are complet
 
 ### Future Features
 
-- US20. Title: As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site.
+- US19. Title: As a Site User I want to be able to sign up for a newsletter so that I can keep up-to-date without logging into the site.
+  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
+
+- US20. Title: As a Site User I want to be able to search for posts so that I can find posts that interest me.
   - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
   
 - US24. Title: As a Site User I want to be able to read at night time using a dark toggle button so that it is easier to read.
-  - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
-  
-- US20. Title: As a Site User I want to be able to search for posts so that I can find posts that interest me.
   - This user story was categorised as a could-have feature and will not be implemented at this stage due to project time priority.
 
 - US27. Title: As a Site User I want to be able to save my user details such as my author bio so that I can add it to a post without rewriting it each post.
@@ -607,6 +619,7 @@ __Codeanywhere__
 - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create site project plan.
 - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) CSS validation.
 - [Python Checker:](https://www.pythonchecker.com/) Python checker.
+- [Favicon](https://favicon.io/favicon-generator/) to generate a favicon.
 
 ## Testing
 
@@ -1009,6 +1022,14 @@ Content information researched at:
 
 [studygyaan.com - Social Share Button](https://studygyaan.com/django/adding-a-social-share-button-to-your-django-website)
 
+[stackoverflow.com - Summernote responsiveness](https://stackoverflow.com/questions/61657061/how-do-i-resize-the-width-of-summernote)
+
+[stackoverflow.com - How to make a card footer stay at the bottom of a card](https://stackoverflow.com/questions/48406628/bootstrap-align-button-to-the-bottom-of-card)
+
+[forum/djangoproject.com - How to paginate categories](https://forum.djangoproject.com/t/how-can-i-paginate-my-posts-list-in-my-homepage-blog/12961)
+
+[stackoverflow.com - Delete view success URL](https://stackoverflow.com/questions/73396670/django-deleteview-success-url-to-previous-different-page)
+
 [Code Institute Template and Walkthrough Project - I think therefore I Blog](https://learn.codeinstitute.net/) - provided the project code for blog site extension and customisation.
 
 __Media__
@@ -1018,12 +1039,28 @@ __Media__
 - Hero Image 2 - Cristina Gottardi on Unsplash
 - Hero Image 3 - Andrea Cairone on Unsplash
 - Default Featured Image - Igor Oliyarnik on Unsplash
-- Image Blog Post 1 -
-- Image Blog Post 2 -
-- Image Blog Post 3 -
-- Image Blog Post 4 -
-- Image Blog Post 5 -
-- Image Blog Post 6 -
+- Image Blog Post 1 - Alberto Calina
+- Image Blog Post 2 - Georg Regaller
+- Image Blog Post 3 - Alana Harris
+- Image Blog Post 4 - Jackie Park
+- Image Blog Post 5 - Max Tutak
+- Image Blog Post 6 - Jon Tyson
+- Image Blog Post 7 - Victoria Shes
+- Image Blog Post 8 - Alexandra Gov
+- Image Blog Post 9 - Mikita Yo
+- Image Blog Post 10 - Davey Gravy
+- Image Blog Post 11 - Laura Kennedy
+- Image Blog Post 12 - Daiji Umemoto
+- Image Blog Post 13 - Chad Montano
+- Image Blog Post 14 - Jennifer Pallian
+- Image Blog Post 15 - Karol Chomka
+- Image Blog Post 16 - Merve Sehirli Nasir
+- Image Blog Post 17 - Calum Lewes
+- Image Blog Post 18 - Klara Kulikova
+- Image Blog Post 19 - Jorge Zapata
+- Image Blog Post 20 - Wikisleep App
+- Image Blog Post 21 - Eugene Zhyvchik
+- Image Blog Post 22 - Milada Viergova
 
 ### Acknowledgements
 
