@@ -16,6 +16,7 @@
             </h6>
         </div>
         <hr>
+        <!-- Post Content -->
         <div class="clearfix">
             <div class="img rounded mx-auto"> 
                 {% if "placeholder" in post.featured_image.url %} 
@@ -30,7 +31,7 @@
                 <p class="container-fluid fs-5 post_text">
                     {{ post.content | safe | linebreaks }}
                 </p>
-            </div>
+            </div> <!-- Post Author Bio if added -->
                     {% if post.author_bio %}
                     <div class="container text-left mx-auto">
                         <div class="col-md-12 card mb-4 mt-3 author">
