@@ -130,7 +130,6 @@ class EditPost(LoginRequiredMixin,
 
 class DeletePost(LoginRequiredMixin,
                  UserPassesTestMixin,
-                 SuccessMessageMixin,
                  generic.DeleteView):
     """
     View to allow validated users to delete their blog post
@@ -140,7 +139,6 @@ class DeletePost(LoginRequiredMixin,
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
-    success_message = "Post was deleted successfully"
 
     def test_func(self):
         """ Test that logged in user is post author """
@@ -148,6 +146,11 @@ class DeletePost(LoginRequiredMixin,
         if self.request.user == post.author:
             return True
         return False
+
+    def delete(self, request, *args, **kwargs):
+        """ Overrides the delete function message to display success message"""
+        messages.success(self.request, 'Post was successfully deleted')
+        return super().delete(request, *args, **kwargs)
 
 
 class CategoryView(generic.ListView):
@@ -191,7 +194,6 @@ class CategoryView(generic.ListView):
 
 class CommentDeleteView(LoginRequiredMixin,
                         UserPassesTestMixin,
-                        SuccessMessageMixin,
                         generic.DeleteView):
     """
     View to allow validated users to delete their comment
@@ -200,7 +202,7 @@ class CommentDeleteView(LoginRequiredMixin,
     """
     model = Comment
     template_name = 'comment_delete.html'
-    success_message = "Comment was deleted successfully"
+    success_url = reverse_lazy('home')
 
     def get_success_url(self):
         """ Success url for comment with assciated comment """
@@ -217,6 +219,11 @@ class CommentDeleteView(LoginRequiredMixin,
         if self.request.user == comment.name:
             return True
         return False
+
+    def delete(self, request, *args, **kwargs):
+        """ Overrides the delete function message to display success message"""
+        messages.success(self.request, 'Comment was successfully deleted')
+        return super().delete(request, *args, **kwargs)
 
 
 class CommentEdit(LoginRequiredMixin,
