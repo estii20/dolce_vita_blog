@@ -1,1 +1,1 @@
-web: gunicorn dolce_vita_blog.wsgi
+web: gunicorn dolce_vita.wsgi
