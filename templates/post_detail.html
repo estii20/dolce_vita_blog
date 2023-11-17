@@ -34,7 +34,8 @@
                     {% if post.author_bio %}
                     <div class="container text-left mx-auto">
                         <div class="col-md-12 card mb-4 mt-3 author">
-                            <h3 class="blog_title">Author Bio</h3>
+                            <h3 class="blog_title">
+                            {{ post.author | title }} | Author Bio</h3>
                             <div class="card-body">
                                 <p class="container-fluid fs-5 post_text author">
                                     {{ post.author_bio | safe | linebreaks }}
