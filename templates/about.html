@@ -2,77 +2,90 @@
 {% block content %} 
 
 <!-- About -->
-<div class="container text-justify container-wrapper-info">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <div class="card mb-4 mt-3">
-                <div class="card-body">
-                    <h1 class="card-title text-uppercase blog_title text-center">
-                        About
-                    </h1>
-                    <p class="card-text post_text">
-                        This blog is created to share tips, suggestions and 
-                        practical advice on all things food and drink related 
-                        when visiting beautiful Venice. 
-                    </p>
-                    <hr>
-                    <p class="card-text post_text">
-                        Passionate about the topic and committed to providing
-                        accurate and reliable information.
-                    </p>
-                    <hr>
-                    <p class="card-text post_text">
-                        What to Expect? In the cobblestone alleys and canal-side 
-                        trattorias, this blog will be your guide to the finest 
-                        cicchetti, sumptuous pasta dishes, and exquisite seafood 
-                        that Venice has to offer. From the historic Rialto 
-                        Market to the cozy bacari, we'll navigate the culinary 
-                        landscape together, savoring each bite and sip along 
-                        the way. 
-                    </p>
-                    <hr>
-                    <p class="card-text post_text">
-                        Why Venice? Venice isn't just a city; 
-                        it's a gastronomic wonderland. The blog aims to celebrate 
-                        the culinary heritageof this unique city, shedding light 
-                        on the stories behind each dish and the passion that 
-                        goes into crafting them. Expect not only reviews of the 
-                        hottest eateries but also glimpses into the culture, 
-                        history, and traditions that shape Venetian cuisine.
-                        So, whether you're planning a visit to this floating 
-                        city or simply want to embark on a vicarious culinary 
-                        adventure, join me on Venetian Bites & Sips for a taste 
-                        of the extraordinary.
-                        Buon viaggio e buon appetito!
-                    </p>
-                    <hr>
-                    <p class="card-text post_text">
-                        Any contribution is highly welcome. Feel free to get in 
-                        touch for more information or to say hello. 
-                    </p>
-                    <p class="card-text post_text">
-                        Email us at: dolce_vita@gmail.com
-                    </p>
-                    {% if not user.is_authenticated %}
-                    <p class="card-text post_text">
-                        Join in the conversation by registering for an account: 
-                        <span>
-                        <a href="{% url 'account_signup' %}" class="btn btn-signup btn-submit mt-3">
-                            Register
-                        </a>
-                        </span>
-                    </p>
-                    <p class="card-text post_text">Or logging in: 
-                        <span>
-                            <a href="{% url 'account_login' %}" class="btn btn-signup btn-submit mt-3">
-                                Login
-                            </a>
-                        </span>
-                    </p>
-                    {% endif %}
+<section>
+    <div class="container text-justify container-wrapper-info">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card mb-4 mt-3">
+                    <div class="card-body">
+                        <h1 id="about-heading" class="card-title text-uppercase blog_title text-center">
+                            About
+                        </h1>
+                        <h2 id="about-subheading-1" class="card-subtitle mt-4">
+                            Introduction
+                        </h2>
+                            <p class="card-text post_text">
+                                This blog is created to share tips, suggestions and 
+                                practical advice on all things food and drink related 
+                                when visiting beautiful Venice. 
+                            </p>
+                            <p class="card-text post_text">
+                                Passionate about the topic and committed to providing
+                                accurate and reliable information.
+                            </p>
+                            <hr>
+                            <h2 id="about-subheading-2" class="card-subtitle mt-4">
+                                What to Expect?
+                            </h2>
+                        <p class="card-text post_text">
+                            In the cobblestone alleys and canal-side 
+                            trattorias, this blog will be your guide to the finest 
+                            cicchetti, sumptuous pasta dishes, and exquisite seafood 
+                            that Venice has to offer. From the historic Rialto 
+                            Market to the cozy bacari, we'll navigate the culinary 
+                            landscape together, savoring each bite and sip along 
+                            the way. 
+                        </p>
+                        <hr>
+                        <h2 id="about-subheading-3" class="card-subtitle mt-4">
+                            Why Venice?
+                        </h2>
+                            <p class="card-text post_text">
+                                Venice isn't just a city; 
+                                it's a gastronomic wonderland. The blog aims to celebrate 
+                                the culinary heritageof this unique city, shedding light 
+                                on the stories behind each dish and the passion that 
+                                goes into crafting them. Expect not only reviews of the 
+                                hottest eateries but also glimpses into the culture, 
+                                history, and traditions that shape Venetian cuisine.
+                                So, whether you're planning a visit to this floating 
+                                city or simply want to embark on a vicarious culinary 
+                                adventure, join me on Venetian Bites & Sips for a taste 
+                                of the extraordinary.
+                                Buon viaggio e buon appetito!
+                            </p>
+                            <hr>
+                            <h2 id="about-subheading-4" class="card-subtitle mt-4">
+                                Contribution and Contact
+                            </h2>
+                            <p class="card-text post_text">
+                                Any contribution is highly welcome. Feel free to get in 
+                                touch for more information or to say hello. 
+                            </p>
+                            <p class="card-text post_text">
+                                Email us at: dolce_vita@gmail.com
+                            </p>
+                            {% if not user.is_authenticated %}
+                            <p class="card-text post_text">
+                                Join in the conversation by registering for an account: 
+                                <span>
+                                <a href="{% url 'account_signup' %}" class="btn btn-signup btn-submit mt-3">
+                                    Register
+                                </a>
+                                </span>
+                            </p>
+                            <p class="card-text post_text">Or logging in: 
+                                <span>
+                                    <a href="{% url 'account_login' %}" class="btn btn-signup btn-submit mt-3">
+                                        Login
+                                    </a>
+                                </span>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div> 
+        </div> 
+</section>
 {% endblock %}
