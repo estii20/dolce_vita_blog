@@ -58,12 +58,12 @@
                     {% if request.user == post.author %} 
                     <a href="{% url 'post_edit' post.slug %}" 
                     button type="button" 
-                    class="btn btn-primary btn-md me-2 btn-submit text-white">
+                    class="btn btn-primary btn-md me-2 btn-submit">
                         <i class="fa-regular fa-pen-to-square m-1"></i> Update Post
                     </button>
                     </a>
                         <a href="{% url 'post_delete' post.slug %}"  
-                        button type="button" class="btn btn-primary btn-md me-2 btn-submit text-white">
+                        button type="button" class="btn btn-primary btn-md me-2 btn-submit">
                             <i class="fa-solid fa-delete-left m-1"></i> Delete Post
                         </button>
                     </a>
@@ -144,10 +144,10 @@
                     <!-- Delete comment if authenticated --> 
                     {% if request.user == comment.name %}
                     <span class="text-muted font-weight-normal">Delete your comment?</span>
-                        <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md text-white">
+                        <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup btn-md">
                             <i class="fa-regular fa-pen-to-square"></i> Delete </a>
                         <span class="text-muted font-weight-normal">Update your comment?</span>
-                        <a href="{% url 'comment_edit' post.slug comment.pk %}" class="btn btn-signup btn-md text-white">
+                        <a href="{% url 'comment_edit' post.slug comment.pk %}" class="btn btn-signup btn-md">
                             <i class="fa-regular fa-pen-to-square"></i> Edit </a>
                             {% endif %}
                             {% endfor %}
@@ -173,7 +173,8 @@
         <!---Form to submit users comment  -->
         <form method="post" style="margin-top: 1.5em;">
             {{ comment_form | crispy }} {% csrf_token %} 
-            <button type="submit" class="btn btn-signup btn-submit text-white">
+            <button type="submit" aria-label="Submit your form" role="button" 
+            class="btn btn-signup btn-submit text-white">
                 Submit
             </button>
         </form> 
