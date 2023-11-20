@@ -11,7 +11,7 @@
             <h1>Edit your comment below:</h1>
             <form method="POST"> {% csrf_token %} {{ form | crispy }}
             <hr>
-            <button type="submit" class="btn btn-signup btn-submit">Update</button>
+            <button type="submit" class="btn btn-signup btn-submit text-white">Update</button>
             <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>

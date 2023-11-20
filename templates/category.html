@@ -35,12 +35,13 @@
                                 <!-- Post Content -->
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top rounded img-fluid" loading="lazy" 
+                                    <img class="card-img-top rounded img-fluid" 
                                         src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg"
                                         alt="Image of table at Venice restaurant">
                                     {% else %}
-                                    <img class="card-img-top rounded img-fluid" loading="lazy"
-                                        src="{{ post.featured_image.url }}" alt="Image of Venice">
+                                    <img class="card-img-top rounded img-fluid" 
+                                        src="{{ post.featured_image.url }}" 
+                                        alt="Image of Venice">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i>
