@@ -5,10 +5,11 @@
 {% block content %}
 
 <!-- Add Post -->
+<section>
     <div class="container fluid">
         <div class="row justify-content-center">
             <div class="col-md-8 mt-3 offset-md-2">
-                <h1>Share your Venice food and drink stories below:</h1>
+                <h1 id="add-post-heading">Share your Venice food and drink stories below:</h1>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -18,7 +19,8 @@
                     </div>
                     <hr>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-signup btn-submit">
+                        <button type="submit" class="btn btn-signup btn-submit text-white"
+                        aria-label="Submit Post">
                             Submit
                         </button>
                     </div>
@@ -26,5 +28,5 @@
             </div>
         </div>
     </div>
-
+</section>
 {% endblock content %}

@@ -95,9 +95,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-xs-12">
-                    <h4 class="mt-lg-0 mt-sm-3">
-                    <a href="{% url 'about' %}" class="about_link">About</a>
-                    </h4>
+                    <h2 class="mt-lg-0 mt-sm-3">
+                    <a href="{% url 'about' %}" class="about_link" aria-label="About Dolce Vita Venice">
+                        About
+                    </a>
+                    </h2>
                     <p class="pr-5 text-white">
                         Tips, suggestions and practical advice.
                     </p>
@@ -107,11 +109,13 @@
                     <p class="pr-5 text-white">
                         {% if not user.is_authenticated %}
                         Join in the conversation and login:
-                        <span><a href="{% url 'account_login' %}" class="btn btn-signup btn-edit border">Login</a></span>
+                        <span><a href="{% url 'account_login' %}" class="btn btn-signup btn-edit border"
+                            aria-label="Login">Login</a></span>
                     </p>
                     <p class="pr-5 text-white">
                         If you don't have an account:
-                        <span><a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit border">Register</a></span>
+                        <span><a href="{% url 'account_signup' %}" class="btn btn-signup btn-edit border"
+                            aria-label="Register">Register</a></span>
                     </p> {% endif %}
                     <ul class="social-media">
                         <li>
@@ -142,7 +146,7 @@
                 </div>
                 <!-- Categories List nav (displaying 1 of 6 categories) -->
                 <div class="col-lg-3 col-xs-12 links">
-                    <h4 class="mt-lg-0 mt-sm-3 text-white">Categories</h4>
+                    <h2 class="mt-lg-0 mt-sm-3 text-white">Categories</h2>
                     <ul class="m-0 p-0">
                         <li class="nav-item"> {% for category in categories %} 
                             <a href="{% url 'category' category.name %}" class="nav-link mb-0 text-white">
@@ -152,8 +156,8 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-xs-12">
-                    <h4 class="mt-lg-0 mt-sm-4 text-white">Contact Us</h4>
-                    <p class="mb-0 text-white">Via Giovanni Randaccio, 60, Venezia, Italia</p>
+                    <h2 class="mt-lg-0 mt-sm-4 text-white" 
+                    aria-label="Contact Information">Contact Us</h2>
                     <p class="mb-0 text-white">
                         <i class="fa fa-phone mr-3"></i> +39 754-3010
                     </p>
@@ -166,7 +170,7 @@
                 <p class="m-0 text-center">
                     <small class="text-white">Django Blog for Educational Purposes</small>                
                 </p>
-                <p class="m-0 text-center ">
+                <p class="m-0 text-center">
                     <small class="text-white">Images © Unsplash.com</small>
                 </p>
             </div>
