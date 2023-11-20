@@ -4,7 +4,7 @@
 
 <!-- Hero Image carousel-->
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" role="region" aria-label="Hero Image Carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -14,7 +14,7 @@
             aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active"><img class="d-block w-100" 
+        <div class="carousel-item active"><img class="d-block w-100" loading="lazy"
             src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699451360/dolcevita/cristina-gottardi-reyrEqzQrj4-unsplash_1600x500-hero_qmkrsr.jpg" 
             alt="Evening image of Venice">
             <div class="carousel-caption d-none d-md-block">
@@ -22,7 +22,7 @@
                 <h3 class="h3">Taste of what this enchanting city has to offer</h3>
             </div>
         </div>
-        <div class="carousel-item"><img class="d-block w-100" 
+        <div class="carousel-item"><img class="d-block w-100" loading="lazy"
             src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699451379/dolcevita/dylan-freedom-I14L_1L7LZg-unsplash_1600x500-hero_gca7bb.jpg" 
             alt="Black and white image of Venice">
             <div class="carousel-caption d-none d-md-block">
@@ -30,7 +30,7 @@
                 <h3 class="h3">The best wines from around the Venento region</h3>
             </div>
         </div>
-        <div class="carousel-item"><img class="d-block w-100" 
+        <div class="carousel-item"><img class="d-block w-100" loading="lazy"
             src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699451794/dolcevita/andrea-cairone-C-CU0Y26TII-unsplash_1600x500-hero_jpr64x.jpg" 
             alt="Man harvesting grapes">
             <div class="carousel-caption d-none d-md-block">
@@ -50,9 +50,10 @@
 </div>
 
 <!-- Introduction section-->
+<section aria-labelledby="intro-heading">
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
-            <h2>Welcome to Venice</h2>
+            <h2 id="introduction-heading">Welcome to Venice</h2>
             <h3>
                 <small class="text-muted">
                     "The guide on the best food and drink to be found in Venice"
@@ -60,9 +61,11 @@
             </h3>
         </div>
     </div>
+</section>
 
 
 <!-- Features section -->
+<section aria-labelledby="features-heading">
     <div class="container-fluid container-wrapper-info">
         <div class="row text-center">
                         <div class="col-sm-4">
@@ -95,8 +98,10 @@
                         </div>
                     </div>
                 </div>
+</section>
 
     <!-- Blockquote -->
+<section aria-labelledby="quote-heading">
     <div class="container text-center">
         <blockquote class="blockquote">
             <span>"Chi viaggia vive due volte” Life is a voyage!</span>
@@ -104,8 +109,10 @@
             <span>Those who travel live twice!</span>
         </blockquote>
     </div>
+</section>
 
 <!-- Blog Entries Column -->
+<section aria-labelledby="blog-heading">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3 left">
@@ -120,9 +127,9 @@
                                 </div>
                                 </a>
                                 <a href= "{% url 'post_detail' post.slug  %}" class="post-link blog_title">
-                                    <h4 class="card-title text-decoration-none blog_title text-center">
+                                    <h2 class="card-title text-decoration-none blog_title text-center">
                                         {{ post.title | truncatechars:100 }}
-                                    </h4>
+                                    </h2>
                                 </a>
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
@@ -132,7 +139,7 @@
                                     {% else %}
                                     <img class="card-img-top rounded img-fluid" 
                                     src="{{ post.featured_image.url }}" 
-                                    alt="Image of Venice">
+                                    alt="Image of Venice food and drink">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i> 
@@ -166,26 +173,29 @@
                 </div>
             </div>
         </div>
+</section>
 
-        <!-- Pagination -->
-        {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV 
-                    </a>
-                </li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                <li>
-                    <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %}
-    </div>
+<!-- Pagination -->
+{% if is_paginated %}
+<section aria-label="Pagination">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV 
+                </a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+</section>
 
 {% endblock %}

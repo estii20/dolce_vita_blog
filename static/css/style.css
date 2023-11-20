@@ -6,7 +6,9 @@
 }
 
 body {
-    font-family: 'EB Garamond', serif;
+    font-family: 'EB Garamond', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     color: #3f3f3f;
     background-color: white;
 }
@@ -25,7 +27,7 @@ body {
     padding-top: 25px;
 }
 
-.h3 {
+.h2 {
     font-family: 'Pacifico', sans-serif;
     text-align: center;
     padding-top: 25px;
@@ -36,14 +38,14 @@ body {
 .blockquote {
     font-family: 'Pacifico', sans-serif;
     background-color: rgb(216, 63, 49, 0.7);
-    color: #443737;
+    color: black;
     padding: 10px;
 }
 
 .container-wrapper-dark {
     font-family: 'Pacifico',
         sans-serif;
-    color: #3f3f3f;
+    color: black;
     padding: 20px;
     margin: 20px;
 }
@@ -51,6 +53,8 @@ body {
 .container-wrapper-info {
     font-family: 'EB Garamond', sans-serif;
     color: #3f3f3f;
+    padding: 20px;
+    margin: 20px;
 }
 
 p {
