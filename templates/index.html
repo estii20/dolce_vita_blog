@@ -128,11 +128,13 @@
                                     {% if "placeholder" in post.featured_image.url %}
                                     <img class="card-img-top rounded img-fluid" loading="lazy"
                                     src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg" 
-                                    alt="Image of table at Venice restaurant">
+                                    alt="Image of table at Venice restaurant"
+                                    width="600" height="400">
                                     {% else %}
                                     <img class="card-img-top rounded img-fluid" loading="lazy" 
                                     src="{{ post.featured_image.url }}" 
-                                    alt="Image of Venice food and drink">
+                                    alt="Image of Venice food and drink"
+                                    width="600" height="400">
                                     {% endif %}
                                     <div class="blog_author">
                                         <p><i class="fa-solid fa-user"></i> 

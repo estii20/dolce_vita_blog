@@ -33,6 +33,10 @@ body {
     padding-top: 25px;
 }
 
+.h3 {
+    font-family: 'Pacifico', sans-serif;
+}
+
 /* Blockquote */
 
 .blockquote {
@@ -53,8 +57,6 @@ body {
 .container-wrapper-info {
     font-family: 'EB Garamond', sans-serif;
     color: #3f3f3f;
-    padding: 20px;
-    margin: 20px;
 }
 
 p {
@@ -198,16 +200,19 @@ footer {
 
 .author{
     background-color: rgba(133, 126, 126, 0.1);
+    color: black;
 }
 
 /* Comments */
 
 .comments {
     background-color: rgba(255, 77, 0, 0.1);
+    color: black;
 }
 
 .leave_comment{
     background-color: rgba(255, 77, 0, 0.1);
+    color: black;
 }
 
 /* Social share */
