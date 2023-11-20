@@ -135,11 +135,11 @@ footer {
 
 .about_link {
     cursor: pointer;
-    color: #272121;
+    color: white;
 }
 
 .about_link:hover {
-    color: white;
+    color: #D83F31;
 }
 
 .social-media {
