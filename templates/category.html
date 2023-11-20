@@ -3,101 +3,104 @@
 {% if category_posts %}
 
 <!-- Title Section -->
+<section aria-labelledby="posts-heading">
     <div class="jumbotron jumbotron-fluid container-wrapper-dark">
         <div class="container text-center">
-            <h1>Posts by Category</h1>
+            <h1 id="posts-heading">Posts by Category</h1>
         </div>
     </div>
+</section>
 
 <!-- Main container for Post Category content (displaying 1 of 6 categories) -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3 left">
-            <div class="row">
-            {% for post in category_posts %}
-                <div class="card-group col-md-4 col-sm-6 col-12">
-                    <div class="card border-dark card mb-4 blog_card">
-                        <div class="card-body">
-                            <a href="{% url 'category' post.category %}" class="post-link">
-                                <div
-                                    class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">
-                                    {{ post.category | title }}
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                {% for post in category_posts %}
+                    <div class="card-group col-md-4 col-sm-6 col-12">
+                        <div class="card border-dark card mb-4 blog_card">
+                            <div class="card-body">
+                                <a href="{% url 'category' post.category %}" class="post-link">
+                                    <div
+                                        class="card-header bg-dark text-light text-uppercase text-decoration-none text-center">
+                                        {{ post.category | title }}
+                                    </div>
+                                </a>
+                                <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
+                                    <h4 class="card-title text-decoration-none blog_title text-center">
+                                        {{ post.title | truncatechars:100 }}
+                                    </h4>
+                                </a> 
+                                <!-- Post Content -->
+                                <div class="image-container">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top rounded img-fluid" loading="lazy" 
+                                        src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg"
+                                        alt="Image of table at Venice restaurant">
+                                    {% else %}
+                                    <img class="card-img-top rounded img-fluid" loading="lazy"
+                                        src="{{ post.featured_image.url }}" alt="Image of Venice">
+                                    {% endif %}
+                                    <div class="blog_author">
+                                        <p><i class="fa-solid fa-user"></i>
+                                            {{ post.author | title }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </a>
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link blog_title">
-                                <h4 class="card-title text-decoration-none blog_title text-center">
-                                    {{ post.title | truncatechars:100 }}
-                                </h4>
-                            </a> 
-                            <!-- Post Content -->
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top rounded img-fluid"
-                                    src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg"
-                                    alt="Image of table at Venice restaurant">
-                                {% else %}
-                                <img class="card-img-top rounded img-fluid"
-                                    src="{{ post.featured_image.url }}" alt="Image of Venice">
-                                {% endif %}
-                                <div class="blog_author">
-                                    <p><i class="fa-solid fa-user"></i>
-                                        {{ post.author | title }}
+                                <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                    <p class="post_text">{{ post.excerpt| truncatechars:250 }}
                                     </p>
-                                </div>
+                                    <p class="fst-normal text-end read" data-bs-toggle="collapse">
+                                        Read more...
+                                    </p>
+                                </a>
+                                <footer class="card-footer footer fw-bold">
+                                    {{ post.created_on}} |
+                                    <i class="fa-regular fa-clock"></i>
+                                    {{ post.read_time }} mins |
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                    {{ post.number_of_likes }}
+                                </footer>
                             </div>
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                <p class="post_text">{{ post.excerpt| truncatechars:250 }}
-                                </p>
-                                <p class="fst-normal text-end read" data-bs-toggle="collapse">
-                                    Read more...
-                                </p>
-                            </a>
-                            <footer class="card-footer footer fw-bold">
-                                {{ post.created_on}} |
-                                <i class="fa-regular fa-clock"></i>
-                                {{ post.read_time }} mins |
-                                <i class="fa-regular fa-thumbs-up"></i>
-                                {{ post.number_of_likes }}
-                            </footer>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                    </div>
+                        <div class="row">
+                            {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-                </div>
-                    <div class="row">
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            
-        <!-- Pagination -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if category_posts.has_previous %}
-                <li class="page-item">
-                    <a href="{% url 'category' category.name %}?page={{ category_posts.previous_page_number }}"
-                        class="page-link">&laquo; PREV</a>
-                </li>
-                {% endif %}
-                {% if category_posts.has_next %}
-                <li class="page-item">
-                    <a href="{% url 'category' category.name %}?page={{ category_posts.next_page_number }}"
-                        class="page-link"> NEXT &raquo;</a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>    
-    {% else %}
 
-    <!-- No Posts in Category -->
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if category_posts.has_previous %}
+            <li class="page-item">
+                <a href="{% url 'category' category.name %}?page={{ category_posts.previous_page_number }}"
+                    class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if category_posts.has_next %}
+            <li class="page-item">
+                <a href="{% url 'category' category.name %}?page={{ category_posts.next_page_number }}"
+                    class="page-link"> NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% else %}
+
+<!-- No Posts in Category -->
     <div class="container text-justify container-wrapper-info mt4">
         <div class="row">
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <h1 class="h1">Sorry there are no posts in this category. 
+                        <h1 id="no-posts-heading" class="h1">Sorry there are no posts in this category. 
                             Please use the link below to return to the homepage.
                         </h1>
                         <a href="{% url 'home' %}" class="btn btn-signup btn-submit mt-3">Home
@@ -107,5 +110,6 @@
             </div>
         </div>
     </div>
+</section>
 {% endif %} 
 {% endblock content %}
