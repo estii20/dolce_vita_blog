@@ -14,25 +14,25 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active"><img class="d-block w-100"
+            <div class="carousel-item active"><img class="d-block w-100" 
                 src="https://res.cloudinary.com/df7xksq2h/image/upload/v1700490174/cristina-gottardi-reyrEqzQrj4-unsplash_1600x500-hero_yefmf7.webp" 
-                alt="Evening image of Venice">
+                alt="Evening image of Venice" loading="lazy">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="h1">Eat Venice</h1>
                     <h3 class="h3">Taste of what this enchanting city has to offer</h3>
                 </div>
             </div>
-            <div class="carousel-item"><img class="d-block w-100"
+            <div class="carousel-item"><img class="d-block w-100" 
                 src="https://res.cloudinary.com/df7xksq2h/image/upload/v1700490417/dylan-freedom-I14L_1L7LZg-unsplash_1600x500-hero_sa2one.webp" 
-                alt="Black and white image of Venice">
+                alt="Black and white image of Venice" loading="lazy">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="h1">Drink Venice</h1>
                     <h3 class="h3">The best wines from around the Venento region</h3>
                 </div>
             </div>
-            <div class="carousel-item"><img class="d-block w-100"
+            <div class="carousel-item"><img class="d-block w-100" 
                 src="https://res.cloudinary.com/df7xksq2h/image/upload/v1700490484/andrea-cairone-C-CU0Y26TII-unsplash_1600x500-hero_uqjaiv.webp" 
-                alt="Man harvesting grapes">
+                alt="Man harvesting grapes" loading="lazy">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="h1">Share your stories</h1>
                     <h3 class="h3">Join in with the conversation</h3>
@@ -126,14 +126,14 @@
                                 </a>
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top rounded img-fluid" loading="lazy"
-                                    src="https://res.cloudinary.com/df7xksq2h/image/upload/v1699453603/dolcevita/igor-oliyarnik-Uu5aXBI1oLk-unsplash_ipmcev.jpg" 
-                                    alt="Image of table at Venice restaurant"
+                                    <img class="card-img-top rounded img-fluid" 
+                                    src="https://res.cloudinary.com/df7xksq2h/image/upload/q_auto,f_auto/v1700490654/igor-oliyarnik-Uu5aXBI1oLk-unsplash_gidx50.webp" 
+                                    alt="Image of table at Venice restaurant" loading="lazy"
                                     width="600" height="400">
                                     {% else %}
-                                    <img class="card-img-top rounded img-fluid" loading="lazy" 
+                                    <img class="card-img-top rounded img-fluid" 
                                     src="{{ post.featured_image.url }}" 
-                                    alt="Image of Venice food and drink"
+                                    alt="Image of Venice food and drink" loading="lazy" 
                                     width="600" height="400">
                                     {% endif %}
                                     <div class="blog_author">
