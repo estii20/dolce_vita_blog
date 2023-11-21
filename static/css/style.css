@@ -219,27 +219,29 @@ footer {
 /* Social share */
 
 .social-sharing {
-    float: left;
     margin-left: 10px
 }
 
+.social-sharing h3 {
+    font-size: 24px;
+}
+
 .social-sharing i {
-    margin: 1%;
-    padding: 1%;
-    font-size: 200%;
+    margin-right: 5px;
 }
 
 .btn-social {
     background-color: white;
     border: none;
-    padding: 5px;
+    padding: 10px 20px;
     text-align: center;
     display: inline-block;
-    font-size: 12px;
-    margin: 4px;
+    font-size: 16px;
+    margin: 8px;
     cursor: pointer;
     border-radius: 5px;
-    width: 100px;
+    width: 180px;
+    transition: background-color 0.3s ease;
 }
 
 .link-light a {
@@ -249,7 +251,7 @@ footer {
 }
 
 .button-fb {
-    color: black; 
+    color: black;
     border: 3px solid #3B5998;
 }
 
@@ -258,39 +260,31 @@ footer {
     color: white;
 }
 
-.button-x {
-    color: black; 
+
+.button-tw {
+    color: black;
     border: 3px solid black;
 }
 
-.button-x:hover {
+.button-tw:hover {
     background-color: black;
     color: white;
 }
 
-.button-w {
-    color: black; 
-    border: 3px solid green;;
+.button-wa {
+    color: black;
+    border: 3px solid #25D366;
 }
 
-.button-w:hover {
-    background-color: green;
+.button-wa:hover {
+    background-color: #25D366;
     color: white;
 }
 
-.fa-facebook {
-    background-color: #3B5998;
-    color: white;;
-}
-
-.fa-twitter {
-    background-color: black;
-    color: white;;
-}
-
-.fa-whatsapp {
-    background-color: green;
-    color: white;
+.fab {
+    font-size: 24px;
+    vertical-align: middle;
+    margin-bottom: 3px;
 }
 
 /* Register/Login/Logout Forms */
