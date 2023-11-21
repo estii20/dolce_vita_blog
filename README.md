@@ -25,6 +25,8 @@ P4 Project for the Code Institute
     - [User stories](#user-stories)
     - [Data Model](#data-model)
     - [Site plan](#site-plan)
+  - [Data Security](#data-security)
+  - [Meta data](#meta-data)
     - [Design](#design)
   - [Features](#features)
     - [Future Features](#future-features)
@@ -34,7 +36,6 @@ P4 Project for the Code Institute
     - [Software and Web Applications Used](#software-and-web-applications-used)
   - [Testing](#testing)
     - [Browser Testing](#browser-testing)
-    - [Responsiveness](#responsiveness)
     - [Validator Testing](#validator-testing)
       - [W3C Markup Validator](#w3c-markup-validator)
       - [W3C CSS Validator](#w3c-css-validator)
@@ -42,11 +43,13 @@ P4 Project for the Code Institute
       - [PEP8 Online](#pep8-online)
       - [Lighthouse](#lighthouse)
       - [Django testing tools](#django-testing-tools)
+    - [Coverage tests](#coverage-tests)
     - [User Stories testing](#user-stories-testing)
     - [Further Testing](#further-testing)
     - [Solved bugs](#solved-bugs)
     - [Unresolved bugs](#unresolved-bugs)
   - [Deployment](#deployment)
+  - [Pre-deployment](#pre-deployment)
   - [Credits](#credits)
     - [Acknowledgements](#acknowledgements)
 
@@ -143,7 +146,20 @@ For more information: [Kanban Board - User Stories](https://github.com/users/est
 
 ### Data Model
 
-This project is hosted on Heroku and the database used is Heroku PostgreSQL. Cloudinary is used to store all blog images.
+This project is hosted on Heroku and the database used is Elephant PostgreSQL. Cloudinary is used to store all blog images.
+
+As part of the project planning phase a model design of the site structure has been designed to understand the main entities, and the relationship between these entities. The model design was made to help me understand how the entities and data will relate across the site.
+- The diagram below shows the entity relationships between a blog post and their 'comments'. The Post Model is used by the Comment Model to ensure the right blog post is being commented on. The diagram also highlights that one blog post can have many comments.
+- The key component in this relationship is the user. The default Django User Model is used.
+- One user can add many likes throughout the site.
+- There are six categories created within the Django Admin panel. These are displayed to the user as a dropdown field choice when adding a blog post.
+- The model shows the following relationships:
+    - One blog post can have one author (User)
+    - One blog post can have one category
+    - One blog post can have many comments
+    - One blog post can have many likes
+    - One user can add one log post like
+    - One user can add many comments to one blog post
 
 Entity Relationship Diagram - Post, Comment, Category, Django admin login.
 
@@ -154,6 +170,19 @@ Entity Relationship Diagram - Post, Comment, Category, Django admin login.
 Structure of the site made in lucid chart.
 
 ![Site plan structure](documentation/flow_chart_3.png "Site plan structure")
+
+## Data Security
+
+The following steps were taken to ensure security of data of the user:
+env.py file to store key variables for accessing secure environments i.e. Postgres Database.
+A gitignore file has been incorporated to ensure the env.py file is never committed to production, so these key variables are not committed.
+Variables stored within the Config Variables in Heroku to ensure Codeanywhere and Heroku can update securely.
+Cross Site Request Forgery (CSRF) tokens have been applied to all HTML Forms. Their application provides protection from malicious attacks.
+Django's inbuilt User Authentication has been applied to several key areas to ensure only approved Users can Add, Comment, Like blog posts. A further layer of security has been applied to ensure the ability to Edit or Delete a blog post/comment can only be performed by the User who has authored the blog post.
+
+## Meta data
+
+Meta data is included within the HTML head element to increase the traffic to the website.
 
 ### Design
 
@@ -197,14 +226,17 @@ To create a cohesive site look, using the colors from the hero images to reflect
 
 ![color Palette](documentation/color_palette.png "Image of colors")
 
-- Pagination color orange `# E9B824`, `rgb(233, 184, 36)`
-- Pagination color bright orange `# EE9322`, `rgb(238, 147, 34)`
-- Title, Blog card shadow, button color deep red `# D83F31`, `rgb(216, 63, 49)`
+- Pagination color orange `#E9B824`, `rgb(233, 184, 36)`
+- Title, Blog card shadow, button color deep red `#D83F31`, `rgb(216, 63, 49)`
 - Body background color white `#FFFFFF`
 - Body text color charcoal `3F3F3F`
-- Comment form and comments orange with opcacity `rgba(255, 77, 0, 0.1)`
-- Footer background color dark gray with opactiy `rgba(39, 33, 33. 0.6)`
-- Social share buttons blue Facebook `#3B5998`, green WhatsApp `#008000`, black for X (Twitter) `#000000`
+- Blockquote color red `rgb(216, 63, 49, 0.7)`
+- Blog card border shade with varying opacity `rgba(216, 63, 49)`
+- Page links gray `#443737` hover `#D83F31`
+- Author Bio form orange with opcacity `rgba(255, 77, 0, 0.1)`
+- Footer background color dark gray with opactiy `rgb(39, 33, 33, 0.6)`
+- Social share buttons blue Facebook `#3B5998`, green WhatsApp `#25D366`, black for X (Twitter) `#000000`
+- Buttons `#D83F31`
 
 [Colorspace](https://mycolor.space/) used to check the palette works together.
 
@@ -212,7 +244,7 @@ __Fonts__
 
 The fonts chosen reflects the rich and delicious nature of Italian cuisine whilst maintaining readability.
 
-- Garamond: Garamond is a timeless serif font that offers a sense of tradition.
+- Libre Bodoni: Libre Bodoni is a timeless serif font that offers a sense of tradition.
 - Pacifico: Pacifico is a fun and informal script font used for blog titles or special callouts.
 - EB Garamond: EB Garamond is a classic serif font which is elegant and sophisticated.
 - Sans-serif used as an alternative font.
@@ -312,7 +344,6 @@ Links have been given aria labels to help with user accessibility, they open in 
 Categories menu links so that users can directly visit posts related to a particular genre.
 
 Contact information so that users can get in touch with feedback and suggestions.
-- Phone `fa fa-phone mr-3`
 - Email `fa fa-envelope-o mr-3`
 
 Copyright of Unsplash.com where images have been used.
@@ -371,7 +402,7 @@ Features dependent on user status:
 
 - Comment - The comment form is presented to the user and the user can comment on the post. Once the user clicks on Submit, the comment is automatically approved and added to the list of comments. Automatically approving comments will encourage the user to continue commenting on posts, without any delays.
 
-![Post Detail Comments](documentation/leave_comment.png "Blog Post Detail Page Comments")
+![Post Detail Comments](documentation/comment.png "Blog Post Detail Page Comments")
 
 ![Post Detail Comments](documentation/leave_comment_not_logged_in.png "Blog Post Detail Page Comments")
 
@@ -387,7 +418,7 @@ Features dependent on user status:
 
 - Edit Comment/Delete Comment - The comment author will have full CRUD functionality. They can update or delete their comments.
 
-![Post Detail Comments](documentation/posted_comment.png "Blog Post Detail Page Comments")
+![Post Detail Comments](documentation/comment_edit_delete.png "Blog Post Detail Page Comments")
 
 - Error forbidden message if not authorised to delete/edit comments and/or posts.
 
@@ -563,8 +594,9 @@ Messages are  displayed to the user as feedback when certain actions are complet
 
 __Image Resizer__
 
-[Simple Image Resizer](https://www.simpleimageresizer.com/upload)
-Images resized to 300 px 300 px so that the images could be curved at the corner to soften them.
+[Simple Image Resizer](https://www.simpleimageresizer.com/upload) resize images.
+[Squoosh](https://squoosh.app/) compress images to improve load times of site.
+[Freeconvert.com](https://www.freeconvert.com/jpg-to-webp) to convert jpeg to webp image to reduce image load.
 
 __Balsamiq__
 
@@ -582,6 +614,10 @@ __Codeanywhere__
 
 [Codeanywhere](https://codeanywhere.com/signin) IDE used for the project.
 
+__Live Browser Stack__
+
+[Live Browser Stack](https://live.browserstack.com) used for the testing project on different browsers.
+
 ### Languages Used
 
 - HTML5
@@ -597,10 +633,9 @@ __Codeanywhere__
 - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
 - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
 - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
-- [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
 - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
 - [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
-- [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customising new blog content and to add images.
+- [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customising new blog content.
 - [django-social-share 2.3.0:](https://pypi.org/project/django-social-share/) Used to allow users to share blog posts to their social media accounts.
 
 ### Software and Web Applications Used
@@ -613,7 +648,7 @@ __Codeanywhere__
 - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
 - [Google Fonts:](https://fonts.google.com/) To import font family used throughout the site.
 - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
-- [Heroku PostgreSQL:](https://www.heroku.com/postgres) The database used for this application.
+- [ElephantSQL:](https://www.elephantsql.com/) The database used for this application.
 - [HTML Validator:](https://validator.w3.org/) HTML validation.
 - [JSHint:](https://jshint.com/) JavaScript validation.
 - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create site project plan.
@@ -623,9 +658,25 @@ __Codeanywhere__
 
 ## Testing
 
+Following a largely manual process for development and deployment, I have chosen to primarily perform manual testing. Testing procedures will ensure the deployed site aligns to the site in development through covering the following aspects:
+
+- User stories - test that the user requirements have been delivered for MVP.
+- User Acceptance Testing (UAT) - ensuring the website is meeting real world expectations.
+- Page validation - check all features and links from across the site are working as designed and developed.
+- Responsiveness - ensuring each page is responsive through the three media queries covering mobiles, tablets-laptops and desktop monitors.
+- Accessibility - each page is tested for compliance with accessibility guidelines using Chrome's developer tool 'Lighthouse Testing'
+- Performance - using Chrome's developer tool 'Lighthouse Testing' pages are tested for performance, best-practice, SEO and accessibility.
+- Browser - pages are tested for layout, features and general performance across Chrome, Firefox, Edge, Safari and Opera.
+- Code validation - ensuring the code base is validated using industry standard tools for HTML, CSS and Python code.
+
 ### Browser Testing
 
-### Responsiveness
+I have tested that this application works using Live Browser Stack on the following:
+
+  - Edge Browser
+  - Google Chrome
+  - Firefox Browser 
+  - Opera Browser
 
 ### Validator Testing
 
@@ -729,11 +780,54 @@ Screenshot of W3C Validator test, style.css passed
 
 The colors and fonts chosen are easy to read and accessible by running it through lighthouse in Chrome developer tools.
 
+- index.html
+
 ![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_index.png "Dolce Vita Blog website validator test")
+
+- post_detail.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_post_detail.png "Dolce Vita Blog website validator test")
+
+- about.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_about.png "Dolce Vita Blog website validator test")
+
+- add_post.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_add_post.png "Dolce Vita Blog website validator test")
+
+- post_delete.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_delete_post.png "Dolce Vita Blog website validator test")
+
+- post_edit.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_edit_post.png "Dolce Vita Blog website validator test")
+
+- comment_edit.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_edit_comment.png "Dolce Vita Blog website validator test")
+
+- comment_delete.html
+
+![Dolce Vita Venice Blog Website](documentation/testing/lighthouse_delete_comment.png "Dolce Vita Blog website validator test")
 
 #### Django testing tools
 
-Coverage test result:
+Django TestCase was used to create 31 automatic tests for Python files. The test reporting tool ’Coverage’ was installed to show the percentage of Python code that’s been covered by tests.
+ 
+See below links to the tests:
+
+- [test_admin.py](https://github.com/estii20/dolce_vita_blog/blob/main/blog/test_admin.py)
+- [test_forms.py](https://github.com/estii20/dolce_vita_blog/blob/main/blog/test_forms.py)
+- [test_models.py](https://github.com/estii20/dolce_vita_blog/blob/main/blog/test_models.py)
+- [test_views.py](https://github.com/estii20/dolce_vita_blog/blob/main/blog/test_views.py)
+
+![Dolce Vita Venice Blog Website Tests](documentation/testing/test_results.png "Dolce Vita Blog website automated test results")
+
+### Coverage tests
+
+The projects tests ran successfully however the project needs further tests to increase coverage, which is crucial for maintaining code quality and reliability. Comprehensive tests ensure the stability of the codebase, catch bugs early, and support future development. This area of development needs further improvement.
 
 ### User Stories testing
 
@@ -922,7 +1016,17 @@ To further ensure this application is working correctly and functions as expecte
 
 ### Solved bugs
 
+- Django test error - When testing my python files I had to comment out the PostgreSQL database and use the default SQLite3 database in settings.py. Thanks to Code Institute’s Slack Channel, this was solved.
+- Heroku deployment failed at first, thanks to the Code Institute Tutor support the error in the Procfile was amended.
+- Am I responsive? - I had to install the Google Chrome extension, Ignore X-Frame headers to generate mockup images using Am I responsive. Thanks to Code Institute’s Slack Channel, this was solved.
+- Responsiveness improved on submit buttons and social share buttons for small screen size so they stack on top of eachother.
+- Improve accessibility based on Lighthouse Accessibility score - added aria labels to buttons, improved the contrast for the Author Bio background-color, improved the contrast of the update, submit, delete buttons, Changed the color of the About link for improved accessibility, footer text changed from text-white 50 to text-white, improved semantics of card heading elements from a h6 heading to a h2 and social share buttons.
+- Success messages not working in delete comment and delete post, as SucessMessageMixin not available for this view. - Added a delete function to handle this instead and return to homepage with reverse lazy home as the view.
+- Added if statement to category.html so only published posts are listed in the category view.
+
 ### Unresolved bugs
+
+None
 
 ## Deployment
 
@@ -984,6 +1088,18 @@ Deployment to Heroku:
 - In Heroku go to the Deploy tab, click on Deploy Branch.
 - When build process is finished click on Open App to visit the live site.
 
+## Pre-deployment
+
+When you are ready to move to production, the following steps must be taken to ensure your site works correctly and is secure.
+In CodeAnywhere:
+- Set DEBUG flag to False in settings.py
+- Check the following line exists in settings.py to enable Summernote to work on the deployed environment (CORS security feature): 
+- X_FRAME_OPTIONS = 'SAMEORIGIN'
+- Update the requirements.txt file with all necessary supporting files by entering the command : pip freeze > requirements.txt
+- Commit and push code to GitHub In the Heroku App:
+- Settings > Config Vars : Delete environment variable : DISABLE_COLLECTSTATIC
+- Deploy : Click on deploy branch
+
 ## Credits
 
 __Content__
@@ -1030,7 +1146,9 @@ Content information researched at:
 
 [stackoverflow.com - Delete view success URL](https://stackoverflow.com/questions/73396670/django-deleteview-success-url-to-previous-different-page)
 
-[Code Institute Template and Walkthrough Project - I think therefore I Blog](https://learn.codeinstitute.net/) - provided the project code for blog site extension and customisation.
+[mdn web docs - Image Load Lazy](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading)
+
+[Code Institute Template and Walkthrough Project - I think therefore I Blog](https://learn.codeinstitute.net/) - provided the start up project code for blog site for further extension and customisation.
 
 __Media__
 
@@ -1066,6 +1184,6 @@ __Media__
 
 Mentor - Brian Macharia, for help, feedback and always spending that bit extra time to explain things to me. Thanks so much!
 
-Support of Code Institute Team
+Support of Code Institute Team - Deployment to Heroku assistance, thank you!
 
 [Code Institute Slack Portfolio Project 4](code-institute-room.slack.com)
