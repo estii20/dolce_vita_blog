@@ -132,6 +132,7 @@
                                 {{ comment.created_on }}
                                 </span> wrote:
                             </p>
+                            <hr>
                             <p class="post_text">
                             {{ comment.body | linebreaks }}
                             </p>
@@ -160,7 +161,6 @@
                 Your comment is awaiting approval
             </div>
             {% endif %}
-        </div>
 
 <!--- Signed in user can leave a comment -->
 {% if user.is_authenticated %} 
