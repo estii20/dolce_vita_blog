@@ -124,12 +124,21 @@ p {
 
 .btn-submit {
     background-color: #D83F31;
-    margin: 10px 20px;
-    border: 2px solid #000000;
+    margin: 10px 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
 .btn-submit:hover {
-    background-color: rgb(216, 63, 49, 0.7);
+    background-color: rgba(216, 63, 49, 0.7);
+}
+
+.fa-edit,
+.fa-trash-alt {
+    font-size: 18px;
 }
 
 /* Footer */

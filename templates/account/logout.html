@@ -21,7 +21,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                 {% endif %}
-                <button class="btn btn-signup btn-submit text-white" type="submit">{% trans 'Sign Out' %}</button>
+                <button class="btn-submit btn-primary me-2" type="submit">{% trans 'Sign Out' %}</button>
                 <p>
                     Or alternatively return
                     <a class="link-register" href="{% url 'home' %}">{% trans 'home' %}</a>
