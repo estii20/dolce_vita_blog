@@ -172,7 +172,7 @@ As part of the project planning phase a model design of the site structure has b
     - One user can add one log post like
     - One user can add many comments to one blog post
 
-Diagram - Post, Comment, Category, Django admin login.
+Diagram - Post, Comment, Category, and Django admin.
 
 ![Site data model](documentation/models.png "Data Model")
 
@@ -448,7 +448,7 @@ This feature is only available if a user chooses to register to the site and can
 The following fields are requested to be completed when submitting a post:
 
 - Title - required field.
-- Category - a dropdown list of categories available to select. Catgory options are quite broad so that all posts have a category that would suit their post.
+- Category - a dropdown list of categories available to select. Category options are quite broad so that all posts have a category that would suit their post.
 - Featured Image - not a required field as a placeholder image will feature if one not added. The default image is of a restaurant table overlooking Venice.
 - Blog Content - SummernoteWidget allows the user to add their story/experience of food and drink related posts about Venice. The user can add other images, fonts, and word document features to really individualise their post content.
 - Author Bio - not required field. SummernoteWidget allows the user to add their author bio and any images they wish to upload with full word functionailty.
@@ -1065,7 +1065,7 @@ To further ensure this application is working correctly and functions as expecte
   
 - Success messages not working in delete comment and delete post, as SucessMessageMixin not available for this view. Therefore Added a delete function to handle this instead and return to homepage with reverse lazy home as the view.
   
-- Unpublished posts were listing in category.html. Thereofre I added an `if statement` to category.html so only published posts are listed in the category view.
+- Unpublished posts were listing in category.html. Thereofre I added an `if post.status == 1` to category.html so only published posts are listed in the category view.
 
 - Pagination of category.html did not work with the statement `if paginated`, further research explained that it was necessary to import dajngo.core Paginator to the views.py and update the CategoryView model to include Paginator, PaginatorNotAnInteger and EmptyPage to create a list of category posts paginated by 6 per page.
 
